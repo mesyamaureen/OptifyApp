@@ -7,17 +7,19 @@ Public Interface IWarenverwaltungService
     <OperationContract()>
     Function alleWarenLaden() As List(Of Ware)
 
+    <OperationContract()>
     Function wareOeffnen(pIntId As Integer) As Ware
 
+    <OperationContract()>
     Sub wareLoeschen()
 
-
+    <OperationContract()>
     Sub wareSpeichern()
 
+    <OperationContract()>
     Sub wareHinzufuegen()
 
 
 
 
-    'AlleWarenLaden() -WareOeffnen() WareLoeschen() WareSpeichern()
 End Interface
