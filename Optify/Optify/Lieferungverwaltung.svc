@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="Optify.Lieferungverwaltung" CodeBehind="Lieferungverwaltung.svc.vb" %>
