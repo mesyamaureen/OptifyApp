@@ -2,7 +2,7 @@
 ' HINWEIS: Wählen Sie zum Starten des WCF-Testclients zum Testen dieses Diensts Benutzerverwaltung.svc oder Benutzerverwaltung.svc.vb im Projektmappen-Explorer aus, und starten Sie das Debuggen.
 Public Class Benutzerverwaltung
     Implements IBenutzerverwaltung
-
+    Private db As BenutzerEntity
     Public Sub DoWork() Implements IBenutzerverwaltung.DoWork
     End Sub
 

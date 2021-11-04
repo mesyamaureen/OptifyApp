@@ -2,7 +2,7 @@
 ' HINWEIS: Wählen Sie zum Starten des WCF-Testclients zum Testen dieses Diensts Lieferungverwaltung.svc oder Lieferungverwaltung.svc.vb im Projektmappen-Explorer aus, und starten Sie das Debuggen.
 Public Class Lieferungverwaltung
     Implements ILieferungverwaltung
-
+    Private db As LieferungEntity
     Public Sub DoWork() Implements ILieferungverwaltung.DoWork
     End Sub
 

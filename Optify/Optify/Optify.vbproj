@@ -42,13 +42,21 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web" />
@@ -93,6 +101,16 @@
     </Content>
     <Content Include="Benutzerverwaltung.svc" />
     <Content Include="Bestellungverwaltung.svc" />
+    <Content Include="Data_Access\Optify.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Optify.Context.vb</LastGenOutput>
+      <DependentUpon>Optify.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data_Access\Optify.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Optify.edmx</DependentUpon>
+      <LastGenOutput>Optify.vb</LastGenOutput>
+    </Content>
     <Content Include="Lieferungverwaltung.svc" />
     <Content Include="WarenverwaltungService.svc" />
     <Content Include="Web.config" />
@@ -103,6 +121,33 @@
     </Compile>
     <Compile Include="Bestellungverwaltung.svc.vb">
       <DependentUpon>Bestellungverwaltung.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\BenutzerEntity.vb">
+      <DependentUpon>Optify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\BestellungEntity.vb">
+      <DependentUpon>Optify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\LieferungEntity.vb">
+      <DependentUpon>Optify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\Optify.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Optify.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\Optify.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Optify.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\Optify.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Optify.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\WareEntity.vb">
+      <DependentUpon>Optify.tt</DependentUpon>
     </Compile>
     <Compile Include="IBenutzerverwaltung.vb" />
     <Compile Include="IBestellungverwaltung.vb" />
@@ -145,6 +190,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Data_Access\Optify.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Optify.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data_Access\Optify.edmx.diagram">
+      <DependentUpon>Optify.edmx</DependentUpon>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -154,6 +206,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,8 +214,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Data_Access\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

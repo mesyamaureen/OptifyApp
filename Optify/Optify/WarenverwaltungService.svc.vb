@@ -1,6 +1,7 @@
 ﻿
 Public Class WarenverwaltungService
     Implements IWarenverwaltungService
+    Private db As WareEntity
 
     Function alleWarenLaden() As List(Of Ware) Implements IWarenverwaltungService.alleWarenLaden
         Return Nothing

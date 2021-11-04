@@ -1,6 +1,7 @@
 ﻿
 Public Class Bestellungverwaltung
     Implements IBestellungverwaltung
+    Private db As BestellungEntity
 
     Function gibBestellungen() As List(Of Bestellung) Implements IBestellungverwaltung.gibBestellungen
 
