@@ -11,13 +11,13 @@ Public Interface IWarenverwaltungService
     Function wareOeffnen(pIntId As Integer) As Ware
 
     <OperationContract()>
-    Sub wareLoeschen()
+    Sub wareLoeschen(pintId As Integer)
 
     <OperationContract()>
-    Sub wareSpeichern()
+    Sub wareSpeichern(pWare As Ware)
 
     <OperationContract()>
-    Sub wareHinzufuegen()
+    Sub wareHinzufuegen(pWare As Ware)
 
 
 
