@@ -171,7 +171,7 @@
           </Key>
           <Property Name="wIdPk" Type="Int32" Nullable="false" />
           <Property Name="wTyp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="wPeis" Type="Double" />
+          <Property Name="wPreis" Type="Double" />
           <NavigationProperty Name="tblBestellungen" Relationship="Self.FK_tblBestellungen_ToTabletblWaren" FromRole="tblWaren" ToRole="tblBestellungen" />
         </EntityType>
         <Association Name="FK_tblBenutzer_tblBestellungen">
@@ -293,7 +293,7 @@
               <MappingFragment StoreEntitySet="tblWaren">
                 <ScalarProperty Name="wIdPk" ColumnName="wIdPk" />
                 <ScalarProperty Name="wTyp" ColumnName="wTyp" />
-                <ScalarProperty Name="wPeis" ColumnName="wPeis" />
+                <ScalarProperty Name="wPreis" ColumnName="wPeis" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

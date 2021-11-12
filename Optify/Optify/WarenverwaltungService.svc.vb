@@ -1,10 +1,22 @@
 ﻿
 Public Class WarenverwaltungService
     Implements IWarenverwaltungService
-    Private db As WareEntity
+    Private db As WareEntity = New WareEntity
 
     Function alleWarenLaden() As List(Of Ware) Implements IWarenverwaltungService.alleWarenLaden
-        Return Nothing
+        Dim wListe As List(Of Ware)
+        Dim w As Ware
+        Dim wEntity As WareEntity
+
+        wListe = New List(Of Ware)
+        For Each wEnity In db.tblWare.ToList
+            w = New Ware(wEntity)
+            wListe.Add(w)
+        Next
+
+
+        Return wListe
+
     End Function
 
     Function wareOeffnen(pIntId As Integer) As Ware Implements IWarenverwaltungService.wareOeffnen

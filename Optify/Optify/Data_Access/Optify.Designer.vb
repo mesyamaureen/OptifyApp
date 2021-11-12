@@ -1,4 +1,4 @@
-﻿' Die T4-Codegenerierung ist für Modell 'C:\Users\Mesya\Desktop\IA2-2Go\OptifyApp\Optify\Optify\Data_Access\Optify.edmx' aktiviert. 
+﻿' Die T4-Codegenerierung ist für Modell 'C:\Users\hochtritt\Desktop\OptifyApp\Optify\Optify\Data_Access\Optify.edmx' aktiviert. 
 ' Um die Generierung von Legacycode zu aktivieren, ändern Sie den Wert der Designer-Eigenschaft 'Code Generation Strategy'
 ' in 'Legacy ObjectContext'. Diese Eigenschaft wird im Eigenschaftenfenster angezeigt, wenn das Modell
 ' im Designer geöffnet ist.

@@ -13,7 +13,7 @@ Imports System.Collections.Generic
 Partial Public Class WareEntity
     Public Property wIdPk As Integer
     Public Property wTyp As String
-    Public Property wPeis As Nullable(Of Double)
+    Public Property wPreis As Nullable(Of Double)
 
     Public Overridable Property tblBestellungen As ICollection(Of BestellungEntity) = New HashSet(Of BestellungEntity)
 
