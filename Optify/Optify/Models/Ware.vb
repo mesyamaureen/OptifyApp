@@ -7,8 +7,15 @@
 
     Public Sub New()
         mintWID = -1
-        mstrWTyp = ""
+        mstrWTyp = String.Empty
         mdblWPreis = 0
+
+    End Sub
+
+    Public Sub New(pWareEntity As WareEntity)
+        mintWID = pWareEntity.wIdPk
+        mstrWTyp = pWareEntity.wTyp
+        mdblWPreis = pWareEntity.wPreis
 
     End Sub
 
@@ -40,5 +47,17 @@
             mdblWPreis = value
         End Set
     End Property
+
+    Public Function gibAlsEntity() As WareEntity
+        Dim wEntity As New WareEntity
+
+        wEntity = New WareEntity
+        wEntity.wIdPk = mintWID
+        wEntity.wTyp = mstrWTyp
+        wEntity.wPreis = mdblWPreis
+        Return wEntity
+
+
+    End Function
 
 End Class
