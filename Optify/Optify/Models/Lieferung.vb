@@ -3,14 +3,31 @@
     Dim mlieferID As Integer
     Dim mdatAnfang As Date
     Dim mdatEnde As Date
-    Dim mBestellung As Bestellung
+    Dim mintBestellung As Integer
 
     'Konstruktor
     Public Sub New()
         mlieferID = -1
         mdatAnfang = Date.MinValue
         mdatEnde = Date.MaxValue
-        mBestellung = Nothing
+        mintBestellung = Nothing
+    End Sub
+
+    'Konstruktor für Entity
+    Public Sub New(pLieferungEntity As LieferungEntity)
+        mlieferID = pLieferungEntity.lieferIdPk
+        mdatAnfang = pLieferungEntity.datAnfang
+        mdatEnde = pLieferungEntity.datEnde
+        mintBestellung = pLieferungEntity.bestIdFk
+
+
+        'If IsNothing(pBestellungEntity.bestVersion) Then
+        '    mbytVersion = Nothing
+        'Else
+        '    mbytVersion = pBestellungEntity.bestVersion
+        'End If
+
+        'mbrBranche = New Branche(pJobanzeigeEntity.JaBrIdFk, "")
     End Sub
 
     'Properties
@@ -41,12 +58,12 @@
         End Set
     End Property
 
-    Public Property Bestellung As Bestellung
+    Public Property Bestellung As Integer
         Get
-            Return mBestellung
+            Return mintBestellung
         End Get
-        Set(value As Bestellung)
-            mBestellung = value
+        Set(value As Integer)
+            mintBestellung = value
         End Set
     End Property
 End Class

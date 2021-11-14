@@ -6,7 +6,7 @@ Public Interface IBestellungverwaltung
     <OperationContract()>
     Function gibBestellungen() As List(Of Bestellung)
     <OperationContract()>
-    Sub BestellungOeffnen(pintBestID As Integer)
+    Function BestellungOeffnen(pintBestID As Integer)
     <OperationContract()>
     Sub BestellungBearbeiten(pBestellung As Bestellung)
     <OperationContract()>

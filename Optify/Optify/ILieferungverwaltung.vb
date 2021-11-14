@@ -5,6 +5,8 @@
 Public Interface ILieferungverwaltung
 
     <OperationContract()>
-    Sub DoWork()
+    Function gibLieferungen() As List(Of Lieferung)
+    <OperationContract()>
+    Function LieferungOeffnen(pintLiefID As Integer)
 
 End Interface

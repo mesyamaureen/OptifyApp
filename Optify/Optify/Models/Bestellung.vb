@@ -3,7 +3,7 @@
     Dim mbestID As Integer
     Dim mdatBestellung As Date 'erstelltes Datum
     'Dim mkundID As Kunde
-    Dim mWaren As List(Of Ware)
+    Dim mintWaren As Integer
     Dim mbestPreis As Decimal
     Dim mbestStatus As String
 
@@ -12,9 +12,27 @@
         mbestID = -1
         mdatBestellung = Date.Now
         'kundenID?
-        mWaren = Nothing
+        mintWaren = Nothing
         mbestPreis = Nothing
         mbestStatus = String.Empty
+    End Sub
+
+    'Konstruktor für Entity
+    Public Sub New(pBestellungEntity As BestellungEntity)
+        mbestID = pBestellungEntity.bestIdPk
+        mdatBestellung = pBestellungEntity.bestDatum
+        mintWaren = pBestellungEntity.bestWaren
+        mbestPreis = pBestellungEntity.bestPreis
+        mbestStatus = pBestellungEntity.bestStatus
+
+
+        'If IsNothing(pBestellungEntity.bestVersion) Then
+        '    mbytVersion = Nothing
+        'Else
+        '    mbytVersion = pBestellungEntity.bestVersion
+        'End If
+
+        'mbrBranche = New Branche(pJobanzeigeEntity.JaBrIdFk, "")
     End Sub
 
     'Properties
@@ -45,12 +63,12 @@
     '    End Set
     'End Property
 
-    Public Property WarenListe As List(Of Ware)
+    Public Property Waren As Integer
         Get
-            Return mWaren
+            Return mintWaren
         End Get
-        Set(value As List(Of Ware))
-            mWaren = value
+        Set(value As Integer)
+            mintWaren = value
         End Set
     End Property
 
