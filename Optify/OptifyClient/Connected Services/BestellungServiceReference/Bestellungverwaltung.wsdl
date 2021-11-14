@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Bestellungverwaltung" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:55064/Bestellungverwaltung.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55064/Bestellungverwaltung.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55064/Bestellungverwaltung.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Optify" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBestellungverwaltung_gibBestellungen_InputMessage">
+    <wsdl:part name="parameters" element="tns:gibBestellungen" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_gibBestellungen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gibBestellungenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_BestellungOeffnen_InputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungOeffnen" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_BestellungOeffnen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungOeffnenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_BestellungBearbeiten_InputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungBearbeiten" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_BestellungBearbeiten_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungBearbeitenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_BestellungStornieren_InputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungStornieren" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_BestellungStornieren_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungStornierenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_Bestellungspeichern_InputMessage">
+    <wsdl:part name="parameters" element="tns:Bestellungspeichern" />
+  </wsdl:message>
+  <wsdl:message name="IBestellungverwaltung_Bestellungspeichern_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BestellungspeichernResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBestellungverwaltung">
+    <wsdl:operation name="gibBestellungen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBestellungverwaltung/gibBestellungen" message="tns:IBestellungverwaltung_gibBestellungen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBestellungverwaltung/gibBestellungenResponse" message="tns:IBestellungverwaltung_gibBestellungen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BestellungOeffnen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungOeffnen" message="tns:IBestellungverwaltung_BestellungOeffnen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungOeffnenResponse" message="tns:IBestellungverwaltung_BestellungOeffnen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BestellungBearbeiten">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungBearbeiten" message="tns:IBestellungverwaltung_BestellungBearbeiten_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungBearbeitenResponse" message="tns:IBestellungverwaltung_BestellungBearbeiten_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BestellungStornieren">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungStornieren" message="tns:IBestellungverwaltung_BestellungStornieren_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungStornierenResponse" message="tns:IBestellungverwaltung_BestellungStornieren_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Bestellungspeichern">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBestellungverwaltung/Bestellungspeichern" message="tns:IBestellungverwaltung_Bestellungspeichern_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBestellungverwaltung/BestellungspeichernResponse" message="tns:IBestellungverwaltung_Bestellungspeichern_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBestellungverwaltung" type="tns:IBestellungverwaltung">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="gibBestellungen">
+      <soap:operation soapAction="http://tempuri.org/IBestellungverwaltung/gibBestellungen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BestellungOeffnen">
+      <soap:operation soapAction="http://tempuri.org/IBestellungverwaltung/BestellungOeffnen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BestellungBearbeiten">
+      <soap:operation soapAction="http://tempuri.org/IBestellungverwaltung/BestellungBearbeiten" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BestellungStornieren">
+      <soap:operation soapAction="http://tempuri.org/IBestellungverwaltung/BestellungStornieren" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bestellungspeichern">
+      <soap:operation soapAction="http://tempuri.org/IBestellungverwaltung/Bestellungspeichern" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Bestellungverwaltung">
+    <wsdl:port name="BasicHttpBinding_IBestellungverwaltung" binding="tns:BasicHttpBinding_IBestellungverwaltung">
+      <soap:address location="http://localhost:55064/Bestellungverwaltung.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

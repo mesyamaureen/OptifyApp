@@ -25,7 +25,6 @@
         mbestPreis = pBestellungEntity.bestPreis
         mbestStatus = pBestellungEntity.bestStatus
 
-
         'If IsNothing(pBestellungEntity.bestVersion) Then
         '    mbytVersion = Nothing
         'Else
@@ -90,4 +89,15 @@
         End Set
     End Property
 
+    'Funktion
+    Public Function gibAlsBestEntity() As BestellungEntity
+        Dim bestEntity As BestellungEntity
+        bestEntity = New BestellungEntity
+        bestEntity.bestIdPk = BestellungID
+        bestEntity.bestDatum = DatumBestellung
+        bestEntity.bestPreis = Preis
+        bestEntity.bestStatus = Status
+        bestEntity.bestWaren = Waren
+        Return bestEntity
+    End Function
 End Class

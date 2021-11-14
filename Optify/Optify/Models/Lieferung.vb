@@ -66,4 +66,15 @@
             mintBestellung = value
         End Set
     End Property
+
+    'Funktion
+    Public Function gibAlsLieferungEntity() As LieferungEntity
+        Dim liefEntity As LieferungEntity
+        liefEntity = New LieferungEntity
+        liefEntity.lieferIdPk = ID
+        liefEntity.datAnfang = AnfangDatum
+        liefEntity.datEnde = EndeDatum
+        liefEntity.bestIdFk = Bestellung
+        Return liefEntity
+    End Function
 End Class

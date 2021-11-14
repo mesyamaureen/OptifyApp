@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1128858e-3841-4273-8856-c218521c75de" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55064/Bestellungverwaltung.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Bestellungverwaltung.xsd" MetadataType="Schema" ID="0e902b8b-cde0-4b20-afdb-32576949354e" SourceId="1" SourceUrl="http://localhost:55064/Bestellungverwaltung.svc?xsd=xsd1" />
+    <MetadataFile FileName="Bestellungverwaltung1.xsd" MetadataType="Schema" ID="b1868962-8142-4c1c-873f-57920cef4384" SourceId="1" SourceUrl="http://localhost:55064/Bestellungverwaltung.svc?xsd=xsd0" />
+    <MetadataFile FileName="Bestellungverwaltung.wsdl" MetadataType="Wsdl" ID="584e6546-7203-452c-b664-28495c00b0b1" SourceId="1" SourceUrl="http://localhost:55064/Bestellungverwaltung.svc?wsdl" />
+    <MetadataFile FileName="Bestellungverwaltung.disco" MetadataType="Disco" ID="77b77b10-ed32-4e06-ab81-b391a6fffd25" SourceId="1" SourceUrl="http://localhost:55064/Bestellungverwaltung.svc?disco" />
+    <MetadataFile FileName="Bestellungverwaltung2.xsd" MetadataType="Schema" ID="13d941b6-5979-4f56-9544-24211ac8701c" SourceId="1" SourceUrl="http://localhost:55064/Bestellungverwaltung.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

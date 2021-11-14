@@ -6,15 +6,16 @@ Public Class Bestellungverwaltung
     Public Function gibBestellungen() As List(Of Bestellung) Implements IBestellungverwaltung.gibBestellungen
         Dim bestListe As List(Of Bestellung)
         Dim best As Bestellung
+        Dim bestEntity As BestellungEntity
         bestListe = New List(Of Bestellung)
-        For Each bestEntity In db.tblBestellungen.ToList
+        For Each bestEntity In db.tblBestellungen.ToList 'Jede Bestellung in der Datenbank lesen
             best = New Bestellung(bestEntity)
-            bestListe.Add(best)
+            bestListe.Add(best) 'Alle Bestellungen in die Liste hinzufügen
         Next
         Return bestListe
     End Function
 
-    Public Function BestellungOeffnen(pintBestID As Integer) Implements IBestellungverwaltung.BestellungOeffnen
+    Public Function BestellungOeffnen(pintBestID As Integer) As Bestellung Implements IBestellungverwaltung.BestellungOeffnen
         Dim best As Bestellung
         Dim bestEntity As BestellungEntity
         bestEntity = db.tblBestellungen.Find(pintBestID)
