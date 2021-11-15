@@ -18,10 +18,11 @@ ManifestCode='This code will be applied to the manifest file during compilation.
 Module1=AnmeldungActivity
 Module2=Starter
 Module3=StartseiteKunde
-Module4=WareKundeActivity
+Module4=StartseiteMitarbeiterActivity
+Module5=WareKundeActivity
 NumberOfFiles=6
 NumberOfLibraries=2
-NumberOfModules=4
+NumberOfModules=5
 Version=11
 @EndOfDesignText@
 #Region  Project Attributes 
