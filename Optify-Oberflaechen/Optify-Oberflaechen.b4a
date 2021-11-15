@@ -1,0 +1,62 @@
+﻿Build1=Default,b4a.example
+File1=frmAnmeldung.bal
+File2=frmStartseiteKunde.bal
+File3=frmWareKunde.bal
+File4=jon-tyson-6k-fSy8rG0M-unsplash (3).jpg
+File5=Layout.bal
+File6=Screenshot 2021-11-14 230348.jpg
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+FileGroup5=Default Group
+FileGroup6=Default Group
+Group=Default Group
+Library1=core
+Library2=xui
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Module1=AnmeldungActivity
+Module2=Starter
+Module3=StartseiteKunde
+Module4=WareKundeActivity
+NumberOfFiles=6
+NumberOfLibraries=2
+NumberOfModules=4
+Version=11
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	Private xui As XUI
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'App startet und Datenbank einladen usw. danach AnmeldungActivity
+End Sub
+
+Sub Activity_Resume
+	StartActivity(AnmeldungActivity) 'nach dem Create
+	Activity.Finish
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
