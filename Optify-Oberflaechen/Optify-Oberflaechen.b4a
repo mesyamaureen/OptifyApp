@@ -1,16 +1,20 @@
 ﻿Build1=Default,b4a.example
-File1=frmAnmeldung.bal
-File2=frmStartseiteKunde.bal
-File3=frmWareKunde.bal
-File4=jon-tyson-6k-fSy8rG0M-unsplash (3).jpg
-File5=Layout.bal
-File6=Screenshot 2021-11-14 230348.jpg
+File1=frmAlleLieferauftraege.bal
+File2=frmAlleLieferungen.bal
+File3=frmAnmeldung.bal
+File4=frmStartseiteKunde.bal
+File5=frmWareKunde.bal
+File6=jon-tyson-6k-fSy8rG0M-unsplash (3).jpg
+File7=Layout.bal
+File8=Screenshot 2021-11-14 230348.jpg
 FileGroup1=Default Group
 FileGroup2=Default Group
 FileGroup3=Default Group
 FileGroup4=Default Group
 FileGroup5=Default Group
 FileGroup6=Default Group
+FileGroup7=Default Group
+FileGroup8=Default Group
 Group=Default Group
 Library1=core
 Library2=xui
@@ -18,11 +22,12 @@ ManifestCode='This code will be applied to the manifest file during compilation.
 Module1=AnmeldungActivity
 Module2=Starter
 Module3=StartseiteKunde
-Module4=StartseiteMitarbeiterActivity
-Module5=WareKundeActivity
-NumberOfFiles=6
+Module4=StartseiteLieferant
+Module5=StartseiteMitarbeiterActivity
+Module6=WareKundeActivity
+NumberOfFiles=8
 NumberOfLibraries=2
-NumberOfModules=5
+NumberOfModules=6
 Version=11
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -51,6 +56,8 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'App startet und Datenbank einladen usw. danach AnmeldungActivity
+	'Activity.LoadLayout("Layout")
+	
 End Sub
 
 Sub Activity_Resume

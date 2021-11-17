@@ -4,7 +4,7 @@ ModulesStructureVersion=1
 Type=Activity
 Version=11
 @EndOfDesignText@
- #Region  Activity Attributes 
+#Region  Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
 #End Region
@@ -23,7 +23,7 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
-	Activity.LoadLayout("frmAnmeldung")
+	Activity.LoadLayout("frmAlleLieferauftraege")
 
 End Sub
 
@@ -36,7 +36,6 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 
-Private Sub btnAnmelden_Click
-	StartActivity(StartseiteKunde)
-	Activity.Finish
+Private Sub lsvAlleLieferungen_ItemClick (Position As Int, Value As Object)
+	
 End Sub
