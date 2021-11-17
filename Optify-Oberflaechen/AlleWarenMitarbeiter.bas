@@ -23,7 +23,7 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
-	Activity.LoadLayout("frmMenueMitarbeiter")
+	'Activity.LoadLayout("Layout1")
 
 End Sub
 
@@ -33,26 +33,4 @@ End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
 
-End Sub
-
-
-Private Sub btnAlleWaren_Click
-	StartActivity(AlleWarenMitarbeiterActivity)
-	Activity.Finish
-	
-End Sub
-
-Private Sub btnAlleBestellungen_Click
-	StartActivity(AlleBestellungenMitarbeiterActivity)
-	Activity.Finish
-End Sub
-
-Private Sub btnAlleKunden_Click
-	StartActivity(AlleKundenMaActivity)
-	Activity.Finish
-End Sub
-
-Private Sub btnMeinProfil_Click
-	StartActivity(MeinProfilMaActivity)
-	Activity.Finish
 End Sub

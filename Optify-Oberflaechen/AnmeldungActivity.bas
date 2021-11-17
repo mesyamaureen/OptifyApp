@@ -38,5 +38,6 @@ End Sub
 
 Private Sub btnAnmelden_Click
 	StartActivity(StartseiteKunde)
+	'Oder MA? Oder Lieferant? Schleife? 
 	Activity.Finish
 End Sub
