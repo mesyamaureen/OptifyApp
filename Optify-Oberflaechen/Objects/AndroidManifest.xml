@@ -54,5 +54,12 @@
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
 		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".startseitemitarbeiteractivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
 	</application>
 </manifest>
