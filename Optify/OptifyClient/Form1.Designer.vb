@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmAlleBestellungen
+Partial Class frmAlleWaren
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -42,18 +42,18 @@ Partial Class frmAlleBestellungen
         Me.btnLaden.Name = "btnLaden"
         Me.btnLaden.Size = New System.Drawing.Size(300, 56)
         Me.btnLaden.TabIndex = 1
-        Me.btnLaden.Text = "Alle Bestellungen laden"
+        Me.btnLaden.Text = "Alle Waren laden"
         Me.btnLaden.UseVisualStyleBackColor = True
         '
-        'frmAlleBestellungen
+        'frmAlleWaren
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1051, 676)
         Me.Controls.Add(Me.btnLaden)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Name = "frmAlleBestellungen"
-        Me.Text = "Alle Bestellungen"
+        Me.Name = "frmAlleWaren"
+        Me.Text = "Alle Waren"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

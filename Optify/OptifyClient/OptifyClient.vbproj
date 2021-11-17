@@ -79,6 +79,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\WarenServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +132,19 @@
     <None Include="Connected Services\BestellungServiceReference\OptifyClient.BestellungServiceReference.Bestellung.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\WarenServiceReference\OptifyClient.WarenServiceReference.Ware.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService.wsdl" />
+    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -143,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\BestellungServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\WarenServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BestellungServiceReference\Bestellungverwaltung.disco" />
@@ -155,6 +174,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BestellungServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
