@@ -1,4 +1,6 @@
-﻿
+﻿Imports System.Data.Entity
+
+
 Public Class WarenverwaltungService
     Implements IWarenverwaltungService
 
@@ -33,62 +35,61 @@ Public Class WarenverwaltungService
     End Function
 
     Sub wareLoeschen(pintId As Integer) Implements IWarenverwaltungService.wareLoeschen
-        'Dim wEntity As WareEntity ' Urlaubsantrag, der in der Datenbank existiert
+        Dim wEntity As WareEntity ' Urlaubsantrag, der in der Datenbank existiert
 
         '' Suchen nach einem Urlaubsantrag in der Datenbank mit der übergebenen ID
-        'wEntity = db.tblWaren.Find(pintId)
+        wEntity = db.tblWaren.Find(pintId)
 
         '' Prüfen, ob in der Datenbank ein Urlaubsantrag mit der ID exisitiert
-        'If wEntity Is Nothing Then
-        '    ' Wenn nicht, dann gibt es auch nichts, was gelöscht werden muss
-        '    Exit Sub
-        'End If
+        If wEntity Is Nothing Then
+            '    ' Wenn nicht, dann gibt es auch nichts, was gelöscht werden muss
+            Exit Sub
+        End If
 
         '' Urlaubsantragsentity mit der Datenbank bekannt machen und löschen
-        'db.tblWaren.Attach(wEntity)
-        'db.Entry(wEntity).State = EntityState.Deleted ' soll entfernt werden
-        'db.SaveChanges()
+        db.tblWaren.Attach(wEntity)
+        db.Entry(wEntity).State = EntityState.Deleted ' soll entfernt werden
+        db.SaveChanges()
 
 
     End Sub
 
 
     Sub wareSpeichern(pWare As Ware) Implements IWarenverwaltungService.wareSpeichern
-        'Dim wEntity As WareEntity ' Urlaubsantrag, der in der Datenbank gespeichert wird
+        Dim wEntity As WareEntity ' Urlaubsantrag, der in der Datenbank gespeichert wird
 
         '' Prüfen, ob ein Urlaubsantrag übergeben wurde
-        'If pWare Is Nothing Then
-        '    ' Wenn nichts übergeben wurde, gibt es nichts zu tun; dann die Prozedur verlassen
-        '    Exit Sub
-        'End If
+        If pWare Is Nothing Then
+            '    ' Wenn nichts übergeben wurde, gibt es nichts zu tun; dann die Prozedur verlassen
+            Exit Sub
+        End If
 
         '' Übergebenen Urlaubsantrag in ein Entity umwandeln
-        'wEntity = pWare.gibAlsEntity
-
-        '' Urlaubsantragsentity mit der Datenbank bekannt machen und speichern
-        'db.tblWaren.Attach(wEntity)
-        'db.Entry(wEntity).State = EntityState.Modified ' vorgenommene Änderungen sollen gespeichert werden
-        'db.SaveChanges()
+        wEntity = pWare.gibAlsEntity
+        ' Urlaubsantragsentity mit der Datenbank bekannt machen und speichern
+        db.tblWaren.Attach(wEntity)
+        db.Entry(wEntity).State = EntityState.Modified ' vorgenommene Änderungen sollen gespeichert werden
+        db.SaveChanges()
     End Sub
 
     Sub wareHinzufuegen(pWare As Ware) Implements IWarenverwaltungService.wareHinzufuegen
 
 
-        'Dim wEntity As WareEntity
+        Dim wEntity As WareEntity
 
         '' Prüfen, ob ein Urlaubsantrag übergeben wurde
-        'If pWare Is Nothing Then
-        '    ' Wenn nichts übergeben wurde, gibt es nichts zu tun; dann die Prozedur verlassen
-        '    Exit Sub
-        'End If
+        If pWare Is Nothing Then
+            '    ' Wenn nichts übergeben wurde, gibt es nichts zu tun; dann die Prozedur verlassen
+            Exit Sub
+        End If
 
         '' Übergebenen Urlaubsantrag in ein Entity umwandeln
-        'wEntity = pWare.gibAlsEntity
+        wEntity = pWare.gibAlsEntity
 
         '' Urlaubsantragsentity mit der Datenbank bekannt machen und speichern
-        'db.tblWaren.Attach(wEntity)
-        'db.Entry(wEntity).State = EntityState.Added 'soll neu hinzugefügt werden
-        'db.SaveChanges()
+        db.tblWaren.Attach(wEntity)
+        db.Entry(wEntity).State = EntityState.Added 'soll neu hinzugefügt werden
+        db.SaveChanges()
 
 
     End Sub

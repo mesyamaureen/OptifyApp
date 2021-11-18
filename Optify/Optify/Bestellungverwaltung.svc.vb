@@ -1,4 +1,4 @@
-﻿
+﻿Imports System.Data.Entity
 Public Class Bestellungverwaltung
     Implements IBestellungverwaltung
     Private db As OptifyDBEntities = New OptifyDBEntities
