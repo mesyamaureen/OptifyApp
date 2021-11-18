@@ -17,7 +17,7 @@ Public Interface IWarenverwaltungService
     Sub wareSpeichern(pWare As Ware)
 
     <OperationContract()>
-    Sub wareHinzufuegen(pWare As Ware)
+    Function wareHinzufuegen(pWare As Ware) As Integer
 
 
 

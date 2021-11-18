@@ -72,15 +72,14 @@ Public Class WarenverwaltungService
         db.SaveChanges()
     End Sub
 
-    Sub wareHinzufuegen(pWare As Ware) Implements IWarenverwaltungService.wareHinzufuegen
-
+    Public Function wareHinzufuegen(pWare As Ware) As Integer Implements IWarenverwaltungService.wareHinzufuegen
 
         Dim wEntity As WareEntity
 
         '' Prüfen, ob ein Urlaubsantrag übergeben wurde
         If pWare Is Nothing Then
             '    ' Wenn nichts übergeben wurde, gibt es nichts zu tun; dann die Prozedur verlassen
-            Exit Sub
+            Return -1
         End If
 
         '' Übergebenen Urlaubsantrag in ein Entity umwandeln
@@ -90,9 +89,9 @@ Public Class WarenverwaltungService
         db.tblWaren.Attach(wEntity)
         db.Entry(wEntity).State = EntityState.Added 'soll neu hinzugefügt werden
         db.SaveChanges()
+        Return wEntity.wIdPk
 
-
-    End Sub
+    End Function
 
 
 End Class

@@ -29,10 +29,34 @@
 			</intent-filter>
 			
 		</activity>
-		<service android:name=".starter">
-		</service>
-		<receiver android:name=".starter$starter_BR">
-		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".allekundenmaactivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".allebestellungenmitarbeiteractivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".allewarenmitarbeiteractivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".lieferungeinzelnlactivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
@@ -43,6 +67,17 @@
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
+			android:name=".meinprofilmaactivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<service android:name=".starter">
+		</service>
+		<receiver android:name=".starter$starter_BR">
+		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
 			android:name=".startseitekunde"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
@@ -50,7 +85,7 @@
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
-			android:name=".warekundeactivity"
+			android:name=".startseitelieferantactivity"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
 		</activity>
@@ -58,6 +93,13 @@
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
 			android:name=".startseitemitarbeiteractivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".warekundeactivity"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
 		</activity>
