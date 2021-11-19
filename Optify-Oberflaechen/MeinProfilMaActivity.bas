@@ -23,7 +23,7 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
-	'Activity.LoadLayout("Layout1")
+	Activity.LoadLayout("frmMeinProfilMA")
 
 End Sub
 
@@ -33,4 +33,21 @@ End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
 
+End Sub
+
+
+Private Sub txtName_TextChanged (Old As String, New As String)
+	
+End Sub
+
+Private Sub txtPasswort_TextChanged (Old As String, New As String)
+	
+End Sub
+
+Private Sub btnSpeichern_Click
+	
+End Sub
+
+Private Sub btnAbbrechen_Click
+	
 End Sub

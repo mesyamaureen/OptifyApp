@@ -23,7 +23,7 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
-	Activity.LoadLayout("frmAlleKundenMa")
+	Activity.LoadLayout("frmbestellungEinzelnMa")
 
 End Sub
 
@@ -33,10 +33,4 @@ End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
 
-End Sub
-
-
-Private Sub lsvAlleKundenMa_ItemClick (Position As Int, Value As Object)
-	StartActivity(KundeEinzelnMaActivity)
-	Activity.Finish
 End Sub

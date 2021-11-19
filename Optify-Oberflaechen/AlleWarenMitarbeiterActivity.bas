@@ -45,8 +45,6 @@ Private Sub ImgBoxS_Click
 	
 End Sub
 
-
-
 Private Sub ImgBoxM_Click
 	
 End Sub

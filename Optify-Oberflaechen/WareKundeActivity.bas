@@ -34,3 +34,16 @@ End Sub
 Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
+
+
+Private Sub btnLoeschen_Click
+	
+End Sub
+
+Private Sub btnAbbrechen_Click
+	Activity.Finish
+End Sub
+
+Private Sub btnSpeichern_Click
+	
+End Sub
