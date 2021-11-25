@@ -38,6 +38,29 @@ End Sub
 
 Private Sub btnAnmelden_Click
 	StartActivity(StartseiteKunde)
-	'Oder MA? Oder Lieferant? Schleife? 
-	Activity.Finish
+	'Oder MA? Oder Lieferant? Schleife?
+	Dim strBenutzername As String
+	Dim strPasswort As String
+	Dim service As BenutzerServiceService
+	
+	service. Initialize(Me) 'Serviceklasse muss noch erstellt werden
+	service.Verbose = True
+	'Bei Bedarf Logging aktivieren oder deaktvier
+	strBenutzername = txtBenutzername.Text
+	strPasswort = txtPasswort. Text
+	service.anmeldenAsync (strBenutzername, strPasswort)
+	
+	ProgressDialogShow("Anmeldungläuft")
+End Sub
+
+sub,anmeldenAsyncResponse(RintID.As.Int)
+'ProgessDialogeHide muss noch rein aber geht gerade nicht
+
+If pintID > • Then
+StartActivity(MenuActivity)
+Activity.Finish
+
+Else
+Magbox("Anmeldungfehlgeschlagent", "Anmeldefehler")
+End If
 End Sub
