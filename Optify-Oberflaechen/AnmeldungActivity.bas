@@ -53,14 +53,22 @@ Private Sub btnAnmelden_Click
 	ProgressDialogShow("Anmeldungläuft")
 End Sub
 
-sub,anmeldenAsyncResponse(RintID.As.Int)
-'ProgessDialogeHide muss noch rein aber geht gerade nicht
+Sub anmeldenAsyncResponse(pintID As Int)
+'ProgessDialogeHide 'muss noch rein aber geht gerade nicht
 
-If pintID > • Then
-StartActivity(MenuActivity)
-Activity.Finish
+'	Dim service As BenutzerServiceService
+'	service. Initialize(Me) 'Serviceklasse muss noch erstellt werden
+'	service.Verbose = True
+'	
+'If pintID > • Then
+'
+'
+'Else
+'Magbox("Anmeldungfehlgeschlagent", "Anmeldefehler")
+'End If
 
-Else
-Magbox("Anmeldungfehlgeschlagent", "Anmeldefehler")
-End If
+
 End Sub
+
+'StartActivity(MenuActivity)
+'Activity.Finish
