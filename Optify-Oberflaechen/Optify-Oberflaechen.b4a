@@ -38,21 +38,22 @@ Library1=core
 Library2=xui
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
 Module1=AlleBestellungenMitarbeiterActivity
-Module10=StartseiteKunde
-Module11=StartseiteLieferantActivity
-Module12=StartseiteMitarbeiterActivity
-Module13=WareKundeActivity
+Module10=Starter
+Module11=StartseiteKunde
+Module12=StartseiteLieferantActivity
+Module13=StartseiteMitarbeiterActivity
+Module14=WareKundeActivity
 Module2=AlleKundenMaActivity
 Module3=AlleWarenMitarbeiterActivity
 Module4=AnmeldungActivity
-Module5=BestellungEinzelnMaActivity
-Module6=KundeEinzelnMaActivity
-Module7=LieferungEinzelnLActivity
-Module8=MeinProfilMaActivity
-Module9=Starter
+Module5=AnmeldungService
+Module6=BestellungEinzelnMaActivity
+Module7=KundeEinzelnMaActivity
+Module8=LieferungEinzelnLActivity
+Module9=MeinProfilMaActivity
 NumberOfFiles=17
 NumberOfLibraries=2
-NumberOfModules=13
+NumberOfModules=14
 Version=11
 @EndOfDesignText@
 #Region  Project Attributes 
