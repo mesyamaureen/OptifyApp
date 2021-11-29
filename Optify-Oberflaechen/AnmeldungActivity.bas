@@ -39,20 +39,20 @@ End Sub
 
 
 Private Sub btnAnmelden_Click
-	StartActivity(StartseiteKunde)
-	'Oder MA? Oder Lieferant? Schleife?
-	Dim strBenutzername As String
-	Dim strPasswort As String
-	Dim service As BenutzerServiceService
-	
-	service. Initialize(Me) 'Serviceklasse muss noch erstellt werden
-	service.Verbose = True
-	'Bei Bedarf Logging aktivieren oder deaktvier
-	strBenutzername = txtBenutzername.Text
-	strPasswort = txtPasswort. Text
-	service.anmeldenAsync (strBenutzername, strPasswort)
-	
-	ProgressDialogShow("Anmeldungläuft")
+'	StartActivity(StartseiteKunde)
+'	'Oder MA? Oder Lieferant? Schleife?
+'	Dim strBenutzername As String
+'	Dim strPasswort As String
+'	Dim service As BenutzerServiceService
+'	
+'	service. Initialize(Me) 'Serviceklasse muss noch erstellt werden
+'	service.Verbose = True
+'	'Bei Bedarf Logging aktivieren oder deaktvier
+'	strBenutzername = txtBenutzername.Text
+'	strPasswort = txtPasswort. Text
+'	service.anmeldenAsync (strBenutzername, strPasswort)
+'	
+'	ProgressDialogShow("Anmeldungläuft")
 End Sub
 
 Sub anmeldenAsyncResponse(pintID As Int)
