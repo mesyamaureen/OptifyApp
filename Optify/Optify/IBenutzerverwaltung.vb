@@ -5,6 +5,7 @@
 Public Interface IBenutzerverwaltung
 
     <OperationContract()>
-    Sub DoWork()
+    Function Einloggen(pben As Benutzer) As Benutzer
+
 
 End Interface

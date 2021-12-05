@@ -1,5 +1,6 @@
 ﻿' HINWEIS: Mit dem Befehl "Umbenennen" im Kontextmenü können Sie den Klassennamen "Lieferungverwaltung" sowohl im Code als auch in der SVC-Datei und der Konfigurationsdatei ändern.
 ' HINWEIS: Wählen Sie zum Starten des WCF-Testclients zum Testen dieses Diensts Lieferungverwaltung.svc oder Lieferungverwaltung.svc.vb im Projektmappen-Explorer aus, und starten Sie das Debuggen.
+Imports System.Data.Entity
 Public Class Lieferungverwaltung
     Implements ILieferungverwaltung
     Private db As OptifyDBEntities = New OptifyDBEntities
@@ -23,4 +24,25 @@ Public Class Lieferungverwaltung
         Return lief
     End Function
 
+    Public Sub hinzufuegenLieferung(pLieferung As Lieferung) Implements ILieferungverwaltung.hinzufuegenLieferung
+        Dim liefEntity As LieferungEntity
+        If pLieferung Is Nothing Then
+            Exit Sub
+        End If
+        liefEntity = pLieferung.gibAlsLieferungEntity
+        db.tblLieferungen.Attach(liefEntity)
+        db.Entry(liefEntity).State = EntityState.Added
+        db.SaveChanges()
+    End Sub
+
+    Public Sub loeschenLieferung(pliefId As Integer) Implements ILieferungverwaltung.loeschenLieferung
+        Dim liefEntity As LieferungEntity
+        liefEntity = db.tblLieferungen.Find(pliefId)
+        If liefEntity Is Nothing Then
+            Exit Sub
+        End If
+        db.tblLieferungen.Attach(liefEntity)
+        db.Entry(liefEntity).State = EntityState.Deleted
+        db.SaveChanges()
+    End Sub
 End Class

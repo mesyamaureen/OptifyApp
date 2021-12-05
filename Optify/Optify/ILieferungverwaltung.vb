@@ -8,5 +8,9 @@ Public Interface ILieferungverwaltung
     Function gibLieferungen() As List(Of Lieferung)
     <OperationContract()>
     Function LieferungOeffnen(pintLiefID As Integer)
+    <OperationContract()>
+    Sub hinzufuegenLieferung(pLieferung As Lieferung)
+    <OperationContract()>
+    Sub loeschenLieferung(pliefId As Integer)
 
 End Interface

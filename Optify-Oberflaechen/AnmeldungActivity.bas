@@ -37,8 +37,13 @@ Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
+Private Sub anmelden(pstrBenutzername As String, pstrPasswort As String)
+	Dim benService As 
+End Sub
 
 Private Sub btnAnmelden_Click
+	'Anmeldung verarbeiten
+	
 '	StartActivity(StartseiteKunde)
 '	'Oder MA? Oder Lieferant? Schleife?
 '	Dim strBenutzername As String

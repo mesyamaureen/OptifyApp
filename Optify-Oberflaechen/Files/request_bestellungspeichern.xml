@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Generiert mit dem WSDL2B4A-Generator Version 1.1 und unter GPL 3 zur Verfuegung gestellt.-->
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+		<s:Body>
+			<Bestellungspeichern xmlns="http://tempuri.org/">
+				<pBestellung>
+					<BestellungID xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_BESTELLUNGID$</BestellungID>
+					<DatumBestellung xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_DATUMBESTELLUNG$</DatumBestellung>
+					<Preis xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_PREIS$</Preis>
+					<Status xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_STATUS$</Status>
+					<Waren xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_WAREN$</Waren>
+				</pBestellung>
+			</Bestellungspeichern>
+		</s:Body>
+	</s:Envelope>

@@ -21,6 +21,31 @@
         mstrSteuerID = String.Empty
     End Sub
 
+    'Parameterloser Konstruktor
+    Sub New(pbenID As Integer, pstrFirmenname As String, pstrAdresse As String, pstrName As String,
+              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String)
+        mbenID = pbenID
+        mstrFirmenname = pstrFirmenname
+        mstrAdresse = pstrAdresse
+        mstrName = pstrName
+        mstrVorname = pstrVorname
+        mstrBenutzername = pstrBenutzername
+        mstrPasswort = pstrPasswort
+        mstrSteuerID = pstrSteuerID
+    End Sub
+
+    'Entity Konstruktor
+    Sub New(pbenEntity As BenutzerEntity)
+        mbenID = pbenEntity.benIdPk
+        mstrFirmenname = pbenEntity.strFirmenname
+        mstrAdresse = pbenEntity.strAdresse
+        mstrName = pbenEntity.strName
+        mstrVorname = pbenEntity.strVorname
+        mstrBenutzername = pbenEntity.strBenutzername
+        mstrPasswort = pbenEntity.strPasswort
+        mstrSteuerID = pbenEntity.strSteuerID
+    End Sub
+
     'Properties
     Public Property BenutzerID As Integer
         Get
@@ -87,4 +112,18 @@
             mstrSteuerID = value
         End Set
     End Property
+
+    Public Function gibAlsBenutzerEntity() As BenutzerEntity
+        Dim benE As BenutzerEntity
+        benE = New BenutzerEntity
+        benE.benIdPk = mbenID
+        benE.strFirmenname = mstrFirmenname
+        benE.strAdresse = mstrAdresse
+        benE.strName = mstrName
+        benE.strVorname = mstrVorname
+        benE.strBenutzername = mstrBenutzername
+        benE.strPasswort = mstrPasswort
+        benE.strSteuerID = mstrSteuerID
+        Return benE
+    End Function
 End Class
