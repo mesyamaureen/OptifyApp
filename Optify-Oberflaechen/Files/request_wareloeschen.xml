@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Generiert mit dem WSDL2B4A-Generator Version 1.1 und unter GPL 3 zur Verfuegung gestellt.-->
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+		<s:Body>
+			<wareLoeschen xmlns="http://tempuri.org/">
+				<pintId>$PINTID$</pintId>
+			</wareLoeschen>
+		</s:Body>
+	</s:Envelope>
