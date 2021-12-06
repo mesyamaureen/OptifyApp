@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e083377a-9de6-4f9b-8805-32e0a31a2427" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55064/Benutzerverwaltung.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Benutzerverwaltung.xsd" MetadataType="Schema" ID="f5ff987c-b89e-476d-ba35-627db2da37d3" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd0" />
+    <MetadataFile FileName="Benutzerverwaltung.wsdl" MetadataType="Wsdl" ID="062e00ab-c0b0-4c22-b065-56e6a04caa64" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?wsdl" />
+    <MetadataFile FileName="Benutzerverwaltung.disco" MetadataType="Disco" ID="1b6155e6-c506-4dd5-b7a3-fbcb76c7ea55" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

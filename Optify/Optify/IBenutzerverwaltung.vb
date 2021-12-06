@@ -5,7 +5,7 @@
 Public Interface IBenutzerverwaltung
 
     <OperationContract()>
-    Function Einloggen(pben As Benutzer) As Benutzer
+    Function Einloggen(pstrBenutzername As String, pstrPasswort As String) As Benutzer
 
 
 End Interface

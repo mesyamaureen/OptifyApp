@@ -74,6 +74,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnmeldungDummy.Designer.vb">
+      <DependentUpon>AnmeldungDummy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AnmeldungDummy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Connected Services\BenutzerverwaltungServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BestellungServiceReference\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,6 +119,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AnmeldungDummy.resx">
+      <DependentUpon>AnmeldungDummy.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +133,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung.wsdl" />
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\BestellungServiceReference\Bestellungverwaltung.wsdl" />
     <None Include="Connected Services\BestellungServiceReference\Bestellungverwaltung.xsd">
       <SubType>Designer</SubType>
@@ -160,6 +178,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BenutzerverwaltungServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\BestellungServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\WarenServiceReference\" />
   </ItemGroup>
@@ -189,6 +208,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\WarenServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
