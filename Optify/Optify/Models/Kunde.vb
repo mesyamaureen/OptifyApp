@@ -66,6 +66,7 @@
         End Set
     End Property
 
+    'sollen alle Attribute von Benutzer hier nochmal zugewiesen werden?
     Public Overloads Function gibAlsBenutzerEntity() As BenutzerEntity
         Dim benE As BenutzerEntity
         benE = New BenutzerEntity

@@ -68,4 +68,6 @@ Public Class Benutzerverwaltung
             'Return Nothing
         End Try
     End Function
+
+    'create in the project 3 new services to show which logic to call depending on who's logged in
 End Class
