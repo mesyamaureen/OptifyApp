@@ -31,6 +31,7 @@ Sub Globals
 	
 	Private mstrTyp As String
 	Private mstrBeschreibung As String
+	Private mdblPreis As Double
 	Private mAktuelleWare As Ware
 	
 End Sub
@@ -59,7 +60,7 @@ Private Sub ladenDaten()
 	' sobald die Daten vom Server eingetroffen sind und verarbeitet wurden
 End Sub
 
-Sub AlleWarenLadenResponse (pWare As Ware)
+Sub WareladenResponse (pWare As Ware)
 	' Hier geht es weiter, nachdem service.gibUrlaubsantragAsync() aufgerufen wurde,
 	' die Daten vom Server eingetroffen sind und verarbeitet wurden
 	
@@ -75,7 +76,7 @@ End Sub
 
 Public Sub anzeigen
 	txtTyp.Text = mAktuelleWare.Typ
-	txtPreis.Text = mAktuelleWare.Preis
+	txtPreis.Text = mAktuelleWare.Preis ' Typumwandlung
 	txtBeschreibung.Text = mAktuelleWare.Beschreibung ' gibt kein Attribut beschreibung
 End Sub
 
@@ -139,15 +140,6 @@ Sub loeschenUrlaubsantragResponse()
 	
 	
 End Sub
-
-
-
-
-
-
-
-
-
 
 
 Private Sub btnSpeichern_Click
