@@ -36,23 +36,37 @@ Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
+Private Sub laden()
+	' Deklaration
+	Dim wareservice As WarenverwaltungServiceService ' Service für den Zugriff auf den Server deklarieren
+
+	' Fortschrittsdialog einblenden
+	ProgressDialogShow("Alle Waren werden geladen.")
+	
+	' Service initialisieren und Operation des Service aufrufen
+	wareservice.Initialize(Me)
+	wareservice.Verbose = True ' Ausfühliche Ausgabe im Log
+	wareservice.alleWarenLadenAsync()
+
+	
+End Sub
 
 Private Sub ImgBoxXS_Click
-	
+	StartActivity(WareEinzelnMaActivity)
 End Sub
 
 Private Sub ImgBoxS_Click
-	
+	StartActivity(WareEinzelnMaActivity)
 End Sub
 
 Private Sub ImgBoxM_Click
-	
+	StartActivity(WareEinzelnMaActivity)
 End Sub
 
 Private Sub ImgBoxL_Click
-	
+	StartActivity(WareEinzelnMaActivity)
 End Sub
 
 Private Sub ImgBoxXL_Click
-	
+	StartActivity(WareEinzelnMaActivity)
 End Sub

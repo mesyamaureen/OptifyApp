@@ -66,10 +66,11 @@ Module13=StartseiteKunde
 Module14=StartseiteLieferantActivity
 Module15=StartseiteMitarbeiterActivity
 Module16=Ware
-Module17=WareKundeActivity
-Module18=WareList
-Module19=WarenverwaltungServiceService
+Module17=WareEinzelnMaActivity
+Module18=WareKundeActivity
+Module19=WareList
 Module2=AlleKundenMaActivity
+Module20=WarenverwaltungServiceService
 Module3=AlleWarenMitarbeiterActivity
 Module4=AnmeldungActivity
 Module5=Bestellung
@@ -79,7 +80,7 @@ Module8=BestellungverwaltungService
 Module9=KundeEinzelnMaActivity
 NumberOfFiles=26
 NumberOfLibraries=5
-NumberOfModules=19
+NumberOfModules=20
 Version=11
 @EndOfDesignText@
 #Region  Project Attributes 

@@ -178,7 +178,7 @@ Public Sub wareSpeichernAsync(pWare As Ware)
 	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
 End Sub 
 
-Public Sub wareHinzufuegenAsync(pWare As Ware) As int
+Public Sub wareHinzufuegenAsync(pWare As Ware) As Int
 	Dim job As HttpJob
 	Dim msg As String
 	Dim strSoapAction As String
@@ -212,7 +212,7 @@ End Sub
 
 Private Sub JobDone (Job As HttpJob)
 
-	Dim strCallbackSub AS String
+	Dim strCallbackSub As String
 
 	If mbolVerbose Then
 		Log("JobName = " & Job.JobName & ", Success = " & Job.Success)
