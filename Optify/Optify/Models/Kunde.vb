@@ -13,11 +13,13 @@
         mstrSteuerID = String.Empty
         mstrFirmenname = String.Empty
         mstrAdresse = String.Empty
+        Typ = String.Empty
     End Sub
+
 
     'Parameterloser Konstruktor
     Public Sub New(pbenID As Integer, pstrFirmenname As String, pstrAdresse As String, pstrName As String,
-              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String)
+              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String, pbenTyp As String)
         BenutzerID = pbenID
         mstrFirmenname = pstrFirmenname
         mstrAdresse = pstrAdresse
@@ -26,7 +28,9 @@
         Benutzername = pstrBenutzername
         Passwort = pstrPasswort
         mstrSteuerID = pstrSteuerID
+        Typ = pbenTyp
     End Sub
+
 
     'Entity Konstruktor
     Public Sub New(pbenEntity As BenutzerEntity)
@@ -38,6 +42,7 @@
         Benutzername = pbenEntity.strBenutzername
         Passwort = pbenEntity.strPasswort
         mstrSteuerID = pbenEntity.strSteuerID
+        Typ = pbenEntity.benTyp
     End Sub
 
     Public Property Firmenname As String
@@ -78,6 +83,7 @@
         benE.strBenutzername = Benutzername
         benE.strPasswort = Passwort
         benE.strSteuerID = mstrSteuerID
+        benE.benTyp = Typ
         Return benE
     End Function
 End Class

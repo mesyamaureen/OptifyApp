@@ -6,6 +6,8 @@
     Private mstrBenutzername As String
     Private mstrPasswort As String
     Private mbenTyp As String
+    Public mKunde As Kunde
+    Public mLieferant As Lieferanten
 
     'Konstruktor
     Public Sub New()
@@ -88,6 +90,18 @@
         Set(value As String)
             mbenTyp = value
         End Set
+    End Property
+
+    ReadOnly Property Kunde As Kunde
+        Get
+            Return mKunde
+        End Get
+    End Property
+
+    ReadOnly Property Lieferant As Lieferanten
+        Get
+            Return mLieferant
+        End Get
     End Property
 
     Public Function gibAlsBenutzerEntity() As BenutzerEntity

@@ -51,30 +51,42 @@ Public Class Benutzerverwaltung
     '        'Return Nothing
     '    End Try
     'End Function
-    Public Sub Starten()
-        Dim strBenutzername As String 'implementieren how?
-        Dim strPasswort As String
+    Public Sub Starten(pstrBenutzername As String, pstrPasswort As String) Implements IBenutzerverwaltung.Starten
+        Dim strBenutzername As String = pstrBenutzername 'initialisieren how?
+        Dim strPasswort As String = pstrPasswort
         Dim angemeldeterBenutzer As Benutzer
 
         'call function einloggen
-        Einloggen(strBenutzername, strPasswort)
+        angemeldeterBenutzer = Einloggen(strBenutzername, strPasswort)
+        If angemeldeterBenutzer.Typ = "Kunde" Then
+            gibKunde(angemeldeterBenutzer)
+        ElseIf angemeldeterBenutzer.Typ = "Lieferant" Then
+            gibLieferant(angemeldeterBenutzer)
+        Else gibMitarbeiter(angemeldeterBenutzer)
+        End If
+
         'rückgabewert Benutzer - zuweisen gibKunde,Lieferant,Mitarbeiter
     End Sub
 
     Public Function Einloggen(pstrBenutzername As String, pstrPasswort As String) As Benutzer Implements IBenutzerverwaltung.Einloggen
         Dim benEntity As BenutzerEntity
-        Dim benBenutzer As Benutzer
+        Dim benBenutzer As Benutzer = New Benutzer
         Try
             For Each ben In db.tblBenutzer.ToList
                 If (ben.strBenutzername.Equals(pstrBenutzername) And ben.strPasswort.Equals(pstrPasswort)) Then
                     benEntity = ben
                     benBenutzer.BenutzerID = ben.benIdPk
-                    Return benBenutzer
+                    benBenutzer.Benutzername = ben.strBenutzername
+                    benBenutzer.Name = ben.strName
+                    benBenutzer.Vorname = ben.strVorname
+                    benBenutzer.Passwort = ben.strPasswort
+                    benBenutzer.Typ = ben.benTyp
                 End If
             Next
         Catch ex As Exception
             benEntity = Nothing
         End Try
+        Return benBenutzer
     End Function
 
     'create in the project 3 new services to show which logic to call depending on who's logged in
@@ -82,18 +94,24 @@ Public Class Benutzerverwaltung
     'liefern gibKunde wenn benBenutzer = Kunde - bentyp = "Kunde"
     Public Function gibKunde(pBenutzer As Benutzer) As Kunde Implements IBenutzerverwaltung.gibKunde 'what kind of parameter needed?
         'Deklaration
-        Dim benEntity As BenutzerEntity
-        Dim benBenutzer As Benutzer
-        Dim kun As Kunde
-        'Entity für den angemeldeten Benutzer konstruiieren
-        kun.BenutzerID = benEntity.benIdPk
-        kun.Firmenname = benEntity.strFirmenname
-        kun.Benutzername = benEntity.strBenutzername
-        kun.Passwort = benEntity.strPasswort
-        kun.Name = benEntity.strName
-        kun.Vorname = benEntity.strVorname
-        kun.Adresse = benEntity.strAdresse
-        kun.SteuerID = benEntity.strSteuerID
+        'Dim benEntity As BenutzerEntity = New BenutzerEntity
+        'Dim benBenutzer As Benutzer = New Benutzer
+        Dim kun As Kunde = New Kunde With {
+            .BenutzerID = pBenutzer.BenutzerID,
+            .Benutzername = pBenutzer.Benutzername,
+            .Passwort = pBenutzer.Passwort,
+            .Name = pBenutzer.Name,
+            .Vorname = pBenutzer.Vorname,
+            .Typ = pBenutzer.Typ,
+            .Adresse = pBenutzer.Kunde.Adresse,
+            .SteuerID = pBenutzer.Kunde.SteuerID,
+            .Firmenname = pBenutzer.Kunde.Firmenname
+            }
+
+        '.Adresse = benEntity.strAdresse,
+        '.SteuerID = benEntity.strSteuerID,
+        '.Firmenname = pBenutzer.f,
+
         Return kun
 
     End Function
@@ -113,6 +131,7 @@ Public Class Benutzerverwaltung
         lief.Vorname = benEntity.strVorname
         lief.Adresse = benEntity.strAdresse
         lief.SteuerID = benEntity.strSteuerID
+        lief.Typ = benEntity.benTyp
         Return lief
     End Function
 
@@ -129,6 +148,7 @@ Public Class Benutzerverwaltung
         mit.Passwort = benEntity.strPasswort
         mit.Name = benEntity.strName
         mit.Vorname = benEntity.strVorname
+        mit.Typ = benEntity.benTyp
         Return mit
     End Function
 

@@ -163,6 +163,7 @@
     </Compile>
     <Compile Include="Models\Benutzer.vb" />
     <Compile Include="Models\Bestellung.vb" />
+    <Compile Include="Models\Bestellposition.vb" />
     <Compile Include="Models\Mitarbeiter.vb" />
     <Compile Include="Models\Kunde.vb" />
     <Compile Include="Models\Lieferanten.vb" />
