@@ -51,6 +51,15 @@ Public Class Benutzerverwaltung
     '        'Return Nothing
     '    End Try
     'End Function
+    Public Sub Starten()
+        Dim strBenutzername As String 'implementieren how?
+        Dim strPasswort As String
+        Dim angemeldeterBenutzer As Benutzer
+
+        'call function einloggen
+        Einloggen(strBenutzername, strPasswort)
+        'rückgabewert Benutzer - zuweisen gibKunde,Lieferant,Mitarbeiter
+    End Sub
 
     Public Function Einloggen(pstrBenutzername As String, pstrPasswort As String) As Benutzer Implements IBenutzerverwaltung.Einloggen
         Dim benEntity As BenutzerEntity
@@ -65,9 +74,62 @@ Public Class Benutzerverwaltung
             Next
         Catch ex As Exception
             benEntity = Nothing
-            'Return Nothing
         End Try
     End Function
 
     'create in the project 3 new services to show which logic to call depending on who's logged in
+
+    'liefern gibKunde wenn benBenutzer = Kunde - bentyp = "Kunde"
+    Public Function gibKunde(pBenutzer As Benutzer) As Kunde Implements IBenutzerverwaltung.gibKunde 'what kind of parameter needed?
+        'Deklaration
+        Dim benEntity As BenutzerEntity
+        Dim benBenutzer As Benutzer
+        Dim kun As Kunde
+        'Entity für den angemeldeten Benutzer konstruiieren
+        kun.BenutzerID = benEntity.benIdPk
+        kun.Firmenname = benEntity.strFirmenname
+        kun.Benutzername = benEntity.strBenutzername
+        kun.Passwort = benEntity.strPasswort
+        kun.Name = benEntity.strName
+        kun.Vorname = benEntity.strVorname
+        kun.Adresse = benEntity.strAdresse
+        kun.SteuerID = benEntity.strSteuerID
+        Return kun
+
+    End Function
+
+    'liefern gibLieferant wenn benBenutzer = Lieferant - bentyp = "Lieferant", parameter?
+    Public Function gibLieferant(pBenutzer As Benutzer) As Lieferanten Implements IBenutzerverwaltung.gibLieferant
+        'Deklaration
+        Dim benEntity As BenutzerEntity
+        Dim benBenutzer As Benutzer
+        Dim lief As Lieferanten
+        'Entity für den angemeldeten Benutzer konstruiieren
+        lief.BenutzerID = benEntity.benIdPk
+        lief.Firmenname = benEntity.strFirmenname
+        lief.Benutzername = benEntity.strBenutzername
+        lief.Passwort = benEntity.strPasswort
+        lief.Name = benEntity.strName
+        lief.Vorname = benEntity.strVorname
+        lief.Adresse = benEntity.strAdresse
+        lief.SteuerID = benEntity.strSteuerID
+        Return lief
+    End Function
+
+
+    'liefern gibMitarbeiter wenn benBenutzer = Mitarbeiter - bentyp = "Mitarbeiter", parameter?
+    Public Function gibMitarbeiter(pBenutzer As Benutzer) As Mitarbeiter Implements IBenutzerverwaltung.gibMitarbeiter
+        'Deklaration
+        Dim benEntity As BenutzerEntity
+        Dim benBenutzer As Benutzer
+        Dim mit As Mitarbeiter
+        'Entity für den angemeldeten Benutzer konstruiieren
+        mit.BenutzerID = benEntity.benIdPk
+        mit.Benutzername = benEntity.strBenutzername
+        mit.Passwort = benEntity.strPasswort
+        mit.Name = benEntity.strName
+        mit.Vorname = benEntity.strVorname
+        Return mit
+    End Function
+
 End Class
