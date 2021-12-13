@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e083377a-9de6-4f9b-8805-32e0a31a2427" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="639fb1b1-c238-4d7f-a58f-7bb0f2e8292b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,9 +24,11 @@
     <MetadataSource Address="http://localhost:55064/Benutzerverwaltung.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Benutzerverwaltung.xsd" MetadataType="Schema" ID="f5ff987c-b89e-476d-ba35-627db2da37d3" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd0" />
-    <MetadataFile FileName="Benutzerverwaltung.wsdl" MetadataType="Wsdl" ID="062e00ab-c0b0-4c22-b065-56e6a04caa64" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?wsdl" />
-    <MetadataFile FileName="Benutzerverwaltung.disco" MetadataType="Disco" ID="1b6155e6-c506-4dd5-b7a3-fbcb76c7ea55" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?disco" />
+    <MetadataFile FileName="Benutzerverwaltung.xsd" MetadataType="Schema" ID="0c1fb1d8-3376-4c65-82a4-1dc02422bc84" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd0" />
+    <MetadataFile FileName="Benutzerverwaltung1.xsd" MetadataType="Schema" ID="f32b6ded-aa90-4024-9178-0fd3577c9860" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd2" />
+    <MetadataFile FileName="Benutzerverwaltung.wsdl" MetadataType="Wsdl" ID="51c62f55-c6fa-4644-b91d-9f50484896e7" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?wsdl" />
+    <MetadataFile FileName="Benutzerverwaltung2.xsd" MetadataType="Schema" ID="f1f63583-0b6b-4ec2-8257-7b62144f479f" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd1" />
+    <MetadataFile FileName="Benutzerverwaltung.disco" MetadataType="Disco" ID="032ea37e-a844-405c-9fd5-2623579ed466" SourceId="1" SourceUrl="http://localhost:55064/Benutzerverwaltung.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

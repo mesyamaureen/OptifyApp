@@ -52,6 +52,7 @@ Partial Class AnmeldungDummy
         '
         'AnmeldungDummy
         '
+        Me.AcceptButton = Me.btnAnmelden
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1242, 761)

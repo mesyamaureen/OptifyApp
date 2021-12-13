@@ -66,7 +66,6 @@ Public Class Benutzerverwaltung
         End Try
 
         If lEntity.strBenutzername IsNot Nothing Then
-            ' gibLieferant(llief)
             angemeldBen.BenutzerID = llief.BenutzerID
             angemeldBen.Benutzername = llief.Benutzername
             angemeldBen.Name = llief.Name

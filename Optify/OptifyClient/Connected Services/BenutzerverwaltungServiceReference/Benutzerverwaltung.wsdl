@@ -3,24 +3,83 @@
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:55064/Benutzerverwaltung.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Optify" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IBenutzerverwaltung_DoWork_InputMessage">
-    <wsdl:part name="parameters" element="tns:DoWork" />
+  <wsdl:message name="IBenutzerverwaltung_Einloggen_InputMessage">
+    <wsdl:part name="parameters" element="tns:Einloggen" />
   </wsdl:message>
-  <wsdl:message name="IBenutzerverwaltung_DoWork_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  <wsdl:message name="IBenutzerverwaltung_Einloggen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EinloggenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBenutzerverwaltung_gibKunde_InputMessage">
+    <wsdl:part name="parameters" element="tns:gibKunde" />
+  </wsdl:message>
+  <wsdl:message name="IBenutzerverwaltung_gibKunde_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gibKundeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBenutzerverwaltung_gibLieferant_InputMessage">
+    <wsdl:part name="parameters" element="tns:gibLieferant" />
+  </wsdl:message>
+  <wsdl:message name="IBenutzerverwaltung_gibLieferant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gibLieferantResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBenutzerverwaltung_gibMitarbeiter_InputMessage">
+    <wsdl:part name="parameters" element="tns:gibMitarbeiter" />
+  </wsdl:message>
+  <wsdl:message name="IBenutzerverwaltung_gibMitarbeiter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gibMitarbeiterResponse" />
   </wsdl:message>
   <wsdl:portType name="IBenutzerverwaltung">
-    <wsdl:operation name="DoWork">
-      <wsdl:input wsaw:Action="http://tempuri.org/IBenutzerverwaltung/DoWork" message="tns:IBenutzerverwaltung_DoWork_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IBenutzerverwaltung/DoWorkResponse" message="tns:IBenutzerverwaltung_DoWork_OutputMessage" />
+    <wsdl:operation name="Einloggen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBenutzerverwaltung/Einloggen" message="tns:IBenutzerverwaltung_Einloggen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBenutzerverwaltung/EinloggenResponse" message="tns:IBenutzerverwaltung_Einloggen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gibKunde">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBenutzerverwaltung/gibKunde" message="tns:IBenutzerverwaltung_gibKunde_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBenutzerverwaltung/gibKundeResponse" message="tns:IBenutzerverwaltung_gibKunde_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gibLieferant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBenutzerverwaltung/gibLieferant" message="tns:IBenutzerverwaltung_gibLieferant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBenutzerverwaltung/gibLieferantResponse" message="tns:IBenutzerverwaltung_gibLieferant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gibMitarbeiter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiter" message="tns:IBenutzerverwaltung_gibMitarbeiter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiterResponse" message="tns:IBenutzerverwaltung_gibMitarbeiter_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBenutzerverwaltung" type="tns:IBenutzerverwaltung">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="DoWork">
-      <soap:operation soapAction="http://tempuri.org/IBenutzerverwaltung/DoWork" style="document" />
+    <wsdl:operation name="Einloggen">
+      <soap:operation soapAction="http://tempuri.org/IBenutzerverwaltung/Einloggen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gibKunde">
+      <soap:operation soapAction="http://tempuri.org/IBenutzerverwaltung/gibKunde" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gibLieferant">
+      <soap:operation soapAction="http://tempuri.org/IBenutzerverwaltung/gibLieferant" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gibMitarbeiter">
+      <soap:operation soapAction="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiter" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

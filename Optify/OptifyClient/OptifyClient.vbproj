@@ -137,6 +137,24 @@
     <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\OptifyClient.BenutzerverwaltungServiceReference.Benutzer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\OptifyClient.BenutzerverwaltungServiceReference.Kunde.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\OptifyClient.BenutzerverwaltungServiceReference.Lieferant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BenutzerverwaltungServiceReference\OptifyClient.BenutzerverwaltungServiceReference.Mitarbeiter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\BestellungServiceReference\Bestellungverwaltung.wsdl" />
     <None Include="Connected Services\BestellungServiceReference\Bestellungverwaltung.xsd">
       <SubType>Designer</SubType>

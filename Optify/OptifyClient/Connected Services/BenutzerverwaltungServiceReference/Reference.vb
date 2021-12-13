@@ -11,18 +11,272 @@
 Option Strict On
 Option Explicit On
 
+Imports System
+Imports System.Runtime.Serialization
 
 Namespace BenutzerverwaltungServiceReference
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Benutzer", [Namespace]:="http://schemas.datacontract.org/2004/07/Optify"),  _
+     System.SerializableAttribute(),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(BenutzerverwaltungServiceReference.Kunde)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(BenutzerverwaltungServiceReference.Lieferant)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(BenutzerverwaltungServiceReference.Mitarbeiter))>  _
+    Partial Public Class Benutzer
+        Inherits Object
+        Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+        
+        <System.NonSerializedAttribute()>  _
+        Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private BenutzerIDField As Integer
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private BenutzernameField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private NameField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private PasswortField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private VornameField As String
+        
+        <Global.System.ComponentModel.BrowsableAttribute(false)>  _
+        Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
+            Get
+                Return Me.extensionDataField
+            End Get
+            Set
+                Me.extensionDataField = value
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property BenutzerID() As Integer
+            Get
+                Return Me.BenutzerIDField
+            End Get
+            Set
+                If (Me.BenutzerIDField.Equals(value) <> true) Then
+                    Me.BenutzerIDField = value
+                    Me.RaisePropertyChanged("BenutzerID")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Benutzername() As String
+            Get
+                Return Me.BenutzernameField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.BenutzernameField, value) <> true) Then
+                    Me.BenutzernameField = value
+                    Me.RaisePropertyChanged("Benutzername")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Name() As String
+            Get
+                Return Me.NameField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.NameField, value) <> true) Then
+                    Me.NameField = value
+                    Me.RaisePropertyChanged("Name")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Passwort() As String
+            Get
+                Return Me.PasswortField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.PasswortField, value) <> true) Then
+                    Me.PasswortField = value
+                    Me.RaisePropertyChanged("Passwort")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Vorname() As String
+            Get
+                Return Me.VornameField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.VornameField, value) <> true) Then
+                    Me.VornameField = value
+                    Me.RaisePropertyChanged("Vorname")
+                End If
+            End Set
+        End Property
+        
+        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+        
+        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
+            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
+            If (Not (propertyChanged) Is Nothing) Then
+                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
+            End If
+        End Sub
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Kunde", [Namespace]:="http://schemas.datacontract.org/2004/07/Optify"),  _
+     System.SerializableAttribute()>  _
+    Partial Public Class Kunde
+        Inherits BenutzerverwaltungServiceReference.Benutzer
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private AdresseField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private FirmennameField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private SteuerIDField As String
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Adresse() As String
+            Get
+                Return Me.AdresseField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.AdresseField, value) <> true) Then
+                    Me.AdresseField = value
+                    Me.RaisePropertyChanged("Adresse")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Firmenname() As String
+            Get
+                Return Me.FirmennameField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.FirmennameField, value) <> true) Then
+                    Me.FirmennameField = value
+                    Me.RaisePropertyChanged("Firmenname")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property SteuerID() As String
+            Get
+                Return Me.SteuerIDField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.SteuerIDField, value) <> true) Then
+                    Me.SteuerIDField = value
+                    Me.RaisePropertyChanged("SteuerID")
+                End If
+            End Set
+        End Property
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Lieferant", [Namespace]:="http://schemas.datacontract.org/2004/07/Optify"),  _
+     System.SerializableAttribute()>  _
+    Partial Public Class Lieferant
+        Inherits BenutzerverwaltungServiceReference.Benutzer
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private AdresseField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private FirmennameField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private SteuerIDField As String
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Adresse() As String
+            Get
+                Return Me.AdresseField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.AdresseField, value) <> true) Then
+                    Me.AdresseField = value
+                    Me.RaisePropertyChanged("Adresse")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Firmenname() As String
+            Get
+                Return Me.FirmennameField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.FirmennameField, value) <> true) Then
+                    Me.FirmennameField = value
+                    Me.RaisePropertyChanged("Firmenname")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property SteuerID() As String
+            Get
+                Return Me.SteuerIDField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.SteuerIDField, value) <> true) Then
+                    Me.SteuerIDField = value
+                    Me.RaisePropertyChanged("SteuerID")
+                End If
+            End Set
+        End Property
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Mitarbeiter", [Namespace]:="http://schemas.datacontract.org/2004/07/Optify"),  _
+     System.SerializableAttribute()>  _
+    Partial Public Class Mitarbeiter
+        Inherits BenutzerverwaltungServiceReference.Benutzer
+    End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0"),  _
      System.ServiceModel.ServiceContractAttribute(ConfigurationName:="BenutzerverwaltungServiceReference.IBenutzerverwaltung")>  _
     Public Interface IBenutzerverwaltung
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/DoWork", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/DoWorkResponse")>  _
-        Sub DoWork()
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/Einloggen", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/EinloggenResponse")>  _
+        Function Einloggen(ByVal pstrBenutzername As String, ByVal pstrPasswort As String) As BenutzerverwaltungServiceReference.Benutzer
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/DoWork", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/DoWorkResponse")>  _
-        Function DoWorkAsync() As System.Threading.Tasks.Task
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/Einloggen", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/EinloggenResponse")>  _
+        Function EinloggenAsync(ByVal pstrBenutzername As String, ByVal pstrPasswort As String) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Benutzer)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/gibKunde", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/gibKundeResponse")>  _
+        Function gibKunde(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As BenutzerverwaltungServiceReference.Kunde
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/gibKunde", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/gibKundeResponse")>  _
+        Function gibKundeAsync(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Kunde)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/gibLieferant", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/gibLieferantResponse")>  _
+        Function gibLieferant(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As BenutzerverwaltungServiceReference.Lieferant
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/gibLieferant", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/gibLieferantResponse")>  _
+        Function gibLieferantAsync(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Lieferant)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiter", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiterResponse")>  _
+        Function gibMitarbeiter(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As BenutzerverwaltungServiceReference.Mitarbeiter
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiter", ReplyAction:="http://tempuri.org/IBenutzerverwaltung/gibMitarbeiterResponse")>  _
+        Function gibMitarbeiterAsync(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Mitarbeiter)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -56,12 +310,36 @@ Namespace BenutzerverwaltungServiceReference
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Sub DoWork() Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.DoWork
-            MyBase.Channel.DoWork
-        End Sub
+        Public Function Einloggen(ByVal pstrBenutzername As String, ByVal pstrPasswort As String) As BenutzerverwaltungServiceReference.Benutzer Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.Einloggen
+            Return MyBase.Channel.Einloggen(pstrBenutzername, pstrPasswort)
+        End Function
         
-        Public Function DoWorkAsync() As System.Threading.Tasks.Task Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.DoWorkAsync
-            Return MyBase.Channel.DoWorkAsync
+        Public Function EinloggenAsync(ByVal pstrBenutzername As String, ByVal pstrPasswort As String) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Benutzer) Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.EinloggenAsync
+            Return MyBase.Channel.EinloggenAsync(pstrBenutzername, pstrPasswort)
+        End Function
+        
+        Public Function gibKunde(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As BenutzerverwaltungServiceReference.Kunde Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.gibKunde
+            Return MyBase.Channel.gibKunde(pBen)
+        End Function
+        
+        Public Function gibKundeAsync(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Kunde) Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.gibKundeAsync
+            Return MyBase.Channel.gibKundeAsync(pBen)
+        End Function
+        
+        Public Function gibLieferant(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As BenutzerverwaltungServiceReference.Lieferant Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.gibLieferant
+            Return MyBase.Channel.gibLieferant(pBen)
+        End Function
+        
+        Public Function gibLieferantAsync(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Lieferant) Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.gibLieferantAsync
+            Return MyBase.Channel.gibLieferantAsync(pBen)
+        End Function
+        
+        Public Function gibMitarbeiter(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As BenutzerverwaltungServiceReference.Mitarbeiter Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.gibMitarbeiter
+            Return MyBase.Channel.gibMitarbeiter(pBen)
+        End Function
+        
+        Public Function gibMitarbeiterAsync(ByVal pBen As BenutzerverwaltungServiceReference.Benutzer) As System.Threading.Tasks.Task(Of BenutzerverwaltungServiceReference.Mitarbeiter) Implements BenutzerverwaltungServiceReference.IBenutzerverwaltung.gibMitarbeiterAsync
+            Return MyBase.Channel.gibMitarbeiterAsync(pBen)
         End Function
     End Class
 End Namespace
