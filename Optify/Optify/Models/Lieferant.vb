@@ -1,4 +1,4 @@
-﻿Public Class Lieferanten
+﻿Public Class Lieferant
     Inherits Benutzer
     Private mstrSteuerID As String
     Private mstrFirmenname As String
@@ -13,12 +13,12 @@
         mstrSteuerID = String.Empty
         mstrFirmenname = String.Empty
         mstrAdresse = String.Empty
-        Typ = String.Empty
+        'Typ = String.Empty
     End Sub
 
     'Parameterloser Konstruktor
     Public Sub New(pbenID As Integer, pstrFirmenname As String, pstrAdresse As String, pstrName As String,
-              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String, pbenTyp As String)
+              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String) ', pbenTyp As String
         BenutzerID = pbenID
         mstrFirmenname = pstrFirmenname
         mstrAdresse = pstrAdresse
@@ -27,21 +27,21 @@
         Benutzername = pstrBenutzername
         Passwort = pstrPasswort
         mstrSteuerID = pstrSteuerID
-        Typ = pbenTyp
+        'Typ = pbenTyp
     End Sub
 
     'Entity Konstruktor
-    'Public Sub New(pbenEntity As BenutzerEntity)
-    '    BenutzerID = pbenEntity.benIdPk
-    '    mstrFirmenname = pbenEntity.strFirmenname
-    '    mstrAdresse = pbenEntity.strAdresse
-    '    Name = pbenEntity.strName
-    '    Vorname = pbenEntity.strVorname
-    '    Benutzername = pbenEntity.strBenutzername
-    '    Passwort = pbenEntity.strPasswort
-    '    mstrSteuerID = pbenEntity.strSteuerID
-    '    Typ = pbenEntity.benTyp
-    'End Sub
+    Public Sub New(pliefEntity As LieferantEntity)
+        BenutzerID = pliefEntity.liefIdPk
+        mstrFirmenname = pliefEntity.strFirmenname
+        mstrAdresse = pliefEntity.strAdresse
+        Name = pliefEntity.strName
+        Vorname = pliefEntity.strVorname
+        Benutzername = pliefEntity.strBenutzername
+        Passwort = pliefEntity.strPasswort
+        mstrSteuerID = pliefEntity.strSteuerID
+        'Typ = pbenEntity.benTyp
+    End Sub
 
     Public Property Firmenname As String
         Get
@@ -69,18 +69,17 @@
         End Set
     End Property
 
-    'Public Overloads Function gibAlsBenutzerEntity() As BenutzerEntity
-    '    Dim benE As BenutzerEntity
-    '    benE = New BenutzerEntity
-    '    benE.benIdPk = BenutzerID
-    '    benE.strFirmenname = mstrFirmenname
-    '    benE.strAdresse = mstrAdresse
-    '    benE.strName = Name
-    '    benE.strVorname = Vorname
-    '    benE.strBenutzername = Benutzername
-    '    benE.strPasswort = Passwort
-    '    benE.strSteuerID = mstrSteuerID
-    '    benE.benTyp = Typ
-    '    Return benE
-    'End Function
+    Public Function gibAlsLieferantEntity() As LieferantEntity
+        Dim liefE As LieferantEntity = New LieferantEntity
+        liefE.liefIdPk = BenutzerID
+        liefE.strFirmenname = mstrFirmenname
+        liefE.strAdresse = mstrAdresse
+        liefE.strName = Name
+        liefE.strVorname = Vorname
+        liefE.strBenutzername = Benutzername
+        liefE.strPasswort = Passwort
+        liefE.strSteuerID = mstrSteuerID
+        Return liefE
+    End Function
+
 End Class

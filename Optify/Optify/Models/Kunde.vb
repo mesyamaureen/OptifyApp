@@ -13,13 +13,13 @@
         mstrSteuerID = String.Empty
         mstrFirmenname = String.Empty
         mstrAdresse = String.Empty
-        Typ = String.Empty
+        'Typ = String.Empty
     End Sub
 
 
     'Parameterloser Konstruktor
     Public Sub New(pbenID As Integer, pstrFirmenname As String, pstrAdresse As String, pstrName As String,
-              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String, pbenTyp As String)
+              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pstrSteuerID As String) ', pbenTyp As String
         BenutzerID = pbenID
         mstrFirmenname = pstrFirmenname
         mstrAdresse = pstrAdresse
@@ -28,22 +28,22 @@
         Benutzername = pstrBenutzername
         Passwort = pstrPasswort
         mstrSteuerID = pstrSteuerID
-        Typ = pbenTyp
+        'Typ = pbenTyp
     End Sub
 
 
     'Entity Konstruktor
-    'Public Sub New(pbenEntity As BenutzerEntity)
-    '    BenutzerID = pbenEntity.benIdPk
-    '    mstrFirmenname = pbenEntity.strFirmenname
-    '    mstrAdresse = pbenEntity.strAdresse
-    '    Name = pbenEntity.strName
-    '    Vorname = pbenEntity.strVorname
-    '    Benutzername = pbenEntity.strBenutzername
-    '    Passwort = pbenEntity.strPasswort
-    '    mstrSteuerID = pbenEntity.strSteuerID
-    '    Typ = pbenEntity.benTyp
-    'End Sub
+    Public Sub New(pkunEntity As KundeEntity)
+        BenutzerID = pkunEntity.kunIdPk
+        mstrFirmenname = pkunEntity.strFirmenname
+        mstrAdresse = pkunEntity.strAdresse
+        Name = pkunEntity.strName
+        Vorname = pkunEntity.strVorname
+        Benutzername = pkunEntity.strBenutzername
+        Passwort = pkunEntity.strPasswort
+        mstrSteuerID = pkunEntity.strSteuerID
+        'Typ = pbenEntity.benTyp
+    End Sub
 
     Public Property Firmenname As String
         Get
@@ -71,19 +71,17 @@
         End Set
     End Property
 
-    'sollen alle Attribute von Benutzer hier nochmal zugewiesen werden?
-    'Public Overloads Function gibAlsBenutzerEntity() As BenutzerEntity
-    '    Dim benE As BenutzerEntity
-    '    benE = New BenutzerEntity
-    '    benE.benIdPk = BenutzerID
-    '    benE.strFirmenname = mstrFirmenname
-    '    benE.strAdresse = mstrAdresse
-    '    benE.strName = Name
-    '    benE.strVorname = Vorname
-    '    benE.strBenutzername = Benutzername
-    '    benE.strPasswort = Passwort
-    '    benE.strSteuerID = mstrSteuerID
-    '    benE.benTyp = Typ
-    '    Return benE
-    'End Function
+    Public Function gibAlsKundeEntity() As KundeEntity
+        Dim kunE As KundeEntity = New KundeEntity
+        kunE.kunIdPk = BenutzerID
+        kunE.strFirmenname = mstrFirmenname
+        kunE.strAdresse = mstrAdresse
+        kunE.strName = Name
+        kunE.strVorname = Vorname
+        kunE.strBenutzername = Benutzername
+        kunE.strPasswort = Passwort
+        kunE.strSteuerID = mstrSteuerID
+        Return kunE
+    End Function
+
 End Class

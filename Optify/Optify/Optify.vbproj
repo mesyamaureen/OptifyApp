@@ -175,7 +175,7 @@
     <Compile Include="Models\Bestellposition.vb" />
     <Compile Include="Models\Mitarbeiter.vb" />
     <Compile Include="Models\Kunde.vb" />
-    <Compile Include="Models\Lieferanten.vb" />
+    <Compile Include="Models\Lieferant.vb" />
     <Compile Include="Models\Lieferung.vb" />
     <Compile Include="Models\Ware.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
