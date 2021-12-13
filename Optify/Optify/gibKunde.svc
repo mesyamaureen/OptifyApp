@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="VB" Debug="true" Service="Optify.gibKunde" CodeBehind="gibKunde.svc.vb" %>

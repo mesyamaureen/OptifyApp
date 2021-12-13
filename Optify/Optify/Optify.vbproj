@@ -111,7 +111,6 @@
       <DependentUpon>OptifyDb.edmx</DependentUpon>
       <LastGenOutput>OptifyDb.vb</LastGenOutput>
     </Content>
-    <Content Include="gibKunde.svc" />
     <Content Include="Lieferungverwaltung.svc" />
     <Content Include="WarenverwaltungService.svc" />
     <Content Include="Web.config" />
@@ -159,12 +158,8 @@
     <Compile Include="Data_Access\WareEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="gibKunde.svc.vb">
-      <DependentUpon>gibKunde.svc</DependentUpon>
-    </Compile>
     <Compile Include="IBenutzerverwaltung.vb" />
     <Compile Include="IBestellungverwaltung.vb" />
-    <Compile Include="IgibKunde.vb" />
     <Compile Include="ILieferungverwaltung.vb" />
     <Compile Include="IWarenverwaltungService.vb" />
     <Compile Include="Lieferungverwaltung.svc.vb">
