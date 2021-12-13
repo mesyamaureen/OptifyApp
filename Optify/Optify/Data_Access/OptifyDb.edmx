@@ -12,6 +12,7 @@
           <Property Name="bestPoIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="bestPoWIdFk" Type="int" Nullable="false" />
           <Property Name="bestPoAnzahl" Type="int" Nullable="false" />
+          <Property Name="bestPoBestIdFk" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblBestellungen">
           <Key>
@@ -21,7 +22,6 @@
           <Property Name="bestDatum" Type="date" />
           <Property Name="bestPreis" Type="float" />
           <Property Name="bestStatus" Type="varchar" MaxLength="50" />
-          <Property Name="bestPoIdFk" Type="int" Nullable="false" />
           <Property Name="bestKunIdFk" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblKunde">
@@ -77,9 +77,21 @@
           <Property Name="wIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="wBezeichnung" Type="varchar" MaxLength="50" />
           <Property Name="wPreis" Type="float" />
-          <Property Name="wBeschreibung" Type="nchar" MaxLength="10" />
+          <Property Name="wBeschreibung" Type="varchar(max)" />
           <Property Name="wBild" Type="image" />
         </EntityType>
+        <Association Name="FK_tblBestellpositionen_tblBestellungen">
+          <End Role="tblBestellungen" Type="Self.tblBestellungen" Multiplicity="1" />
+          <End Role="tblBestellpositionen" Type="Self.tblBestellpositionen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellungen">
+              <PropertyRef Name="bestIdPk" />
+            </Principal>
+            <Dependent Role="tblBestellpositionen">
+              <PropertyRef Name="bestPoBestIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblBestellpositionen_tblWaren">
           <End Role="tblWaren" Type="Self.tblWaren" Multiplicity="1" />
           <End Role="tblBestellpositionen" Type="Self.tblBestellpositionen" Multiplicity="*" />
@@ -89,18 +101,6 @@
             </Principal>
             <Dependent Role="tblBestellpositionen">
               <PropertyRef Name="bestPoWIdFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblBestellungen_tblBestellpositionen">
-          <End Role="tblBestellpositionen" Type="Self.tblBestellpositionen" Multiplicity="1" />
-          <End Role="tblBestellungen" Type="Self.tblBestellungen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblBestellpositionen">
-              <PropertyRef Name="bestPoIdPk" />
-            </Principal>
-            <Dependent Role="tblBestellungen">
-              <PropertyRef Name="bestPoIdFk" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -148,13 +148,13 @@
           <EntitySet Name="tblLieferungen" EntityType="Self.tblLieferungen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblMitarbeiter" EntityType="Self.tblMitarbeiter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblWaren" EntityType="Self.tblWaren" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblBestellpositionen_tblBestellungen" Association="Self.FK_tblBestellpositionen_tblBestellungen">
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblBestellpositionen_tblWaren" Association="Self.FK_tblBestellpositionen_tblWaren">
             <End Role="tblWaren" EntitySet="tblWaren" />
             <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblBestellungen_tblBestellpositionen" Association="Self.FK_tblBestellungen_tblBestellpositionen">
-            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
-            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
           </AssociationSet>
           <AssociationSet Name="FK_tblBestellungen_tblKunde" Association="Self.FK_tblBestellungen_tblKunde">
             <End Role="tblKunde" EntitySet="tblKunde" />
@@ -181,8 +181,9 @@
           <Property Name="bestPoIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="bestPoWIdFk" Type="Int32" Nullable="false" />
           <Property Name="bestPoAnzahl" Type="Int32" Nullable="false" />
+          <Property Name="bestPoBestIdFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblBestellungen" Relationship="Self.FK_tblBestellpositionen_tblBestellungen" FromRole="tblBestellpositionen" ToRole="tblBestellungen" />
           <NavigationProperty Name="tblWaren" Relationship="Self.FK_tblBestellpositionen_tblWaren" FromRole="tblBestellpositionen" ToRole="tblWaren" />
-          <NavigationProperty Name="tblBestellungen" Relationship="Self.FK_tblBestellungen_tblBestellpositionen" FromRole="tblBestellpositionen" ToRole="tblBestellungen" />
         </EntityType>
         <EntityType Name="BestellungEntity">
           <Key>
@@ -192,9 +193,8 @@
           <Property Name="bestDatum" Type="DateTime" Precision="0" />
           <Property Name="bestPreis" Type="Double" />
           <Property Name="bestStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="bestPoIdFk" Type="Int32" Nullable="false" />
           <Property Name="bestKunIdFk" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblBestellpositionen" Relationship="Self.FK_tblBestellungen_tblBestellpositionen" FromRole="tblBestellungen" ToRole="tblBestellpositionen" />
+          <NavigationProperty Name="tblBestellpositionen" Relationship="Self.FK_tblBestellpositionen_tblBestellungen" FromRole="tblBestellungen" ToRole="tblBestellpositionen" />
           <NavigationProperty Name="tblKunde" Relationship="Self.FK_tblBestellungen_tblKunde" FromRole="tblBestellungen" ToRole="tblKunde" />
           <NavigationProperty Name="tblLieferungen" Relationship="Self.FK_tblLieferungen_tblBestellungen" FromRole="tblBestellungen" ToRole="tblLieferungen" />
         </EntityType>
@@ -255,10 +255,22 @@
           <Property Name="wIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="wBezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="wPreis" Type="Double" />
-          <Property Name="wBeschreibung" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="wBeschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="wBild" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="tblBestellpositionen" Relationship="Self.FK_tblBestellpositionen_tblWaren" FromRole="tblWaren" ToRole="tblBestellpositionen" />
         </EntityType>
+        <Association Name="FK_tblBestellpositionen_tblBestellungen">
+          <End Role="tblBestellungen" Type="OptifyModel.BestellungEntity" Multiplicity="1" />
+          <End Role="tblBestellpositionen" Type="OptifyModel.BestellpositionEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellungen">
+              <PropertyRef Name="bestIdPk" />
+            </Principal>
+            <Dependent Role="tblBestellpositionen">
+              <PropertyRef Name="bestPoBestIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblBestellpositionen_tblWaren">
           <End Role="tblWaren" Type="OptifyModel.WareEntity" Multiplicity="1" />
           <End Role="tblBestellpositionen" Type="OptifyModel.BestellpositionEntity" Multiplicity="*" />
@@ -268,18 +280,6 @@
             </Principal>
             <Dependent Role="tblBestellpositionen">
               <PropertyRef Name="bestPoWIdFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tblBestellungen_tblBestellpositionen">
-          <End Role="tblBestellpositionen" Type="OptifyModel.BestellpositionEntity" Multiplicity="1" />
-          <End Role="tblBestellungen" Type="OptifyModel.BestellungEntity" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tblBestellpositionen">
-              <PropertyRef Name="bestPoIdPk" />
-            </Principal>
-            <Dependent Role="tblBestellungen">
-              <PropertyRef Name="bestPoIdFk" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -327,13 +327,13 @@
           <EntitySet Name="tblLieferungen" EntityType="OptifyModel.LieferungEntity" />
           <EntitySet Name="tblMitarbeiter" EntityType="OptifyModel.MitarbeiterEntity" />
           <EntitySet Name="tblWaren" EntityType="OptifyModel.WareEntity" />
+          <AssociationSet Name="FK_tblBestellpositionen_tblBestellungen" Association="Self.FK_tblBestellpositionen_tblBestellungen">
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblBestellpositionen_tblWaren" Association="Self.FK_tblBestellpositionen_tblWaren">
             <End Role="tblWaren" EntitySet="tblWaren" />
             <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tblBestellungen_tblBestellpositionen" Association="Self.FK_tblBestellungen_tblBestellpositionen">
-            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
-            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
           </AssociationSet>
           <AssociationSet Name="FK_tblBestellungen_tblKunde" Association="Self.FK_tblBestellungen_tblKunde">
             <End Role="tblKunde" EntitySet="tblKunde" />
@@ -360,6 +360,7 @@
                 <ScalarProperty Name="bestPoIdPk" ColumnName="bestPoIdPk" />
                 <ScalarProperty Name="bestPoWIdFk" ColumnName="bestPoWIdFk" />
                 <ScalarProperty Name="bestPoAnzahl" ColumnName="bestPoAnzahl" />
+                <ScalarProperty Name="bestPoBestIdFk" ColumnName="bestPoBestIdFk" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -370,7 +371,6 @@
                 <ScalarProperty Name="bestDatum" ColumnName="bestDatum" />
                 <ScalarProperty Name="bestPreis" ColumnName="bestPreis" />
                 <ScalarProperty Name="bestStatus" ColumnName="bestStatus" />
-                <ScalarProperty Name="bestPoIdFk" ColumnName="bestPoIdFk" />
                 <ScalarProperty Name="bestKunIdFk" ColumnName="bestKunIdFk" />
               </MappingFragment>
             </EntityTypeMapping>

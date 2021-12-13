@@ -15,10 +15,9 @@ Partial Public Class BestellungEntity
     Public Property bestDatum As Nullable(Of Date)
     Public Property bestPreis As Nullable(Of Double)
     Public Property bestStatus As String
-    Public Property bestPoIdFk As Integer
     Public Property bestKunIdFk As Integer
 
-    Public Overridable Property tblBestellpositionen As BestellpositionEntity
+    Public Overridable Property tblBestellpositionen As ICollection(Of BestellpositionEntity) = New HashSet(Of BestellpositionEntity)
     Public Overridable Property tblKunde As KundeEntity
     Public Overridable Property tblLieferungen As ICollection(Of LieferungEntity) = New HashSet(Of LieferungEntity)
 

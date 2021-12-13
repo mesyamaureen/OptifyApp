@@ -18,14 +18,14 @@ Public Class Lieferungverwaltung
 
     Public Function LieferungOeffnen(pintLiefID As Integer) Implements ILieferungverwaltung.LieferungOeffnen
         Dim lief As Lieferung
-        Dim liefEntity As LieferungenEntity
+        Dim liefEntity As LieferungEntity
         liefEntity = db.tblLieferungen.Find(pintLiefID)
         lief = New Lieferung(liefEntity)
         Return lief
     End Function
 
     Public Sub hinzufuegenLieferung(pLieferung As Lieferung) Implements ILieferungverwaltung.hinzufuegenLieferung
-        Dim liefEntity As LieferungenEntity
+        Dim liefEntity As LieferungEntity
         If pLieferung Is Nothing Then
             Exit Sub
         End If
@@ -36,7 +36,7 @@ Public Class Lieferungverwaltung
     End Sub
 
     Public Sub loeschenLieferung(pliefId As Integer) Implements ILieferungverwaltung.loeschenLieferung
-        Dim liefEntity As LieferungenEntity
+        Dim liefEntity As LieferungEntity
         liefEntity = db.tblLieferungen.Find(pliefId)
         If liefEntity Is Nothing Then
             Exit Sub

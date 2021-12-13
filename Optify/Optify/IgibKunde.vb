@@ -4,8 +4,8 @@
 <ServiceContract()>
 Public Interface IgibKunde
 
-    <OperationContract()>
-    Function gibKunde(pstrBenutzername As String, pstrPasswort As String) As Kunde
+    '<OperationContract()>
+    'Function gibKunde(pstrBenutzername As String, pstrPasswort As String) As Kunde
 
 
 

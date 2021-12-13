@@ -9,7 +9,7 @@ Public Class WarenverwaltungService
     Function alleWarenLaden() As List(Of Ware) Implements IWarenverwaltungService.alleWarenLaden
         Dim wListe As List(Of Ware)
         Dim w As Ware
-        Dim wEntity As WarenEntity
+        Dim wEntity As WareEntity
 
         wListe = New List(Of Ware)
         For Each wEntity In db.tblWaren.ToList
@@ -25,7 +25,7 @@ Public Class WarenverwaltungService
     Function wareOeffnen(pIntId As Integer) As Ware Implements IWarenverwaltungService.wareOeffnen
 
         Dim w As Ware
-        Dim wEntity As WarenEntity
+        Dim wEntity As WareEntity
 
         wEntity = db.tblWaren.Find(pIntId)
         w = New Ware(wEntity)
@@ -35,7 +35,7 @@ Public Class WarenverwaltungService
     End Function
 
     Sub wareLoeschen(pintId As Integer) Implements IWarenverwaltungService.wareLoeschen
-        Dim wEntity As WarenEntity ' Urlaubsantrag, der in der Datenbank existiert
+        Dim wEntity As WareEntity ' Urlaubsantrag, der in der Datenbank existiert
 
         '' Suchen nach einem Urlaubsantrag in der Datenbank mit der übergebenen ID
         wEntity = db.tblWaren.Find(pintId)
@@ -56,7 +56,7 @@ Public Class WarenverwaltungService
 
 
     Sub wareSpeichern(pWare As Ware) Implements IWarenverwaltungService.wareSpeichern
-        Dim wEntity As WarenEntity ' Urlaubsantrag, der in der Datenbank gespeichert wird
+        Dim wEntity As WareEntity ' Urlaubsantrag, der in der Datenbank gespeichert wird
 
         '' Prüfen, ob ein Urlaubsantrag übergeben wurde
         If pWare Is Nothing Then
@@ -74,7 +74,7 @@ Public Class WarenverwaltungService
 
     Public Function wareHinzufuegen(pWare As Ware) As Integer Implements IWarenverwaltungService.wareHinzufuegen
 
-        Dim wEntity As WarenEntity
+        Dim wEntity As WareEntity
 
         '' Prüfen, ob ein Urlaubsantrag übergeben wurde
         If pWare Is Nothing Then

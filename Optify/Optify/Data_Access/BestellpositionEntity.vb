@@ -14,8 +14,9 @@ Partial Public Class BestellpositionEntity
     Public Property bestPoIdPk As Integer
     Public Property bestPoWIdFk As Integer
     Public Property bestPoAnzahl As Integer
+    Public Property bestPoBestIdFk As Integer
 
+    Public Overridable Property tblBestellungen As BestellungEntity
     Public Overridable Property tblWaren As WareEntity
-    Public Overridable Property tblBestellungen As ICollection(Of BestellungEntity) = New HashSet(Of BestellungEntity)
 
 End Class

@@ -4,17 +4,17 @@ Public Class gibKunde
     Implements IgibKunde
 
     'liefern gibKunde wenn benBenutzer = Kunde - bentyp = "Kunde"
-    Public Function gibKunde(pstrBenutzername As String, pstrPasswort As String) As Kunde Implements IgibKunde.gibKunde 'what kind of parameter needed?
-        'Deklaration
-        Dim benEntity As BenutzerEntity
-        'Dim benBenutzer As Benutzer
-        Dim Benutzerverwaltung As Benutzerverwaltung
-        'überprüfen, ob bentyp = "Kunde"
-        Try
+    'Public Function gibKunde(pstrBenutzername As String, pstrPasswort As String) As Kunde Implements IgibKunde.gibKunde 'what kind of parameter needed?
+    '    'Deklaration
+    '    'Dim benEntity As BenutzerEntity
+    '    'Dim benBenutzer As Benutzer
+    '    'Dim Benutzerverwaltung As Benutzerverwaltung
+    '    'überprüfen, ob bentyp = "Kunde"
+    '    'Try
 
-        Catch ex As Exception
+    '    'Catch ex As Exception
 
-        End Try
-        'liefern Kunde zurück
-    End Function
+    '    'End Try
+    '    'liefern Kunde zurück
+    'End Function
 End Class
