@@ -5,14 +5,12 @@
     Dim mstrBezeichnung As String
     Dim mdblWPreis As Double
     Dim mstrBeschreibung As String
-    'Dim mBild As Image
 
     Public Sub New()
         mintWID = -1
         mstrBezeichnung = String.Empty
         mdblWPreis = 0
         mstrBeschreibung = String.Empty
-        'mbild?
     End Sub
 
     Public Sub New(pintWID As Integer, pstrBezeichnung As String, pdblWPreis As Double, pstrBeschreibung As String)
@@ -20,7 +18,6 @@
         mstrBezeichnung = pstrBezeichnung
         mdblWPreis = pdblWPreis
         mstrBeschreibung = pstrBeschreibung
-        'bild?
     End Sub
 
     Public Sub New(pWareEntity As WareEntity)
@@ -28,7 +25,6 @@
         mstrBezeichnung = pWareEntity.wBezeichnung
         mstrBeschreibung = pWareEntity.wBeschreibung
         mdblWPreis = pWareEntity.wPreis
-        'bild?
     End Sub
 
 
