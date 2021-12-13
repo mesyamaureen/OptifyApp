@@ -1,12 +1,12 @@
 ﻿Imports System.Data.Entity
 Public Class Bestellungverwaltung
     Implements IBestellungverwaltung
-    Private db As OptifyDBEntities = New OptifyDBEntities
+    Private db As OptifyEntities1 = New OptifyEntities1
 
     Public Function alleBestellungenLaden() As List(Of Bestellung) Implements IBestellungverwaltung.alleBestellungenLaden
         Dim bestListe As List(Of Bestellung)
         Dim best As Bestellung
-        Dim bestEntity As BestellungEntity
+        Dim bestEntity As BestellungenEntity
         bestListe = New List(Of Bestellung)
         For Each bestEntity In db.tblBestellungen.ToList 'Jede Bestellung in der Datenbank lesen
             best = New Bestellung(bestEntity)
@@ -19,7 +19,7 @@ Public Class Bestellungverwaltung
     Public Function BestellungOeffnen(pintBestID As Integer) As Bestellung Implements IBestellungverwaltung.BestellungOeffnen
         'Deklaration
         Dim best As Bestellung
-        Dim bestEntity As BestellungEntity
+        Dim bestEntity As BestellungenEntity
 
         'Suchen nach einer Bestellung in der Datenbank mit übergegebenen ID
         bestEntity = db.tblBestellungen.Find(pintBestID)
@@ -36,7 +36,7 @@ Public Class Bestellungverwaltung
 
 
     Sub BestellungStornieren(pintBestID As Integer) Implements IBestellungverwaltung.BestellungStornieren
-        Dim bestEntity As BestellungEntity
+        Dim bestEntity As BestellungenEntity
         bestEntity = db.tblBestellungen.Find(pintBestID)
         If bestEntity Is Nothing Then
             Exit Sub
@@ -51,7 +51,7 @@ Public Class Bestellungverwaltung
     'POST
     Sub Bestellungspeichern(pBestellung As Bestellung) Implements IBestellungverwaltung.Bestellungspeichern
         'Deklaration
-        Dim bestEntity As BestellungEntity
+        Dim bestEntity As BestellungenEntity
 
         'Prüfen, ob eine Bestellung übergeben wurde
         If pBestellung Is Nothing Then

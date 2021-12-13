@@ -3,7 +3,7 @@
 Imports System.Data.Entity
 Public Class Lieferungverwaltung
     Implements ILieferungverwaltung
-    Private db As OptifyDBEntities = New OptifyDBEntities
+    Private db As OptifyEntities1 = New OptifyEntities1
 
     Public Function gibLieferungen() As List(Of Lieferung) Implements ILieferungverwaltung.gibLieferungen
         Dim liefListe As List(Of Lieferung)
@@ -18,14 +18,14 @@ Public Class Lieferungverwaltung
 
     Public Function LieferungOeffnen(pintLiefID As Integer) Implements ILieferungverwaltung.LieferungOeffnen
         Dim lief As Lieferung
-        Dim liefEntity As LieferungEntity
+        Dim liefEntity As LieferungenEntity
         liefEntity = db.tblLieferungen.Find(pintLiefID)
         lief = New Lieferung(liefEntity)
         Return lief
     End Function
 
     Public Sub hinzufuegenLieferung(pLieferung As Lieferung) Implements ILieferungverwaltung.hinzufuegenLieferung
-        Dim liefEntity As LieferungEntity
+        Dim liefEntity As LieferungenEntity
         If pLieferung Is Nothing Then
             Exit Sub
         End If
@@ -36,7 +36,7 @@ Public Class Lieferungverwaltung
     End Sub
 
     Public Sub loeschenLieferung(pliefId As Integer) Implements ILieferungverwaltung.loeschenLieferung
-        Dim liefEntity As LieferungEntity
+        Dim liefEntity As LieferungenEntity
         liefEntity = db.tblLieferungen.Find(pliefId)
         If liefEntity Is Nothing Then
             Exit Sub

@@ -101,15 +101,15 @@
     </Content>
     <Content Include="Benutzerverwaltung.svc" />
     <Content Include="Bestellungverwaltung.svc" />
-    <Content Include="Data_Access\Optify.Context.tt">
+    <Content Include="Data_Access\OptifyDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Optify.Context.vb</LastGenOutput>
-      <DependentUpon>Optify.edmx</DependentUpon>
+      <DependentUpon>OptifyDb.edmx</DependentUpon>
+      <LastGenOutput>OptifyDb.Context.vb</LastGenOutput>
     </Content>
-    <Content Include="Data_Access\Optify.tt">
+    <Content Include="Data_Access\OptifyDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Optify.edmx</DependentUpon>
-      <LastGenOutput>Optify.vb</LastGenOutput>
+      <DependentUpon>OptifyDb.edmx</DependentUpon>
+      <LastGenOutput>OptifyDb.vb</LastGenOutput>
     </Content>
     <Content Include="gibKunde.svc" />
     <Content Include="Lieferungverwaltung.svc" />
@@ -123,32 +123,41 @@
     <Compile Include="Bestellungverwaltung.svc.vb">
       <DependentUpon>Bestellungverwaltung.svc</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\BenutzerEntity.vb">
-      <DependentUpon>Optify.tt</DependentUpon>
+    <Compile Include="Data_Access\BestellpositionenEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\BestellungEntity.vb">
-      <DependentUpon>Optify.tt</DependentUpon>
+    <Compile Include="Data_Access\BestellungenEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\LieferungEntity.vb">
-      <DependentUpon>Optify.tt</DependentUpon>
+    <Compile Include="Data_Access\KundenEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\Optify.Context.vb">
+    <Compile Include="Data_Access\LieferantenEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\LieferungenEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\MitarbeiterEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Access\OptifyDb.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Optify.Context.tt</DependentUpon>
+      <DependentUpon>OptifyDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\Optify.Designer.vb">
+    <Compile Include="Data_Access\OptifyDb.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Optify.edmx</DependentUpon>
+      <DependentUpon>OptifyDb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\Optify.vb">
+    <Compile Include="Data_Access\OptifyDb.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Optify.tt</DependentUpon>
+      <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\WareEntity.vb">
-      <DependentUpon>Optify.tt</DependentUpon>
+    <Compile Include="Data_Access\WarenEntity.vb">
+      <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
     <Compile Include="gibKunde.svc.vb">
       <DependentUpon>gibKunde.svc</DependentUpon>
@@ -197,12 +206,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Data_Access\Optify.edmx">
+    <EntityDeploy Include="Data_Access\OptifyDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Optify.Designer.vb</LastGenOutput>
+      <LastGenOutput>OptifyDb.Designer.vb</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Data_Access\Optify.edmx.diagram">
-      <DependentUpon>Optify.edmx</DependentUpon>
+    <Content Include="Data_Access\OptifyDb.edmx.diagram">
+      <DependentUpon>OptifyDb.edmx</DependentUpon>
     </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

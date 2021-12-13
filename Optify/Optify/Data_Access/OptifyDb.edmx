@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OptifyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblBestellpositionen">
+          <Key>
+            <PropertyRef Name="bestPoIdPk" />
+          </Key>
+          <Property Name="bestPoIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bestPoWIdFk" Type="int" Nullable="false" />
+          <Property Name="bestPoAnzahl" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblBestellungen">
+          <Key>
+            <PropertyRef Name="bestIdPk" />
+          </Key>
+          <Property Name="bestIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bestDatum" Type="date" />
+          <Property Name="bestPreis" Type="float" />
+          <Property Name="bestStatus" Type="varchar" MaxLength="50" />
+          <Property Name="bestPoIdFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblKunde">
+          <Key>
+            <PropertyRef Name="kunIdPk" />
+          </Key>
+          <Property Name="kunIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strFirmenname" Type="varchar" MaxLength="50" />
+          <Property Name="strAdresse" Type="varchar" MaxLength="50" />
+          <Property Name="strName" Type="varchar" MaxLength="50" />
+          <Property Name="strVorname" Type="varchar" MaxLength="50" />
+          <Property Name="strBenutzername" Type="varchar" MaxLength="50" />
+          <Property Name="strPasswort" Type="varchar" MaxLength="50" />
+          <Property Name="strSteuerID" Type="varchar" MaxLength="50" />
+          <Property Name="kunBestellungIdFk" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLieferanten">
+          <Key>
+            <PropertyRef Name="liefIdPk" />
+          </Key>
+          <Property Name="liefIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strFirmenname" Type="varchar" MaxLength="50" />
+          <Property Name="strAdresse" Type="varchar" MaxLength="50" />
+          <Property Name="strName" Type="varchar" MaxLength="50" />
+          <Property Name="strVorname" Type="varchar" MaxLength="50" />
+          <Property Name="strBenutzername" Type="varchar" MaxLength="50" />
+          <Property Name="strPasswort" Type="varchar" MaxLength="50" />
+          <Property Name="strSteuerID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblLieferungen">
+          <Key>
+            <PropertyRef Name="lieferIdPk" />
+          </Key>
+          <Property Name="lieferIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datAnfang" Type="date" Nullable="false" />
+          <Property Name="datEnde" Type="date" Nullable="false" />
+          <Property Name="bestIdFk" Type="int" Nullable="false" />
+          <Property Name="liefIdFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMitarbeiter">
+          <Key>
+            <PropertyRef Name="mitIdPk" />
+          </Key>
+          <Property Name="mitIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="varchar" MaxLength="50" />
+          <Property Name="strVorname" Type="varchar" MaxLength="50" />
+          <Property Name="strBenutzername" Type="varchar" MaxLength="50" />
+          <Property Name="strPasswort" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblWaren">
+          <Key>
+            <PropertyRef Name="wIdPk" />
+          </Key>
+          <Property Name="wIdPk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wBezeichnung" Type="varchar" MaxLength="50" />
+          <Property Name="wPreis" Type="float" />
+          <Property Name="wBeschreibung" Type="nchar" MaxLength="10" />
+          <Property Name="wBild" Type="image" />
+        </EntityType>
+        <Association Name="FK_tblBestellpositionen_tblWaren">
+          <End Role="tblWaren" Type="Self.tblWaren" Multiplicity="1" />
+          <End Role="tblBestellpositionen" Type="Self.tblBestellpositionen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblWaren">
+              <PropertyRef Name="wIdPk" />
+            </Principal>
+            <Dependent Role="tblBestellpositionen">
+              <PropertyRef Name="bestPoWIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBestellungen_tblBestellpositionen">
+          <End Role="tblBestellpositionen" Type="Self.tblBestellpositionen" Multiplicity="1" />
+          <End Role="tblBestellungen" Type="Self.tblBestellungen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellpositionen">
+              <PropertyRef Name="bestPoIdPk" />
+            </Principal>
+            <Dependent Role="tblBestellungen">
+              <PropertyRef Name="bestPoIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblKunde_tblBestellungen">
+          <End Role="tblBestellungen" Type="Self.tblBestellungen" Multiplicity="0..1" />
+          <End Role="tblKunde" Type="Self.tblKunde" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellungen">
+              <PropertyRef Name="bestIdPk" />
+            </Principal>
+            <Dependent Role="tblKunde">
+              <PropertyRef Name="kunBestellungIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLieferungen_tblBestellungen">
+          <End Role="tblBestellungen" Type="Self.tblBestellungen" Multiplicity="1" />
+          <End Role="tblLieferungen" Type="Self.tblLieferungen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellungen">
+              <PropertyRef Name="bestIdPk" />
+            </Principal>
+            <Dependent Role="tblLieferungen">
+              <PropertyRef Name="bestIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLieferungen_tblLieferanten">
+          <End Role="tblLieferanten" Type="Self.tblLieferanten" Multiplicity="1" />
+          <End Role="tblLieferungen" Type="Self.tblLieferungen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLieferanten">
+              <PropertyRef Name="liefIdPk" />
+            </Principal>
+            <Dependent Role="tblLieferungen">
+              <PropertyRef Name="liefIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OptifyModelStoreContainer">
+          <EntitySet Name="tblBestellpositionen" EntityType="Self.tblBestellpositionen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBestellungen" EntityType="Self.tblBestellungen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKunde" EntityType="Self.tblKunde" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLieferanten" EntityType="Self.tblLieferanten" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLieferungen" EntityType="Self.tblLieferungen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMitarbeiter" EntityType="Self.tblMitarbeiter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblWaren" EntityType="Self.tblWaren" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblBestellpositionen_tblWaren" Association="Self.FK_tblBestellpositionen_tblWaren">
+            <End Role="tblWaren" EntitySet="tblWaren" />
+            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBestellungen_tblBestellpositionen" Association="Self.FK_tblBestellungen_tblBestellpositionen">
+            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblKunde_tblBestellungen" Association="Self.FK_tblKunde_tblBestellungen">
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+            <End Role="tblKunde" EntitySet="tblKunde" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLieferungen_tblBestellungen" Association="Self.FK_tblLieferungen_tblBestellungen">
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+            <End Role="tblLieferungen" EntitySet="tblLieferungen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLieferungen_tblLieferanten" Association="Self.FK_tblLieferungen_tblLieferanten">
+            <End Role="tblLieferanten" EntitySet="tblLieferanten" />
+            <End Role="tblLieferungen" EntitySet="tblLieferungen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OptifyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BestellpositionenEntity">
+          <Key>
+            <PropertyRef Name="bestPoIdPk" />
+          </Key>
+          <Property Name="bestPoIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bestPoWIdFk" Type="Int32" Nullable="false" />
+          <Property Name="bestPoAnzahl" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblWaren" Relationship="Self.FK_tblBestellpositionen_tblWaren" FromRole="tblBestellpositionen" ToRole="tblWaren" />
+          <NavigationProperty Name="tblBestellungen" Relationship="Self.FK_tblBestellungen_tblBestellpositionen" FromRole="tblBestellpositionen" ToRole="tblBestellungen" />
+        </EntityType>
+        <EntityType Name="BestellungenEntity">
+          <Key>
+            <PropertyRef Name="bestIdPk" />
+          </Key>
+          <Property Name="bestIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bestDatum" Type="DateTime" Precision="0" />
+          <Property Name="bestPreis" Type="Double" />
+          <Property Name="bestStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bestPoIdFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblBestellpositionen" Relationship="Self.FK_tblBestellungen_tblBestellpositionen" FromRole="tblBestellungen" ToRole="tblBestellpositionen" />
+          <NavigationProperty Name="tblKunde" Relationship="Self.FK_tblKunde_tblBestellungen" FromRole="tblBestellungen" ToRole="tblKunde" />
+          <NavigationProperty Name="tblLieferungen" Relationship="Self.FK_tblLieferungen_tblBestellungen" FromRole="tblBestellungen" ToRole="tblLieferungen" />
+        </EntityType>
+        <EntityType Name="KundenEntity">
+          <Key>
+            <PropertyRef Name="kunIdPk" />
+          </Key>
+          <Property Name="kunIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strFirmenname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strAdresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strVorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strBenutzername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strPasswort" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strSteuerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kunBestellungIdFk" Type="Int32" />
+          <NavigationProperty Name="tblBestellungen" Relationship="Self.FK_tblKunde_tblBestellungen" FromRole="tblKunde" ToRole="tblBestellungen" />
+        </EntityType>
+        <EntityType Name="LieferantenEntity">
+          <Key>
+            <PropertyRef Name="liefIdPk" />
+          </Key>
+          <Property Name="liefIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strFirmenname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strAdresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strVorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strBenutzername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strPasswort" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strSteuerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblLieferungen" Relationship="Self.FK_tblLieferungen_tblLieferanten" FromRole="tblLieferanten" ToRole="tblLieferungen" />
+        </EntityType>
+        <EntityType Name="LieferungenEntity">
+          <Key>
+            <PropertyRef Name="lieferIdPk" />
+          </Key>
+          <Property Name="lieferIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datAnfang" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="datEnde" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="bestIdFk" Type="Int32" Nullable="false" />
+          <Property Name="liefIdFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblBestellungen" Relationship="Self.FK_tblLieferungen_tblBestellungen" FromRole="tblLieferungen" ToRole="tblBestellungen" />
+          <NavigationProperty Name="tblLieferanten" Relationship="Self.FK_tblLieferungen_tblLieferanten" FromRole="tblLieferungen" ToRole="tblLieferanten" />
+        </EntityType>
+        <EntityType Name="MitarbeiterEntity">
+          <Key>
+            <PropertyRef Name="mitIdPk" />
+          </Key>
+          <Property Name="mitIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strVorname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strBenutzername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="strPasswort" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WarenEntity">
+          <Key>
+            <PropertyRef Name="wIdPk" />
+          </Key>
+          <Property Name="wIdPk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wBezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wPreis" Type="Double" />
+          <Property Name="wBeschreibung" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="wBild" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="tblBestellpositionen" Relationship="Self.FK_tblBestellpositionen_tblWaren" FromRole="tblWaren" ToRole="tblBestellpositionen" />
+        </EntityType>
+        <Association Name="FK_tblBestellpositionen_tblWaren">
+          <End Role="tblWaren" Type="OptifyModel.WarenEntity" Multiplicity="1" />
+          <End Role="tblBestellpositionen" Type="OptifyModel.BestellpositionenEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblWaren">
+              <PropertyRef Name="wIdPk" />
+            </Principal>
+            <Dependent Role="tblBestellpositionen">
+              <PropertyRef Name="bestPoWIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBestellungen_tblBestellpositionen">
+          <End Role="tblBestellpositionen" Type="OptifyModel.BestellpositionenEntity" Multiplicity="1" />
+          <End Role="tblBestellungen" Type="OptifyModel.BestellungenEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellpositionen">
+              <PropertyRef Name="bestPoIdPk" />
+            </Principal>
+            <Dependent Role="tblBestellungen">
+              <PropertyRef Name="bestPoIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblKunde_tblBestellungen">
+          <End Role="tblBestellungen" Type="OptifyModel.BestellungenEntity" Multiplicity="0..1" />
+          <End Role="tblKunde" Type="OptifyModel.KundenEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellungen">
+              <PropertyRef Name="bestIdPk" />
+            </Principal>
+            <Dependent Role="tblKunde">
+              <PropertyRef Name="kunBestellungIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLieferungen_tblBestellungen">
+          <End Role="tblBestellungen" Type="OptifyModel.BestellungenEntity" Multiplicity="1" />
+          <End Role="tblLieferungen" Type="OptifyModel.LieferungenEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblBestellungen">
+              <PropertyRef Name="bestIdPk" />
+            </Principal>
+            <Dependent Role="tblLieferungen">
+              <PropertyRef Name="bestIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLieferungen_tblLieferanten">
+          <End Role="tblLieferanten" Type="OptifyModel.LieferantenEntity" Multiplicity="1" />
+          <End Role="tblLieferungen" Type="OptifyModel.LieferungenEntity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLieferanten">
+              <PropertyRef Name="liefIdPk" />
+            </Principal>
+            <Dependent Role="tblLieferungen">
+              <PropertyRef Name="liefIdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OptifyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblBestellpositionen" EntityType="OptifyModel.BestellpositionenEntity" />
+          <EntitySet Name="tblBestellungen" EntityType="OptifyModel.BestellungenEntity" />
+          <EntitySet Name="tblKunde" EntityType="OptifyModel.KundenEntity" />
+          <EntitySet Name="tblLieferanten" EntityType="OptifyModel.LieferantenEntity" />
+          <EntitySet Name="tblLieferungen" EntityType="OptifyModel.LieferungenEntity" />
+          <EntitySet Name="tblMitarbeiter" EntityType="OptifyModel.MitarbeiterEntity" />
+          <EntitySet Name="tblWaren" EntityType="OptifyModel.WarenEntity" />
+          <AssociationSet Name="FK_tblBestellpositionen_tblWaren" Association="Self.FK_tblBestellpositionen_tblWaren">
+            <End Role="tblWaren" EntitySet="tblWaren" />
+            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBestellungen_tblBestellpositionen" Association="Self.FK_tblBestellungen_tblBestellpositionen">
+            <End Role="tblBestellpositionen" EntitySet="tblBestellpositionen" />
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblKunde_tblBestellungen" Association="Self.FK_tblKunde_tblBestellungen">
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+            <End Role="tblKunde" EntitySet="tblKunde" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLieferungen_tblBestellungen" Association="Self.FK_tblLieferungen_tblBestellungen">
+            <End Role="tblBestellungen" EntitySet="tblBestellungen" />
+            <End Role="tblLieferungen" EntitySet="tblLieferungen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLieferungen_tblLieferanten" Association="Self.FK_tblLieferungen_tblLieferanten">
+            <End Role="tblLieferanten" EntitySet="tblLieferanten" />
+            <End Role="tblLieferungen" EntitySet="tblLieferungen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OptifyModelStoreContainer" CdmEntityContainer="OptifyEntities1">
+          <EntitySetMapping Name="tblBestellpositionen">
+            <EntityTypeMapping TypeName="OptifyModel.BestellpositionenEntity">
+              <MappingFragment StoreEntitySet="tblBestellpositionen">
+                <ScalarProperty Name="bestPoIdPk" ColumnName="bestPoIdPk" />
+                <ScalarProperty Name="bestPoWIdFk" ColumnName="bestPoWIdFk" />
+                <ScalarProperty Name="bestPoAnzahl" ColumnName="bestPoAnzahl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBestellungen">
+            <EntityTypeMapping TypeName="OptifyModel.BestellungenEntity">
+              <MappingFragment StoreEntitySet="tblBestellungen">
+                <ScalarProperty Name="bestIdPk" ColumnName="bestIdPk" />
+                <ScalarProperty Name="bestDatum" ColumnName="bestDatum" />
+                <ScalarProperty Name="bestPreis" ColumnName="bestPreis" />
+                <ScalarProperty Name="bestStatus" ColumnName="bestStatus" />
+                <ScalarProperty Name="bestPoIdFk" ColumnName="bestPoIdFk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblKunde">
+            <EntityTypeMapping TypeName="OptifyModel.KundenEntity">
+              <MappingFragment StoreEntitySet="tblKunde">
+                <ScalarProperty Name="kunIdPk" ColumnName="kunIdPk" />
+                <ScalarProperty Name="strFirmenname" ColumnName="strFirmenname" />
+                <ScalarProperty Name="strAdresse" ColumnName="strAdresse" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="strVorname" ColumnName="strVorname" />
+                <ScalarProperty Name="strBenutzername" ColumnName="strBenutzername" />
+                <ScalarProperty Name="strPasswort" ColumnName="strPasswort" />
+                <ScalarProperty Name="strSteuerID" ColumnName="strSteuerID" />
+                <ScalarProperty Name="kunBestellungIdFk" ColumnName="kunBestellungIdFk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLieferanten">
+            <EntityTypeMapping TypeName="OptifyModel.LieferantenEntity">
+              <MappingFragment StoreEntitySet="tblLieferanten">
+                <ScalarProperty Name="liefIdPk" ColumnName="liefIdPk" />
+                <ScalarProperty Name="strFirmenname" ColumnName="strFirmenname" />
+                <ScalarProperty Name="strAdresse" ColumnName="strAdresse" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="strVorname" ColumnName="strVorname" />
+                <ScalarProperty Name="strBenutzername" ColumnName="strBenutzername" />
+                <ScalarProperty Name="strPasswort" ColumnName="strPasswort" />
+                <ScalarProperty Name="strSteuerID" ColumnName="strSteuerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLieferungen">
+            <EntityTypeMapping TypeName="OptifyModel.LieferungenEntity">
+              <MappingFragment StoreEntitySet="tblLieferungen">
+                <ScalarProperty Name="lieferIdPk" ColumnName="lieferIdPk" />
+                <ScalarProperty Name="datAnfang" ColumnName="datAnfang" />
+                <ScalarProperty Name="datEnde" ColumnName="datEnde" />
+                <ScalarProperty Name="bestIdFk" ColumnName="bestIdFk" />
+                <ScalarProperty Name="liefIdFk" ColumnName="liefIdFk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMitarbeiter">
+            <EntityTypeMapping TypeName="OptifyModel.MitarbeiterEntity">
+              <MappingFragment StoreEntitySet="tblMitarbeiter">
+                <ScalarProperty Name="mitIdPk" ColumnName="mitIdPk" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="strVorname" ColumnName="strVorname" />
+                <ScalarProperty Name="strBenutzername" ColumnName="strBenutzername" />
+                <ScalarProperty Name="strPasswort" ColumnName="strPasswort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblWaren">
+            <EntityTypeMapping TypeName="OptifyModel.WarenEntity">
+              <MappingFragment StoreEntitySet="tblWaren">
+                <ScalarProperty Name="wIdPk" ColumnName="wIdPk" />
+                <ScalarProperty Name="wBezeichnung" ColumnName="wBezeichnung" />
+                <ScalarProperty Name="wPreis" ColumnName="wPreis" />
+                <ScalarProperty Name="wBeschreibung" ColumnName="wBeschreibung" />
+                <ScalarProperty Name="wBild" ColumnName="wBild" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

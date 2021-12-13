@@ -18,10 +18,10 @@
     End Sub
 
     'Konstruktor für Entity
-    Public Sub New(pBestellungEntity As BestellungEntity)
+    Public Sub New(pBestellungEntity As BestellungenEntity)
         mbestID = pBestellungEntity.bestIdPk
         mdatBestellung = pBestellungEntity.bestDatum
-        mintWaren = pBestellungEntity.bestWaren
+        'mintWaren = pBestellungEntity.bestWaren
         mbestPreis = pBestellungEntity.bestPreis
         mbestStatus = pBestellungEntity.bestStatus
 
@@ -90,14 +90,14 @@
     End Property
 
     'Funktion
-    Public Function gibAlsBestEntity() As BestellungEntity
-        Dim bestEntity As BestellungEntity
-        bestEntity = New BestellungEntity
+    Public Function gibAlsBestEntity() As BestellungenEntity
+        Dim bestEntity As BestellungenEntity
+        bestEntity = New BestellungenEntity
         bestEntity.bestIdPk = BestellungID
         bestEntity.bestDatum = DatumBestellung
         bestEntity.bestPreis = Preis
         bestEntity.bestStatus = Status
-        bestEntity.bestWaren = Waren
+        'bestEntity.bestWaren = Waren
         Return bestEntity
     End Function
 End Class
