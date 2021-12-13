@@ -78,7 +78,6 @@
           <Property Name="wBezeichnung" Type="varchar" MaxLength="50" />
           <Property Name="wPreis" Type="float" />
           <Property Name="wBeschreibung" Type="varchar(max)" />
-          <Property Name="wBild" Type="image" />
         </EntityType>
         <Association Name="FK_tblBestellpositionen_tblBestellungen">
           <End Role="tblBestellungen" Type="Self.tblBestellungen" Multiplicity="1" />
@@ -256,7 +255,6 @@
           <Property Name="wBezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="wPreis" Type="Double" />
           <Property Name="wBeschreibung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="wBild" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="tblBestellpositionen" Relationship="Self.FK_tblBestellpositionen_tblWaren" FromRole="tblWaren" ToRole="tblBestellpositionen" />
         </EntityType>
         <Association Name="FK_tblBestellpositionen_tblBestellungen">
@@ -432,7 +430,6 @@
                 <ScalarProperty Name="wBezeichnung" ColumnName="wBezeichnung" />
                 <ScalarProperty Name="wPreis" ColumnName="wPreis" />
                 <ScalarProperty Name="wBeschreibung" ColumnName="wBeschreibung" />
-                <ScalarProperty Name="wBild" ColumnName="wBild" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

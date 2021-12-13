@@ -15,7 +15,6 @@ Partial Public Class WareEntity
     Public Property wBezeichnung As String
     Public Property wPreis As Nullable(Of Double)
     Public Property wBeschreibung As String
-    Public Property wBild As Byte()
 
     Public Overridable Property tblBestellpositionen As ICollection(Of BestellpositionEntity) = New HashSet(Of BestellpositionEntity)
 
