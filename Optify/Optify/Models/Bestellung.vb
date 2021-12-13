@@ -2,36 +2,34 @@
     'Attribute
     Dim mbestID As Integer
     Dim mdatBestellung As Date 'erstelltes Datum
-    'Dim mkundID As Kunde
-    Dim mintWaren As Integer
-    Dim mbestPreis As Decimal
+    Dim mkundID As Integer
+    Dim mbestPreis As Double
     Dim mbestStatus As String
 
     'Konstruktor
     Public Sub New()
         mbestID = -1
         mdatBestellung = Date.Now
-        'kundenID?
-        mintWaren = Nothing
+        mkundID = Nothing
         mbestPreis = Nothing
         mbestStatus = String.Empty
+    End Sub
+
+    Public Sub New(pbestID As Integer, pdatBestellung As Date, pkundId As Integer, pbestPreis As Double, pbestStatus As String)
+        mbestID = pbestID
+        mdatBestellung = pdatBestellung
+        mkundID = pkundId
+        mbestPreis = pbestPreis
+        mbestStatus = pbestStatus
     End Sub
 
     'Konstruktor für Entity
     Public Sub New(pBestellungEntity As BestellungEntity)
         mbestID = pBestellungEntity.bestIdPk
         mdatBestellung = pBestellungEntity.bestDatum
-        'mintWaren = pBestellungEntity.bestWaren
+        mkundID = pBestellungEntity.bestKunIdFk
         mbestPreis = pBestellungEntity.bestPreis
         mbestStatus = pBestellungEntity.bestStatus
-
-        'If IsNothing(pBestellungEntity.bestVersion) Then
-        '    mbytVersion = Nothing
-        'Else
-        '    mbytVersion = pBestellungEntity.bestVersion
-        'End If
-
-        'mbrBranche = New Branche(pJobanzeigeEntity.JaBrIdFk, "")
     End Sub
 
     'Properties
@@ -53,29 +51,20 @@
         End Set
     End Property
 
-    'Public Property KundenID As Kunde
-    '    Get
-    '        Return mkundID
-    '    End Get
-    '    Set(value As Kunde)
-    '        mkundID = value
-    '    End Set
-    'End Property
-
-    Public Property Waren As Integer
+    Public Property KundenID As Integer
         Get
-            Return mintWaren
+            Return mkundID
         End Get
         Set(value As Integer)
-            mintWaren = value
+            mkundID = value
         End Set
     End Property
 
-    Public Property Preis As Decimal
+    Public Property Preis As Double
         Get
             Return mbestPreis
         End Get
-        Set(value As Decimal)
+        Set(value As Double)
             mbestPreis = value
         End Set
     End Property
@@ -89,15 +78,13 @@
         End Set
     End Property
 
-    'Funktion
     Public Function gibAlsBestEntity() As BestellungEntity
-        Dim bestEntity As BestellungEntity
-        bestEntity = New BestellungEntity
+        Dim bestEntity As New BestellungEntity
         bestEntity.bestIdPk = BestellungID
         bestEntity.bestDatum = DatumBestellung
+        bestEntity.bestKunIdFk = KundenID
         bestEntity.bestPreis = Preis
         bestEntity.bestStatus = Status
-        'bestEntity.bestWaren = Waren
         Return bestEntity
     End Function
 End Class

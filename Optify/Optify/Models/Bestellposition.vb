@@ -5,7 +5,10 @@
     Private mintAnzahl As Integer
 
     Sub New()
-
+        mbestPoID = -1
+        mbestBestellungID = Nothing
+        mwareID = Nothing
+        mintAnzahl = Nothing
     End Sub
 
     Sub New(pbestPoID As Long, pbestBestellungID As String, pwareID As String)

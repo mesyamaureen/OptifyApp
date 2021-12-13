@@ -1,16 +1,26 @@
 ﻿Public Class Lieferung
     'Attribut
-    Dim mlieferID As Integer
-    Dim mdatAnfang As Date
-    Dim mdatEnde As Date
-    Dim mintBestellung As Integer
+    Private mlieferID As Integer
+    Private mdatAnfang As Date
+    Private mdatEnde As Date
+    Private mbestID As Integer
+    Private mliefID As Integer
 
     'Konstruktor
     Public Sub New()
         mlieferID = -1
         mdatAnfang = Date.MinValue
         mdatEnde = Date.MaxValue
-        mintBestellung = Nothing
+        mbestID = Nothing
+        mliefID = Nothing
+    End Sub
+
+    Public Sub New(plieferID As Integer, pdatAnfang As Date, pdatEnde As Date, pbestID As Integer, pliefID As Integer)
+        mlieferID = plieferID
+        mdatAnfang = pdatAnfang
+        mdatEnde = pdatEnde
+        mbestID = pbestID
+        mliefID = pliefID
     End Sub
 
     'Konstruktor für Entity
@@ -18,20 +28,12 @@
         mlieferID = pLieferungEntity.lieferIdPk
         mdatAnfang = pLieferungEntity.datAnfang
         mdatEnde = pLieferungEntity.datEnde
-        mintBestellung = pLieferungEntity.bestIdFk
-
-
-        'If IsNothing(pBestellungEntity.bestVersion) Then
-        '    mbytVersion = Nothing
-        'Else
-        '    mbytVersion = pBestellungEntity.bestVersion
-        'End If
-
-        'mbrBranche = New Branche(pJobanzeigeEntity.JaBrIdFk, "")
+        mbestID = pLieferungEntity.bestIdFk
+        mliefID = pLieferungEntity.liefIdFk
     End Sub
 
     'Properties
-    Public Property ID As Integer
+    Public Property LieferungID As Integer
         Get
             Return mlieferID
         End Get
@@ -58,23 +60,32 @@
         End Set
     End Property
 
-    Public Property Bestellung As Integer
+    Public Property BestellungID As Integer
         Get
-            Return mintBestellung
+            Return mbestID
         End Get
         Set(value As Integer)
-            mintBestellung = value
+            mbestID = value
+        End Set
+    End Property
+
+    Public Property LieferantID As Integer
+        Get
+            Return mliefID
+        End Get
+        Set(value As Integer)
+            mliefID = value
         End Set
     End Property
 
     'Funktion
     Public Function gibAlsLieferungEntity() As LieferungEntity
-        Dim liefEntity As LieferungEntity
-        liefEntity = New LieferungEntity
-        liefEntity.lieferIdPk = ID
+        Dim liefEntity As New LieferungEntity
+        liefEntity.lieferIdPk = LieferungID
         liefEntity.datAnfang = AnfangDatum
         liefEntity.datEnde = EndeDatum
-        liefEntity.bestIdFk = Bestellung
+        liefEntity.bestIdFk = BestellungID
+        liefEntity.liefIdFk = LieferantID
         Return liefEntity
     End Function
 End Class

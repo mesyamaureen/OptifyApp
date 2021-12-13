@@ -2,21 +2,33 @@
 
     'Attribute
     Dim mintWID As Integer
-    Dim mstrWTyp As String
+    Dim mstrBezeichnung As String
     Dim mdblWPreis As Double
+    Dim mstrBeschreibung As String
+    'Dim mBild As Image
 
     Public Sub New()
         mintWID = -1
-        mstrWTyp = String.Empty
+        mstrBezeichnung = String.Empty
         mdblWPreis = 0
+        mstrBeschreibung = String.Empty
+        'mbild?
+    End Sub
 
+    Public Sub New(pintWID As Integer, pstrBezeichnung As String, pdblWPreis As Double, pstrBeschreibung As String)
+        mintWID = pintWID
+        mstrBezeichnung = pstrBezeichnung
+        mdblWPreis = pdblWPreis
+        mstrBeschreibung = pstrBeschreibung
+        'bild?
     End Sub
 
     Public Sub New(pWareEntity As WareEntity)
         mintWID = pWareEntity.wIdPk
-        'mstrWTyp = pWareEntity.wTyp + Bezeichnung, Beschreibung und Bild
+        mstrBezeichnung = pWareEntity.wBezeichnung
+        mstrBeschreibung = pWareEntity.wBeschreibung
         mdblWPreis = pWareEntity.wPreis
-
+        'bild?
     End Sub
 
 
@@ -29,15 +41,14 @@
         End Set
     End Property
 
-    Public Property Typ As String
+    Public Property Bezeichnung As String
         Get
-            Return mstrWTyp
+            Return mstrBezeichnung
         End Get
         Set(value As String)
-            mstrWTyp = value
+            mstrBezeichnung = value
         End Set
     End Property
-
 
     Public Property Preis As Double
         Get
@@ -48,16 +59,22 @@
         End Set
     End Property
 
+    Public Property Beschreibung As String
+        Get
+            Return mstrBeschreibung
+        End Get
+        Set(value As String)
+            mstrBeschreibung = value
+        End Set
+    End Property
+
     Public Function gibAlsEntity() As WareEntity
         Dim wEntity As New WareEntity
-
-        wEntity = New WareEntity
         wEntity.wIdPk = mintWID
-        'wEntity.wTyp = mstrWTyp + Bezeichnung, Beschreibung und Bild
+        wEntity.wBezeichnung = mstrBezeichnung
         wEntity.wPreis = mdblWPreis
+        wEntity.wBeschreibung = mstrBeschreibung
         Return wEntity
-
-
     End Function
 
 End Class
