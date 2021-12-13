@@ -31,14 +31,14 @@
     End Sub
 
     'Entity Konstruktor
-    Public Sub New(pbenEntity As BenutzerEntity)
-        mbenID = pbenEntity.benIdPk
-        mstrName = pbenEntity.strName
-        mstrVorname = pbenEntity.strVorname
-        mstrBenutzername = pbenEntity.strBenutzername
-        mstrPasswort = pbenEntity.strPasswort
-        mbenTyp = pbenEntity.benTyp
-    End Sub
+    'Public Sub New(pbenEntity As BenutzerEntity)
+    '    mbenID = pbenEntity.benIdPk
+    '    mstrName = pbenEntity.strName
+    '    mstrVorname = pbenEntity.strVorname
+    '    mstrBenutzername = pbenEntity.strBenutzername
+    '    mstrPasswort = pbenEntity.strPasswort
+    '    mbenTyp = pbenEntity.benTyp
+    'End Sub
 
     'Properties
     Public Property BenutzerID As Integer
@@ -104,16 +104,16 @@
         End Get
     End Property
 
-    Public Function gibAlsBenutzerEntity() As BenutzerEntity
-        Dim benE As BenutzerEntity
-        benE = New BenutzerEntity
-        benE.benIdPk = mbenID
-        benE.strName = mstrName
-        benE.strVorname = mstrVorname
-        benE.strBenutzername = mstrBenutzername
-        benE.strPasswort = mstrPasswort
-        benE.benTyp = mbenTyp
+    'Public Function gibAlsBenutzerEntity() As BenutzerEntity
+    '    Dim benE As BenutzerEntity
+    '    benE = New BenutzerEntity
+    '    benE.benIdPk = mbenID
+    '    benE.strName = mstrName
+    '    benE.strVorname = mstrVorname
+    '    benE.strBenutzername = mstrBenutzername
+    '    benE.strPasswort = mstrPasswort
+    '    benE.benTyp = mbenTyp
 
-        Return benE
-    End Function
+    '    Return benE
+    'End Function
 End Class

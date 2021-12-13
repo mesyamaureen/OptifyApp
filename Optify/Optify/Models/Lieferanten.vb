@@ -31,17 +31,17 @@
     End Sub
 
     'Entity Konstruktor
-    Public Sub New(pbenEntity As BenutzerEntity)
-        BenutzerID = pbenEntity.benIdPk
-        mstrFirmenname = pbenEntity.strFirmenname
-        mstrAdresse = pbenEntity.strAdresse
-        Name = pbenEntity.strName
-        Vorname = pbenEntity.strVorname
-        Benutzername = pbenEntity.strBenutzername
-        Passwort = pbenEntity.strPasswort
-        mstrSteuerID = pbenEntity.strSteuerID
-        Typ = pbenEntity.benTyp
-    End Sub
+    'Public Sub New(pbenEntity As BenutzerEntity)
+    '    BenutzerID = pbenEntity.benIdPk
+    '    mstrFirmenname = pbenEntity.strFirmenname
+    '    mstrAdresse = pbenEntity.strAdresse
+    '    Name = pbenEntity.strName
+    '    Vorname = pbenEntity.strVorname
+    '    Benutzername = pbenEntity.strBenutzername
+    '    Passwort = pbenEntity.strPasswort
+    '    mstrSteuerID = pbenEntity.strSteuerID
+    '    Typ = pbenEntity.benTyp
+    'End Sub
 
     Public Property Firmenname As String
         Get
@@ -69,18 +69,18 @@
         End Set
     End Property
 
-    Public Overloads Function gibAlsBenutzerEntity() As BenutzerEntity
-        Dim benE As BenutzerEntity
-        benE = New BenutzerEntity
-        benE.benIdPk = BenutzerID
-        benE.strFirmenname = mstrFirmenname
-        benE.strAdresse = mstrAdresse
-        benE.strName = Name
-        benE.strVorname = Vorname
-        benE.strBenutzername = Benutzername
-        benE.strPasswort = Passwort
-        benE.strSteuerID = mstrSteuerID
-        benE.benTyp = Typ
-        Return benE
-    End Function
+    'Public Overloads Function gibAlsBenutzerEntity() As BenutzerEntity
+    '    Dim benE As BenutzerEntity
+    '    benE = New BenutzerEntity
+    '    benE.benIdPk = BenutzerID
+    '    benE.strFirmenname = mstrFirmenname
+    '    benE.strAdresse = mstrAdresse
+    '    benE.strName = Name
+    '    benE.strVorname = Vorname
+    '    benE.strBenutzername = Benutzername
+    '    benE.strPasswort = Passwort
+    '    benE.strSteuerID = mstrSteuerID
+    '    benE.benTyp = Typ
+    '    Return benE
+    'End Function
 End Class
