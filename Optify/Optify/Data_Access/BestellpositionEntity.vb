@@ -10,16 +10,12 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class LieferantenEntity
-    Public Property liefIdPk As Integer
-    Public Property strFirmenname As String
-    Public Property strAdresse As String
-    Public Property strName As String
-    Public Property strVorname As String
-    Public Property strBenutzername As String
-    Public Property strPasswort As String
-    Public Property strSteuerID As String
+Partial Public Class BestellpositionEntity
+    Public Property bestPoIdPk As Integer
+    Public Property bestPoWIdFk As Integer
+    Public Property bestPoAnzahl As Integer
 
-    Public Overridable Property tblLieferungen As ICollection(Of LieferungenEntity) = New HashSet(Of LieferungenEntity)
+    Public Overridable Property tblWaren As WareEntity
+    Public Overridable Property tblBestellungen As ICollection(Of BestellungEntity) = New HashSet(Of BestellungEntity)
 
 End Class

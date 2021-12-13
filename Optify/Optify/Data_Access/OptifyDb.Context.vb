@@ -22,12 +22,12 @@ Partial Public Class OptifyEntities1
         Throw New UnintentionalCodeFirstException()
     End Sub
 
-    Public Overridable Property tblBestellpositionen() As DbSet(Of BestellpositionenEntity)
-    Public Overridable Property tblBestellungen() As DbSet(Of BestellungenEntity)
-    Public Overridable Property tblKunde() As DbSet(Of KundenEntity)
-    Public Overridable Property tblLieferanten() As DbSet(Of LieferantenEntity)
-    Public Overridable Property tblLieferungen() As DbSet(Of LieferungenEntity)
+    Public Overridable Property tblBestellpositionen() As DbSet(Of BestellpositionEntity)
+    Public Overridable Property tblBestellungen() As DbSet(Of BestellungEntity)
+    Public Overridable Property tblKunde() As DbSet(Of KundeEntity)
+    Public Overridable Property tblLieferanten() As DbSet(Of LieferantEntity)
+    Public Overridable Property tblLieferungen() As DbSet(Of LieferungEntity)
     Public Overridable Property tblMitarbeiter() As DbSet(Of MitarbeiterEntity)
-    Public Overridable Property tblWaren() As DbSet(Of WarenEntity)
+    Public Overridable Property tblWaren() As DbSet(Of WareEntity)
 
 End Class

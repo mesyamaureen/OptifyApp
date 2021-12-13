@@ -123,19 +123,19 @@
     <Compile Include="Bestellungverwaltung.svc.vb">
       <DependentUpon>Bestellungverwaltung.svc</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\BestellpositionenEntity.vb">
+    <Compile Include="Data_Access\BestellpositionEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\BestellungenEntity.vb">
+    <Compile Include="Data_Access\BestellungEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\KundenEntity.vb">
+    <Compile Include="Data_Access\KundeEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\LieferantenEntity.vb">
+    <Compile Include="Data_Access\LieferantEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\LieferungenEntity.vb">
+    <Compile Include="Data_Access\LieferungEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data_Access\MitarbeiterEntity.vb">
@@ -156,7 +156,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data_Access\WarenEntity.vb">
+    <Compile Include="Data_Access\WareEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
     <Compile Include="gibKunde.svc.vb">

@@ -10,13 +10,14 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class WarenEntity
-    Public Property wIdPk As Integer
-    Public Property wBezeichnung As String
-    Public Property wPreis As Nullable(Of Double)
-    Public Property wBeschreibung As String
-    Public Property wBild As Byte()
+Partial Public Class LieferungEntity
+    Public Property lieferIdPk As Integer
+    Public Property datAnfang As Date
+    Public Property datEnde As Date
+    Public Property bestIdFk As Integer
+    Public Property liefIdFk As Integer
 
-    Public Overridable Property tblBestellpositionen As ICollection(Of BestellpositionenEntity) = New HashSet(Of BestellpositionenEntity)
+    Public Overridable Property tblBestellungen As BestellungEntity
+    Public Overridable Property tblLieferanten As LieferantEntity
 
 End Class

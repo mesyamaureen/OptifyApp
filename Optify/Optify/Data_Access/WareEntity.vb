@@ -10,17 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class KundenEntity
-    Public Property kunIdPk As Integer
-    Public Property strFirmenname As String
-    Public Property strAdresse As String
-    Public Property strName As String
-    Public Property strVorname As String
-    Public Property strBenutzername As String
-    Public Property strPasswort As String
-    Public Property strSteuerID As String
-    Public Property kunBestellungIdFk As Nullable(Of Integer)
+Partial Public Class WareEntity
+    Public Property wIdPk As Integer
+    Public Property wBezeichnung As String
+    Public Property wPreis As Nullable(Of Double)
+    Public Property wBeschreibung As String
+    Public Property wBild As Byte()
 
-    Public Overridable Property tblBestellungen As BestellungenEntity
+    Public Overridable Property tblBestellpositionen As ICollection(Of BestellpositionEntity) = New HashSet(Of BestellpositionEntity)
 
 End Class

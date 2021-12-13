@@ -14,7 +14,7 @@
     End Sub
 
     'Konstruktor für Entity
-    Public Sub New(pLieferungEntity As LieferungenEntity)
+    Public Sub New(pLieferungEntity As LieferungEntity)
         mlieferID = pLieferungEntity.lieferIdPk
         mdatAnfang = pLieferungEntity.datAnfang
         mdatEnde = pLieferungEntity.datEnde
@@ -68,9 +68,9 @@
     End Property
 
     'Funktion
-    Public Function gibAlsLieferungEntity() As LieferungenEntity
-        Dim liefEntity As LieferungenEntity
-        liefEntity = New LieferungenEntity
+    Public Function gibAlsLieferungEntity() As LieferungEntity
+        Dim liefEntity As LieferungEntity
+        liefEntity = New LieferungEntity
         liefEntity.lieferIdPk = ID
         liefEntity.datAnfang = AnfangDatum
         liefEntity.datEnde = EndeDatum

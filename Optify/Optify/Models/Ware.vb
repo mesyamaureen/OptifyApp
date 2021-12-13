@@ -12,7 +12,7 @@
 
     End Sub
 
-    Public Sub New(pWareEntity As WarenEntity)
+    Public Sub New(pWareEntity As WareEntity)
         mintWID = pWareEntity.wIdPk
         'mstrWTyp = pWareEntity.wTyp + Bezeichnung, Beschreibung und Bild
         mdblWPreis = pWareEntity.wPreis
@@ -48,10 +48,10 @@
         End Set
     End Property
 
-    Public Function gibAlsEntity() As WarenEntity
-        Dim wEntity As New WarenEntity
+    Public Function gibAlsEntity() As WareEntity
+        Dim wEntity As New WareEntity
 
-        wEntity = New WarenEntity
+        wEntity = New WareEntity
         wEntity.wIdPk = mintWID
         'wEntity.wTyp = mstrWTyp + Bezeichnung, Beschreibung und Bild
         wEntity.wPreis = mdblWPreis
