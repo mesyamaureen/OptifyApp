@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="Optify.Anmeldungsfunktion" CodeBehind="Anmeldungsfunktion.svc.vb" %>

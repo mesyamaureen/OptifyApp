@@ -95,6 +95,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Anmeldungsfunktion.svc" />
     <Content Include="App_Data\Optify.mdf" />
     <Content Include="App_Data\Optify_log.ldf">
       <DependentUpon>Optify.mdf</DependentUpon>
@@ -116,6 +117,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anmeldungsfunktion.svc.vb">
+      <DependentUpon>Anmeldungsfunktion.svc</DependentUpon>
+    </Compile>
     <Compile Include="Benutzerverwaltung.svc.vb">
       <DependentUpon>Benutzerverwaltung.svc</DependentUpon>
     </Compile>
@@ -158,6 +162,7 @@
     <Compile Include="Data_Access\WareEntity.vb">
       <DependentUpon>OptifyDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="IAnmeldungsfunktion.vb" />
     <Compile Include="IBenutzerverwaltung.vb" />
     <Compile Include="IBestellungverwaltung.vb" />
     <Compile Include="ILieferungverwaltung.vb" />
