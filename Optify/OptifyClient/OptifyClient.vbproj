@@ -80,6 +80,11 @@
     <Compile Include="AnmeldungDummy.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Connected Services\AnmeldungsfunktionServiceReference\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BenutzerverwaltungServiceReference\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,11 +100,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="LiefDummy.Designer.vb">
+      <DependentUpon>LiefDummy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LiefDummy.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="StartseiteKundeDummy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartseiteKundeDummy.Designer.vb">
+      <DependentUpon>StartseiteKundeDummy.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -117,13 +128,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="StartseiteMitarbeiterDummy.Designer.vb">
+      <DependentUpon>StartseiteMitarbeiterDummy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StartseiteMitarbeiterDummy.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AnmeldungDummy.resx">
       <DependentUpon>AnmeldungDummy.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="LiefDummy.resx">
+      <DependentUpon>LiefDummy.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartseiteKundeDummy.resx">
+      <DependentUpon>StartseiteKundeDummy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -131,8 +151,33 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartseiteMitarbeiterDummy.resx">
+      <DependentUpon>StartseiteMitarbeiterDummy.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\Anmeldungsfunktion.wsdl" />
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\Anmeldungsfunktion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\Anmeldungsfunktion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\Anmeldungsfunktion2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\OptifyClient.AnmeldungsfunktionServiceReference.Benutzer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\OptifyClient.AnmeldungsfunktionServiceReference.Kunde.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\OptifyClient.AnmeldungsfunktionServiceReference.Lieferant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\OptifyClient.AnmeldungsfunktionServiceReference.Mitarbeiter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung.wsdl" />
     <None Include="Connected Services\BenutzerverwaltungServiceReference\Benutzerverwaltung.xsd">
       <SubType>Designer</SubType>
@@ -196,6 +241,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AnmeldungsfunktionServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\BenutzerverwaltungServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\BestellungServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\WarenServiceReference\" />
@@ -241,6 +287,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BenutzerverwaltungServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\Anmeldungsfunktion.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AnmeldungsfunktionServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>

@@ -60,4 +60,13 @@
             mintAnzahl = value
         End Set
     End Property
+
+    Public Function gibAlsBestPoEntity() As BestellpositionEntity
+        Dim bestPoEntity As New BestellpositionEntity
+        bestPoEntity.bestPoIdPk = BestellpositionID
+        bestPoEntity.bestPoAnzahl = Anzahl
+        bestPoEntity.bestPoBestIdFk = BestellungID
+        bestPoEntity.bestPoWIdFk = WareID
+        Return bestPoEntity
+    End Function
 End Class

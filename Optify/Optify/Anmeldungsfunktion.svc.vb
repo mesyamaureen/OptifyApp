@@ -42,6 +42,7 @@ Public Class Anmeldungsfunktion
             angemeldBen.Name = kkun.Name
             angemeldBen.Passwort = kkun.Passwort
             angemeldBen.Vorname = kkun.Vorname
+            angemeldBen.Typ = "Kunde"
             Return angemeldBen
         End If
 
@@ -70,6 +71,7 @@ Public Class Anmeldungsfunktion
             angemeldBen.Name = llief.Name
             angemeldBen.Passwort = llief.Passwort
             angemeldBen.Vorname = llief.Vorname
+            angemeldBen.Typ = "Lieferant"
 
             Return angemeldBen
         End If
@@ -97,6 +99,7 @@ Public Class Anmeldungsfunktion
             angemeldBen.Name = mmit.Name
             angemeldBen.Passwort = mmit.Passwort
             angemeldBen.Vorname = mmit.Vorname
+            angemeldBen.Typ = "Mitarbeiter"
             Return angemeldBen
         End If
 
@@ -106,14 +109,23 @@ Public Class Anmeldungsfunktion
 
 
 
-    Public Function gibKunde(pBen As Benutzer) As Kunde Implements IAnmeldungsfunktion.gibKunde
+    Public Function gibKunde(pangemeldBen As Benutzer) As Kunde Implements IAnmeldungsfunktion.gibKunde
         Dim kun As New KundeEntity
+
+        For Each kkun In db.tblKunde.ToList
+            If kkun.strBenutzername.Equals(pangemeldBen.Benutzername) Then
+                kun = kkun
+
+            End If
+
+        Next
+
         Dim aktKun As New Kunde With {
-            .BenutzerID = pBen.BenutzerID,
-            .Benutzername = pBen.Benutzername,
-            .Name = pBen.Name,
-            .Vorname = pBen.Vorname,
-            .Passwort = pBen.Passwort,
+            .BenutzerID = pangemeldBen.BenutzerID,
+            .Benutzername = pangemeldBen.Benutzername,
+            .Name = pangemeldBen.Name,
+            .Vorname = pangemeldBen.Vorname,
+            .Passwort = pangemeldBen.Passwort,
             .Adresse = kun.strAdresse,
             .Firmenname = kun.strFirmenname,
             .SteuerID = kun.strSteuerID}
@@ -147,4 +159,14 @@ Public Class Anmeldungsfunktion
         Return aktMit
     End Function
 
+    Public Function istKunde(pBen As Benutzer) As Boolean
+        Dim kun As New Kunde
+
+    End Function
+    Public Function istLieferant(pBen As Benutzer) As Boolean
+
+    End Function
+    Public Function istMitarbeiter(pBen As Benutzer) As Boolean
+
+    End Function
 End Class

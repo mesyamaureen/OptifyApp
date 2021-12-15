@@ -25,11 +25,13 @@ Partial Class AnmeldungDummy
         Me.btnAnmelden = New System.Windows.Forms.Button()
         Me.txtBenutzername = New System.Windows.Forms.TextBox()
         Me.txtPasswort = New System.Windows.Forms.TextBox()
+        Me.lblBenutzername = New System.Windows.Forms.Label()
+        Me.lblPasswort = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnAnmelden
         '
-        Me.btnAnmelden.Location = New System.Drawing.Point(1001, 691)
+        Me.btnAnmelden.Location = New System.Drawing.Point(909, 361)
         Me.btnAnmelden.Name = "btnAnmelden"
         Me.btnAnmelden.Size = New System.Drawing.Size(153, 58)
         Me.btnAnmelden.TabIndex = 0
@@ -38,17 +40,35 @@ Partial Class AnmeldungDummy
         '
         'txtBenutzername
         '
-        Me.txtBenutzername.Location = New System.Drawing.Point(170, 206)
+        Me.txtBenutzername.Location = New System.Drawing.Point(446, 212)
         Me.txtBenutzername.Name = "txtBenutzername"
         Me.txtBenutzername.Size = New System.Drawing.Size(616, 31)
         Me.txtBenutzername.TabIndex = 1
         '
         'txtPasswort
         '
-        Me.txtPasswort.Location = New System.Drawing.Point(170, 280)
+        Me.txtPasswort.Location = New System.Drawing.Point(446, 276)
         Me.txtPasswort.Name = "txtPasswort"
-        Me.txtPasswort.Size = New System.Drawing.Size(623, 31)
+        Me.txtPasswort.Size = New System.Drawing.Size(616, 31)
         Me.txtPasswort.TabIndex = 2
+        '
+        'lblBenutzername
+        '
+        Me.lblBenutzername.AutoSize = True
+        Me.lblBenutzername.Location = New System.Drawing.Point(224, 218)
+        Me.lblBenutzername.Name = "lblBenutzername"
+        Me.lblBenutzername.Size = New System.Drawing.Size(151, 25)
+        Me.lblBenutzername.TabIndex = 3
+        Me.lblBenutzername.Text = "Benutzername"
+        '
+        'lblPasswort
+        '
+        Me.lblPasswort.AutoSize = True
+        Me.lblPasswort.Location = New System.Drawing.Point(224, 279)
+        Me.lblPasswort.Name = "lblPasswort"
+        Me.lblPasswort.Size = New System.Drawing.Size(100, 25)
+        Me.lblPasswort.TabIndex = 4
+        Me.lblPasswort.Text = "Passwort"
         '
         'AnmeldungDummy
         '
@@ -56,6 +76,8 @@ Partial Class AnmeldungDummy
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1242, 761)
+        Me.Controls.Add(Me.lblPasswort)
+        Me.Controls.Add(Me.lblBenutzername)
         Me.Controls.Add(Me.txtPasswort)
         Me.Controls.Add(Me.txtBenutzername)
         Me.Controls.Add(Me.btnAnmelden)
@@ -69,4 +91,6 @@ Partial Class AnmeldungDummy
     Friend WithEvents btnAnmelden As Button
     Friend WithEvents txtBenutzername As TextBox
     Friend WithEvents txtPasswort As TextBox
+    Friend WithEvents lblBenutzername As Label
+    Friend WithEvents lblPasswort As Label
 End Class

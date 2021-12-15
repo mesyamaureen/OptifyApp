@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Optify" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Optify" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Benutzer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BenutzerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Benutzername" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Passwort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vorname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Benutzer" nillable="true" type="tns:Benutzer" />
+  <xs:complexType name="Kunde">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Benutzer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adresse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Firmenname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SteuerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Kunde" nillable="true" type="tns:Kunde" />
+  <xs:complexType name="Lieferant">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Benutzer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Adresse" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Firmenname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SteuerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Lieferant" nillable="true" type="tns:Lieferant" />
+  <xs:complexType name="Mitarbeiter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Benutzer">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Mitarbeiter" nillable="true" type="tns:Mitarbeiter" />
+</xs:schema>

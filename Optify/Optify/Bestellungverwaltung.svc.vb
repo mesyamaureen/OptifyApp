@@ -6,8 +6,8 @@ Public Class Bestellungverwaltung
     Public Function alleBestellungenLaden() As List(Of Bestellung) Implements IBestellungverwaltung.alleBestellungenLaden
         Dim bestListe As List(Of Bestellung)
         Dim best As Bestellung
-        Dim bestEntity As BestellungEntity
-        bestListe = New List(Of Bestellung)
+        Dim bestEntity As BestellungEntity  ' Ini ga perlu menurut gue - karena namanya sama dengan iterator di Zeile 11 dan dia ga dipake juga sepertinya
+        bestListe = New List(Of Bestellung)  ' Bisa langsung ditulis di Zeile 7 bukan?
         For Each bestEntity In db.tblBestellungen.ToList 'Jede Bestellung in der Datenbank lesen
             best = New Bestellung(bestEntity)
             bestListe.Add(best) 'Alle Bestellungen in die Liste hinzufügen
@@ -28,9 +28,9 @@ Public Class Bestellungverwaltung
             Return Nothing
         End If
 
-        'ansonsten den Urlaubsantrag aus der Db in ein Objekt der Modelklasse überführen
+        'ansonsten die Bestellung aus der Db in ein Objekt der Modelklasse überführen
         best = New Bestellung(bestEntity)
-        'Urlaubsantrag zurückgeben
+        'Bestellung zurückgeben
         Return best
     End Function
 
@@ -41,7 +41,7 @@ Public Class Bestellungverwaltung
         If bestEntity Is Nothing Then
             Exit Sub
         End If
-        db.tblBestellungen.Attach(bestEntity)
+        db.tblBestellungen.Attach(bestEntity)  ' Attach ini maksudnya apa yaah me?
         db.Entry(bestEntity).State = EntityState.Deleted
         db.SaveChanges()
     End Sub
@@ -66,5 +66,5 @@ Public Class Bestellungverwaltung
         db.SaveChanges()
     End Sub
 
-
+    'BestellungHinzufügen
 End Class

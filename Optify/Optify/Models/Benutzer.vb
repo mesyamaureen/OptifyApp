@@ -5,7 +5,7 @@
     Private mstrVorname As String
     Private mstrBenutzername As String
     Private mstrPasswort As String
-    'Private mbenTyp As String
+    Private mbenTyp As String
 
     'Konstruktor
     Public Sub New()
@@ -14,18 +14,18 @@
         mstrVorname = String.Empty
         mstrBenutzername = String.Empty
         mstrPasswort = String.Empty
-        'mbenTyp = String.Empty
+        mbenTyp = String.Empty
     End Sub
 
     'Parameterloser Konstruktor
     Public Sub New(pbenID As Integer, pstrName As String,
-              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String) ', pbenTyp As String
+              pstrVorname As String, pstrBenutzername As String, pstrPasswort As String, pbenTyp As String)
         mbenID = pbenID
         mstrName = pstrName
         mstrVorname = pstrVorname
         mstrBenutzername = pstrBenutzername
         mstrPasswort = pstrPasswort
-        'mbenTyp = pbenTyp
+        mbenTyp = pbenTyp
     End Sub
 
     'Properties
@@ -71,12 +71,12 @@
         End Set
     End Property
 
-    'Public Property Typ As String
-    '    Get
-    '        Return mbenTyp
-    '    End Get
-    '    Set(value As String)
-    '        mbenTyp = value
-    '    End Set
-    'End Property
+    Public Property Typ As String
+        Get
+            Return mbenTyp
+        End Get
+        Set(value As String)
+            mbenTyp = value
+        End Set
+    End Property
 End Class

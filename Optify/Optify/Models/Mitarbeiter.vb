@@ -6,7 +6,11 @@
     End Sub
 
     Sub New(pintBenutzerID As Integer, pstrName As String, pstrVorname As String, pstrBenutzername As String, pstrPasswort As String)
-        MyBase.New(pintBenutzerID, pstrName, pstrVorname, pstrBenutzername, pstrPasswort)
+        Me.BenutzerID = pintBenutzerID
+        Me.Benutzername = pstrBenutzername
+        Me.Name = pstrName
+        Me.Vorname = pstrVorname
+        Me.Passwort = pstrPasswort
     End Sub
 
     Sub New(pmitEntity As MitarbeiterEntity)

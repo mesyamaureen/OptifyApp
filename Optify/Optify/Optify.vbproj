@@ -101,6 +101,7 @@
       <DependentUpon>Optify.mdf</DependentUpon>
     </Content>
     <Content Include="Benutzerverwaltung.svc" />
+    <Content Include="Bestellpositionverwaltung.svc" />
     <Content Include="Bestellungverwaltung.svc" />
     <Content Include="Data_Access\OptifyDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -122,6 +123,9 @@
     </Compile>
     <Compile Include="Benutzerverwaltung.svc.vb">
       <DependentUpon>Benutzerverwaltung.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Bestellpositionverwaltung.svc.vb">
+      <DependentUpon>Bestellpositionverwaltung.svc</DependentUpon>
     </Compile>
     <Compile Include="Bestellungverwaltung.svc.vb">
       <DependentUpon>Bestellungverwaltung.svc</DependentUpon>
@@ -164,6 +168,7 @@
     </Compile>
     <Compile Include="IAnmeldungsfunktion.vb" />
     <Compile Include="IBenutzerverwaltung.vb" />
+    <Compile Include="IBestellpositionverwaltung.vb" />
     <Compile Include="IBestellungverwaltung.vb" />
     <Compile Include="ILieferungverwaltung.vb" />
     <Compile Include="IWarenverwaltungService.vb" />

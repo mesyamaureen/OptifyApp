@@ -81,10 +81,10 @@
     Public Function gibAlsBestEntity() As BestellungEntity
         Dim bestEntity As New BestellungEntity
         bestEntity.bestIdPk = BestellungID
-        bestEntity.bestDatum = DatumBestellung
+        bestEntity.bestDatum = Date.Now
         bestEntity.bestKunIdFk = KundenID
-        bestEntity.bestPreis = Preis
-        bestEntity.bestStatus = Status
+        bestEntity.bestPreis = 0
+        bestEntity.bestStatus = "Unbezahlt"
         Return bestEntity
     End Function
 End Class

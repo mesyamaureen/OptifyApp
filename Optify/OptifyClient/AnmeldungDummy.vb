@@ -1,27 +1,32 @@
 ﻿Public Class AnmeldungDummy
     Private Sub btnAnmelden_Click(sender As Object, e As EventArgs) Handles btnAnmelden.Click
-        anmelden()
+        Dim benBenutzer As New AnmeldungsfunktionServiceReference.Benutzer
+        Dim sKundeDummy As New StartseiteKundenDummy
+        Dim sMitDummy As New StartseiteMitarbeiterDummy
+        Dim sLiefDummy As New LiefDummy
+        benBenutzer = anmelden()
+        'If benBenutzer.Then Then
+
+        'End If
     End Sub
 
-    Private Sub anmelden()
+    Private Function anmelden() As AnmeldungsfunktionServiceReference.Benutzer
         Dim strBenutzername As String
         Dim strPasswort As String
-        Dim svc As BenutzerverwaltungServiceReference.IBenutzerverwaltung
-        svc = New BenutzerverwaltungServiceReference.BenutzerverwaltungClient
+        Dim benBenutzer As AnmeldungsfunktionServiceReference.Benutzer = New AnmeldungsfunktionServiceReference.Benutzer
+        Dim svc As AnmeldungsfunktionServiceReference.IAnmeldungsfunktion
+        svc = New AnmeldungsfunktionServiceReference.AnmeldungsfunktionClient
 
 
         strBenutzername = Trim(Me.txtBenutzername.Text)
         strPasswort = Me.txtPasswort.Text
-        svc.Einloggen(strBenutzername, strPasswort)
+        benBenutzer = svc.Einloggen(strBenutzername, strPasswort)
 
+    End Function
 
-    End Sub
-
-    Private Sub txtBenutzername_TextChanged(sender As Object, e As EventArgs) Handles txtBenutzername.TextChanged
-
-    End Sub
-
-    Private Sub AnmeldungDummy_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub benkun()
+        Dim benKun As AnmeldungsfunktionServiceReference.Kunde = New AnmeldungsfunktionServiceReference.Kunde
 
     End Sub
+
 End Class
