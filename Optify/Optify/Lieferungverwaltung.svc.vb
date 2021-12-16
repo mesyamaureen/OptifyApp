@@ -25,14 +25,7 @@ Public Class Lieferungverwaltung
     End Function
 
     Public Sub hinzufuegenLieferung(pLieferung As Lieferung) Implements ILieferungverwaltung.hinzufuegenLieferung
-        Dim liefEntity As LieferungEntity
-        If pLieferung Is Nothing Then
-            Exit Sub
-        End If
-        liefEntity = pLieferung.gibAlsLieferungEntity
-        db.tblLieferungen.Attach(liefEntity)
-        db.Entry(liefEntity).State = EntityState.Added
-        db.SaveChanges()
+
     End Sub
 
     Public Sub loeschenLieferung(pliefId As Integer) Implements ILieferungverwaltung.loeschenLieferung

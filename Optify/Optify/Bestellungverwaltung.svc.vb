@@ -46,9 +46,7 @@ Public Class Bestellungverwaltung
         db.SaveChanges()
     End Sub
 
-    'POST
 
-    'POST
     Sub Bestellungspeichern(pBestellung As Bestellung) Implements IBestellungverwaltung.Bestellungspeichern
         'Deklaration
         Dim bestEntity As BestellungEntity

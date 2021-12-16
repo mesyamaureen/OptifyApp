@@ -5,15 +5,20 @@
 Public Interface IBestellpositionverwaltung
 
     <OperationContract()>
-    Function gibBestellpositionen() As List(Of Bestellposition)
+    Function gibBestellpositionen(pintBestID As Integer) As List(Of Bestellposition)
 
     <OperationContract>
-    Function hinzufInWarenkorb(pWare As Ware, paktKunde As Kunde) As Integer
+    Function hinzufInWarenkorb(pWare As Ware, paktKunde As Kunde, pintAnzahl As Integer) As Bestellposition
 
     <OperationContract>
     Sub loeschenBestellposition(pintBestPoId As Integer)
 
     <OperationContract>
     Function erstellenBestellung(pBestellung As Bestellung, pintKundeID As Integer) As Integer
+
+    <OperationContract>
+    Function gibLieferanten() As List(Of Lieferant)
+    <OperationContract>
+    Function erstellenLieferung(pintBestId As Integer, pintLiefId As Integer) As Lieferung
 
 End Interface

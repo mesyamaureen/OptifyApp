@@ -2,30 +2,32 @@
 Public Class Bestellpositionverwaltung
     Implements IBestellpositionverwaltung
     Private db As New OptifyEntities1
-    'showCart
 
-    Public Function gibBestellpositionen() As List(Of Bestellposition) Implements IBestellpositionverwaltung.gibBestellpositionen
+    'beim Klicken "Warenkorb"
+    Public Function gibBestellpositionen(pintBestID As Integer) As List(Of Bestellposition) Implements IBestellpositionverwaltung.gibBestellpositionen
         Dim bestPoListe As New List(Of Bestellposition)
         Dim bestPo As Bestellposition
         Dim bestPoEntity As New BestellpositionEntity
-        Dim aktBestellung As New Bestellung
+        'Dim aktBestellung As New Bestellung
         For Each bestPoEntity In db.tblBestellpositionen.ToList
-            If bestPoEntity.bestPoBestIdFk = aktBestellung.BestellungID Then
+            If bestPoEntity.bestPoBestIdFk = pintBestID Then
                 bestPo = New Bestellposition(bestPoEntity)
                 bestPoListe.Add(bestPo)
+            ElseIf pintBestID = 0 Then
+                MsgBox("Warenkorb ist leer")
+                Exit For
             End If
         Next
         Return bestPoListe
     End Function
 
-    'addToCart
-    Public Function hinzufInWarenkorb(pWare As Ware, paktKunde As Kunde) As Integer Implements IBestellpositionverwaltung.hinzufInWarenkorb
+    'in den Warenkorb
+    Public Function hinzufInWarenkorb(pWare As Ware, paktKunde As Kunde, pintAnzahl As Integer) As Bestellposition Implements IBestellpositionverwaltung.hinzufInWarenkorb
         'Dim wWare As Ware
         Dim bestPoEntity As New BestellpositionEntity
         Dim bestPo As New Bestellposition
         Dim bestBestellung As Bestellung = New Bestellung
         Dim bestEntity As BestellungEntity
-        Dim intAnzahl As Integer
         'to check if the Bestellung vorhanden ist
         For Each bestEntity In db.tblBestellungen.ToList
             If bestEntity.bestKunIdFk = paktKunde.BenutzerID Then
@@ -37,7 +39,6 @@ Public Class Bestellpositionverwaltung
                     bestBestellung.BestellungID = erstellenBestellung(bestBestellung, paktKunde.BenutzerID)
                     Exit For
                 End If
-
             End If
         Next
 
@@ -46,18 +47,16 @@ Public Class Bestellpositionverwaltung
         End If
 
         'create a new Bestellposition
-        If bestPo Is Nothing Then
-            Return -1
-        End If
         bestPoEntity.bestPoIdPk = bestPo.BestellpositionID
-        bestPoEntity.bestPoAnzahl = intAnzahl
+        bestPoEntity.bestPoAnzahl = pintAnzahl
         bestPoEntity.bestPoBestIdFk = bestBestellung.BestellungID
         bestPoEntity.bestPoWIdFk = pWare.ID
 
         db.tblBestellpositionen.Attach(bestPoEntity)
         db.Entry(bestPoEntity).State = EntityState.Added
         db.SaveChanges()
-        Return bestPoEntity.bestPoIdPk
+        bestPo = New Bestellposition(bestPoEntity)
+        Return bestPo
 
     End Function
 
@@ -76,7 +75,63 @@ Public Class Bestellpositionverwaltung
 
     'removeFromCart
     Public Sub loeschenBestellposition(pintBestPoId As Integer) Implements IBestellpositionverwaltung.loeschenBestellposition
+        Dim bestPoEntity As BestellpositionEntity
+        bestPoEntity = db.tblBestellpositionen.Find(pintBestPoId)
+        If bestPoEntity Is Nothing Then
+            Exit Sub
+        End If
+        db.tblBestellpositionen.Attach(bestPoEntity)
+        db.Entry(bestPoEntity).State = EntityState.Deleted
+        db.SaveChanges()
+    End Sub
 
+    'zeig alle Lieferanten
+    Public Function gibLieferanten() As List(Of Lieferant) Implements IBestellpositionverwaltung.gibLieferanten
+        Dim liefListe As New List(Of Lieferant)
+        Dim lLief As Lieferant
+        Dim liefEntity As LieferantEntity
+
+        For Each liefEntity In db.tblLieferanten.ToList
+            lLief = New Lieferant(liefEntity)
+            liefListe.Add(lLief)
+        Next
+        Return liefListe
+    End Function
+
+    'klicken 'Bezahlen' -> create object: Lieferung
+    Public Function erstellenLieferung(pintBestId As Integer, pintLiefId As Integer) As Lieferung Implements IBestellpositionverwaltung.erstellenLieferung
+        Dim lieferEntity As New LieferungEntity
+        Dim liefLieferung As New Lieferung
+        'Dim bestBestellung As New Bestellung
+        'Dim bestEntity As New BestellungEntity
+
+        lieferEntity.lieferIdPk = liefLieferung.LieferungID
+        lieferEntity.datAnfang = liefLieferung.AnfangDatum
+        lieferEntity.datEnde = liefLieferung.EndeDatum
+        lieferEntity.bestIdFk = pintBestId
+        lieferEntity.liefIdFk = pintLiefId
+
+        db.tblLieferungen.Attach(lieferEntity)
+        db.Entry(lieferEntity).State = EntityState.Added
+        db.SaveChanges()
+        liefLieferung = New Lieferung(lieferEntity)
+        Return liefLieferung
+        aendernStatus(lieferEntity.bestIdFk)
+    End Function
+
+    Public Sub aendernStatus(pintBestellungId As Integer)
+        Dim bestBestellung As New Bestellung
+        Dim bestEntity As New BestellungEntity
+        For Each best In db.tblBestellungen.ToList
+            If bestEntity.bestIdPk = pintBestellungId Then
+                bestEntity = best
+            End If
+        Next
+        bestEntity.bestStatus = "Bezahlt"
+
+        db.tblBestellungen.Attach(bestEntity)
+        db.Entry(bestBestellung).State = EntityState.Modified
+        db.SaveChanges()
     End Sub
 
 End Class
