@@ -13,7 +13,7 @@ Sub Class_Globals
 
 	Private mintBestellungID As Int
 	Private mlngDatumBestellung As Long
-	Private mdecPreis As BigDecimal
+	Private mdecPreis As Double
 	Private mstrStatus As String
 	Private mintWaren As Int
 
@@ -47,7 +47,7 @@ End Sub
 
 
 ' Preis
-Public Sub setPreis(value As BigDecimal)
+Public Sub setPreis(value As Double)
 	mdecPreis = value
 End Sub
 

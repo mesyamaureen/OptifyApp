@@ -33,11 +33,16 @@ Private mstrTyp As String
 Private mstrBeschreibung As String
 Private mdblPreis As Double
 Private mAktuelleWare As Ware
+Private wareService As WarenverwaltungServiceService
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
 	Activity.LoadLayout("frmWareKunde")
+	If FirstTime Then
+		wareService.Initialize(Me)
+		wareService.Verbose = True
+	End If
 
 End Sub
 
@@ -50,18 +55,15 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 
-
 Private Sub ladenDaten()
-	' Deklaration
-	Dim warenservice As WarenverwaltungServiceService ' Service für den Zugriff auf den Server deklarieren
 
 	' Fortschrittsdialog einblenden
 	ProgressDialogShow("Informationen der Ware " & mintWarenBezeichnung & " werden geladen.")
 
 	' Service initialisieren und Operation des Service aufrufen
-	warenservice.Initialize(Me)
-	warenservice.Verbose = True ' Ausfühliche Ausgabe im Log
-	warenservice.gibUrlaubsantragAsync(	mintWarenBezeichnung)
+	wareService.Initialize(Me)
+	wareService.Verbose = True ' Ausfühliche Ausgabe im Log
+	wareService.gibUrlaubsantragAsync(mintWarenBezeichnung)
 	
 	' Wenn diese Stelle in der Prozedur erreicht ist, geht es
 	' asynchon in der Prozedur gibUrlaubsantragResponse() weiter,
@@ -84,12 +86,14 @@ End Sub
 
 
 Public Sub anzeigen
-	lblTitel.Text = mAktuelleWare.Typ
+	lblTitel.Text = mAktuelleWare.Typ 'aktuell im service al
 	txtPreis.Text = mAktuelleWare.Preis
 	lblBeschreibung.Text = mAktuelleWare.Beschreibung ' gibt kein Attribut beschreibung
 	lbWährung.Text = "€"
 
 End Sub
+
+'wahrscheinlich brauchen wir das nicht, weil es android app ist
 Private Sub btnAbbrechen_Click
 	Activity.Finish
 End Sub

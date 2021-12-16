@@ -38,7 +38,7 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 Private Sub anmelden(pstrBenutzername As String, pstrPasswort As String)
-	Dim benService As 
+	
 End Sub
 
 Private Sub btnAnmelden_Click
@@ -79,3 +79,7 @@ End Sub
 
 'StartActivity(MenuActivity)
 'Activity.Finish
+
+'Kunde - StartActivity(StartseiteKundeActivity) - frmStartseiteKunde
+'Mitarbeiter - StartActivity(StartseiteMitarbeiterActivity) - frmMenueMitarbeiter
+'Lieferant - noch nicht

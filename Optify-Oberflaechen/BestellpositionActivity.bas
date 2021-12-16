@@ -23,7 +23,7 @@ End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
-	Activity.LoadLayout("frmAlleBestellungenMa")
+	Activity.LoadLayout("frmBestellpositionen")
 
 End Sub
 
@@ -36,6 +36,16 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 
-Private Sub lsvAlleBestellungenMA_ItemClick (Position As Int, Value As Object)
-	StartActivity(BestellungEinzelnMaActivity)
+'zum Löschen
+Private Sub lsvBestellpositionen_ItemLongClick (Position As Int, Value As Object)
+	
+End Sub
+
+Private Sub btnBestellen_Click 'zum Bestellen
+	
+End Sub
+
+
+Private Sub lsvLieferant_ItemClick (Position As Int, Value As Object) 'Lieferant auswählen
+	
 End Sub

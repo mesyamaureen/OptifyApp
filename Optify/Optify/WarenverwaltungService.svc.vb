@@ -9,9 +9,9 @@ Public Class WarenverwaltungService
     Function alleWarenLaden() As List(Of Ware) Implements IWarenverwaltungService.alleWarenLaden
         Dim wListe As List(Of Ware)
         Dim w As Ware
-        Dim wEntity As WareEntity  ' Ini ga perlu menurut gue
+        Dim wEntity As WareEntity
 
-        wListe = New List(Of Ware)  ' Sama kayak di Bestellung, bisa di Zeile 10 bukan?
+        wListe = New List(Of Ware)
         For Each wEntity In db.tblWaren.ToList
             w = New Ware(wEntity)
             wListe.Add(w)
@@ -87,7 +87,7 @@ Public Class WarenverwaltungService
         db.tblWaren.Attach(wEntity)
         db.Entry(wEntity).State = EntityState.Added 'soll neu hinzugefügt werden
         db.SaveChanges()
-        Return wEntity.wIdPk  ' Ini ga ada BestellungHinzufuegen kaah?
+        Return wEntity.wIdPk
 
     End Function 'expected: Parameter einzugeben - wir wollen aber nicht, HOW TO DO THAT
 

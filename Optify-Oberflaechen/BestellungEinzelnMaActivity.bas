@@ -25,10 +25,10 @@ Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
 	Activity.LoadLayout("frmbestellungEinzelnMa")
 	
-	If FirstTime Then
-		AlleBestellungenMitarbeiterActivity.Initialize(Me)
-		AlleBestellungenMitarbeiterActivity.Verbose = True
-	End If
+'	If FirstTime Then
+'		AlleBestellungenMitarbeiterActivity.Initialize(Me)
+'		AlleBestellungenMitarbeiterActivity.Verbose = True
+'	End If
 
 End Sub
 
@@ -38,4 +38,13 @@ End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
 
+End Sub
+
+
+Private Sub btnSpeichern_Click
+	
+End Sub
+
+Private Sub btnStornieren_Click
+	
 End Sub
