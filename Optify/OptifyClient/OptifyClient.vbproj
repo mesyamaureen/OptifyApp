@@ -95,7 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\WarenServiceReference\Reference.vb">
+    <Compile Include="Connected Services\WarenverwaltungServiceReference\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -213,17 +213,17 @@
     <None Include="Connected Services\BestellungServiceReference\OptifyClient.BestellungServiceReference.Bestellung.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\WarenServiceReference\OptifyClient.WarenServiceReference.Ware.datasource">
+    <None Include="Connected Services\WarenverwaltungServiceReference\OptifyClient.WarenverwaltungServiceReference.Ware.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService.wsdl" />
-    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService.xsd">
+    <None Include="Connected Services\WarenverwaltungServiceReference\WarenverwaltungService.wsdl" />
+    <None Include="Connected Services\WarenverwaltungServiceReference\WarenverwaltungService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService1.xsd">
+    <None Include="Connected Services\WarenverwaltungServiceReference\WarenverwaltungService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService2.xsd">
+    <None Include="Connected Services\WarenverwaltungServiceReference\WarenverwaltungService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="My Project\Application.myapp">
@@ -244,7 +244,7 @@
     <WCFMetadataStorage Include="Connected Services\AnmeldungsfunktionServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\BenutzerverwaltungServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\BestellungServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\WarenServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\WarenverwaltungServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BestellungServiceReference\Bestellungverwaltung.disco" />
@@ -257,21 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\BestellungServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.vb</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WarenServiceReference\WarenverwaltungService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WarenServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WarenServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WarenServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
@@ -302,6 +287,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AnmeldungsfunktionServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenverwaltungServiceReference\WarenverwaltungService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenverwaltungServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenverwaltungServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WarenverwaltungServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>

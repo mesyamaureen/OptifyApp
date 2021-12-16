@@ -43,6 +43,9 @@ Namespace AnmeldungsfunktionServiceReference
         Private PasswortField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
+        Private TypField As String
+        
+        <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private VornameField As String
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
@@ -103,6 +106,19 @@ Namespace AnmeldungsfunktionServiceReference
                 If (Object.ReferenceEquals(Me.PasswortField, value) <> true) Then
                     Me.PasswortField = value
                     Me.RaisePropertyChanged("Passwort")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Typ() As String
+            Get
+                Return Me.TypField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.TypField, value) <> true) Then
+                    Me.TypField = value
+                    Me.RaisePropertyChanged("Typ")
                 End If
             End Set
         End Property

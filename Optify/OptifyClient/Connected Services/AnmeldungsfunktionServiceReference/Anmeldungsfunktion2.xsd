@@ -6,6 +6,7 @@
       <xs:element minOccurs="0" name="Benutzername" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Passwort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Typ" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Vorname" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

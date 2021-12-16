@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e2103aeb-bc4d-4c95-bdc0-ad2f6445a655" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca34f9c1-b7b4-4f47-ad13-e0f2627ba638" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,11 +24,11 @@
     <MetadataSource Address="http://localhost:55064/Anmeldungsfunktion.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Anmeldungsfunktion.wsdl" MetadataType="Wsdl" ID="f9bf7c4c-a92d-49cd-a537-70c515cc54c3" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?wsdl" />
-    <MetadataFile FileName="Anmeldungsfunktion.xsd" MetadataType="Schema" ID="1aec88ac-ab2a-446e-8868-0b38e724adb3" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?xsd=xsd0" />
-    <MetadataFile FileName="Anmeldungsfunktion1.xsd" MetadataType="Schema" ID="5a98f290-5472-4e3e-b9e6-c209a9e120e2" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?xsd=xsd1" />
-    <MetadataFile FileName="Anmeldungsfunktion.disco" MetadataType="Disco" ID="ba35b498-72a6-4223-bb8d-9c1c90ab171f" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?disco" />
-    <MetadataFile FileName="Anmeldungsfunktion2.xsd" MetadataType="Schema" ID="8ea16095-aec7-4043-8afb-e7b7a9105888" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?xsd=xsd2" />
+    <MetadataFile FileName="Anmeldungsfunktion.wsdl" MetadataType="Wsdl" ID="039ae0f5-320e-4fc4-ba61-fc0f2dfee638" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?wsdl" />
+    <MetadataFile FileName="Anmeldungsfunktion.xsd" MetadataType="Schema" ID="504a1f25-6184-4acf-be3f-ae8f77274358" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?xsd=xsd0" />
+    <MetadataFile FileName="Anmeldungsfunktion1.xsd" MetadataType="Schema" ID="b304e0f6-facf-43de-ba2d-3b161f1b7805" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?xsd=xsd1" />
+    <MetadataFile FileName="Anmeldungsfunktion.disco" MetadataType="Disco" ID="0040408e-e47c-47df-a5c0-8a2578ff4dae" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?disco" />
+    <MetadataFile FileName="Anmeldungsfunktion2.xsd" MetadataType="Schema" ID="33373c8b-3e0f-4c57-9a73-17fa6a36c866" SourceId="1" SourceUrl="http://localhost:55064/Anmeldungsfunktion.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

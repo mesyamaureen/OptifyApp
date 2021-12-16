@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d72f8ea2-380c-4205-aaf6-40528a544665" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55064/WarenverwaltungService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WarenverwaltungService.wsdl" MetadataType="Wsdl" ID="5050fe79-4398-4129-954b-07bfd15991db" SourceId="1" SourceUrl="http://localhost:55064/WarenverwaltungService.svc?wsdl" />
+    <MetadataFile FileName="WarenverwaltungService.xsd" MetadataType="Schema" ID="705477f8-7529-4292-9ba9-818292c3ce78" SourceId="1" SourceUrl="http://localhost:55064/WarenverwaltungService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WarenverwaltungService1.xsd" MetadataType="Schema" ID="d74f2927-6cf1-422c-b246-4030bbc64b37" SourceId="1" SourceUrl="http://localhost:55064/WarenverwaltungService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WarenverwaltungService.disco" MetadataType="Disco" ID="9ff9089e-6a6b-4b5b-9fd1-b583c8e19f74" SourceId="1" SourceUrl="http://localhost:55064/WarenverwaltungService.svc?disco" />
+    <MetadataFile FileName="WarenverwaltungService2.xsd" MetadataType="Schema" ID="874e4375-b2bb-40ce-8c9d-d7cf8591bc63" SourceId="1" SourceUrl="http://localhost:55064/WarenverwaltungService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

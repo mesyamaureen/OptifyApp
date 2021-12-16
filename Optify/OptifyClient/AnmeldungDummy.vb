@@ -5,9 +5,13 @@
         Dim sMitDummy As New StartseiteMitarbeiterDummy
         Dim sLiefDummy As New LiefDummy
         benBenutzer = anmelden()
-        'If benBenutzer.Then Then
-
-        'End If
+        If benBenutzer.Typ = "Kunde" Then
+            sKundeDummy.Show()
+        ElseIf benBenutzer.Typ = "Lieferant" Then
+            sLiefDummy.Show()
+        Else
+            sMitDummy.Show()
+        End If
     End Sub
 
     Private Function anmelden() As AnmeldungsfunktionServiceReference.Benutzer
@@ -21,7 +25,7 @@
         strBenutzername = Trim(Me.txtBenutzername.Text)
         strPasswort = Me.txtPasswort.Text
         benBenutzer = svc.Einloggen(strBenutzername, strPasswort)
-
+        Return benBenutzer
     End Function
 
     Private Sub benkun()

@@ -4,9 +4,9 @@
     End Sub
 
     Private Sub laden()
-        Dim warenListe As List(Of WarenServiceReference.Ware)
-        Dim svc As WarenServiceReference.IWarenverwaltungService
-        svc = New WarenServiceReference.WarenverwaltungServiceClient
+        Dim warenListe As List(Of WarenverwaltungServiceReference.Ware)
+        Dim svc As WarenverwaltungServiceReference.IWarenverwaltungService
+        svc = New WarenverwaltungServiceReference.WarenverwaltungServiceClient
         warenListe = svc.alleWarenLaden
         Me.DataGridView1.DataSource = warenListe
     End Sub
