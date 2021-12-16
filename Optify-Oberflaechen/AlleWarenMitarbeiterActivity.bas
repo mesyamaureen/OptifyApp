@@ -49,7 +49,7 @@ Private Sub anzeigenWListe()
 	ProgressDialogShow("Alle Waren werden geladen")
 End Sub
 
-Sub gibAlleWarenResponse(pWarenListe As WareList)
+Sub alleWarenLadenResponse(pWarenListe As WareList)
 	Dim strZeile1 As String
 	
 	lsvAlleWaren.Clear

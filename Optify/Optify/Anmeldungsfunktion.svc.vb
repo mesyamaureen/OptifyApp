@@ -19,6 +19,7 @@ Public Class Anmeldungsfunktion
             For Each kun In db.tblKunde.ToList
                 If (kun.strBenutzername.Equals(pstrBenutzername) And kun.strPasswort.Equals(pstrPasswort)) Then
                     kEntity = kun
+                    kkun = New Kunde(kEntity)
                     kkun.BenutzerID = kEntity.kunIdPk
                     kkun.Benutzername = kEntity.strBenutzername
                     kkun.Adresse = kEntity.strAdresse
@@ -35,8 +36,6 @@ Public Class Anmeldungsfunktion
         End Try
 
         If kEntity.strBenutzername IsNot Nothing Then
-            'gibKunde(kkun)
-            ' kun = gibKunde(kkun)
             angemeldBen.BenutzerID = kkun.BenutzerID
             angemeldBen.Benutzername = kkun.Benutzername
             angemeldBen.Name = kkun.Name
@@ -93,7 +92,6 @@ Public Class Anmeldungsfunktion
         End Try
 
         If mEntity.strBenutzername IsNot Nothing Then
-            'gibMitarbeiter(mmit)
             angemeldBen.BenutzerID = mmit.BenutzerID
             angemeldBen.Benutzername = mmit.Benutzername
             angemeldBen.Name = mmit.Name
@@ -159,14 +157,4 @@ Public Class Anmeldungsfunktion
         Return aktMit
     End Function
 
-    Public Function istKunde(pBen As Benutzer) As Boolean
-        Dim kun As New Kunde
-
-    End Function
-    Public Function istLieferant(pBen As Benutzer) As Boolean
-
-    End Function
-    Public Function istMitarbeiter(pBen As Benutzer) As Boolean
-
-    End Function
 End Class

@@ -23,30 +23,29 @@ Public Class Bestellpositionverwaltung
 
     'in den Warenkorb
     Public Function hinzufInWarenkorb(pWare As Ware, paktKunde As Kunde, pintAnzahl As Integer) As Bestellposition Implements IBestellpositionverwaltung.hinzufInWarenkorb
-        'Dim wWare As Ware
         Dim bestPoEntity As New BestellpositionEntity
         Dim bestPo As New Bestellposition
         Dim bestBestellung As Bestellung = New Bestellung
         Dim bestEntity As BestellungEntity
-        'to check if the Bestellung vorhanden ist
+        'überprüfen, ob die Bestellung schon vorhanden ist
         For Each bestEntity In db.tblBestellungen.ToList
-            If bestEntity.bestKunIdFk = paktKunde.BenutzerID Then
-                If bestEntity.bestStatus = "Unbezahlt" Then
-                    bestBestellung = New Bestellung(bestEntity)
+            If bestEntity.bestKunIdFk = paktKunde.BenutzerID Then 'überprüfen: eine Bestellung in der DB zum angemeldeten Kunden gehört
+                If bestEntity.bestStatus = "Unbezahlt" Then 'überprüfen: diese Bestellung, die zum aktuellen Kunde gehört, bestStatus von "Unbezahlt" hat.
+                    bestBestellung = New Bestellung(bestEntity) 'Objekt von Bestellung mit den Parametern von der Entity(Dateien von der Datenbank) zugewiesen werden.
                     Exit For
                 Else
-                    bestBestellung = New Bestellung
-                    bestBestellung.BestellungID = erstellenBestellung(bestBestellung, paktKunde.BenutzerID)
+                    bestBestellung = New Bestellung 'Objekt von Bestellung ohne Parameter konstruiert
+                    bestBestellung.BestellungID = erstellenBestellung(bestBestellung, paktKunde.BenutzerID) 'eine neue Bestellung erstellt. Wir brauchen aber Integer als Rückgabewert (BestellungID)
                     Exit For
                 End If
             End If
         Next
 
         If bestBestellung.BestellungID = -1 Then
-            bestBestellung.BestellungID = erstellenBestellung(bestBestellung, paktKunde.BenutzerID)
+            bestBestellung.BestellungID = erstellenBestellung(bestBestellung, paktKunde.BenutzerID) 'Bestellung ID von der neu erstellten Bestellung zugewiesen
         End If
 
-        'create a new Bestellposition
+        'eine neue Bestellposition erstellen
         bestPoEntity.bestPoIdPk = bestPo.BestellpositionID
         bestPoEntity.bestPoAnzahl = pintAnzahl
         bestPoEntity.bestPoBestIdFk = bestBestellung.BestellungID
@@ -68,7 +67,7 @@ Public Class Bestellpositionverwaltung
         bestEntity = pBestellung.gibAlsBestEntity
         bestEntity.bestKunIdFk = pintKundeID
         db.tblBestellungen.Attach(bestEntity)
-        db.Entry(bestEntity).State = EntityState.Added
+        db.Entry(bestEntity).State = EntityState.Added 'neue Datensätze in die Datenbank über Entity hinzugefügt werden
         db.SaveChanges()
         Return bestEntity.bestIdPk
     End Function
