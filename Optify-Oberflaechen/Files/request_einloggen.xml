@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Generiert mit dem WSDL2B4A-Generator Version 1.1 und unter GPL 3 zur Verfuegung gestellt.-->
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+		<s:Body>
+			<Einloggen xmlns="http://tempuri.org/">
+				<pstrBenutzername>$PSTRBENUTZERNAME$</pstrBenutzername>
+				<pstrPasswort>$PSTRPASSWORT$</pstrPasswort>
+			</Einloggen>
+		</s:Body>
+	</s:Envelope>

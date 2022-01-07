@@ -18,9 +18,9 @@ Public Class Anmeldungsfunktion
         Try
             For Each kun In db.tblKunde.ToList
                 If (kun.strBenutzername.Equals(pstrBenutzername) And kun.strPasswort.Equals(pstrPasswort)) Then
-                    kEntity = kun
-                    kkun = New Kunde(kEntity)
-                    kkun.BenutzerID = kEntity.kunIdPk
+                    kEntity = kun 'gelesene Datei in der Kunden Entity gespeichert
+                    kkun = New Kunde(kEntity) 'Aufruf: Konstruktor mit Entity als Parameter
+                    kkun.BenutzerID = kEntity.kunIdPk 'Alle Attribute von der Entity Objekt in den Objekt: Kunde
                     kkun.Benutzername = kEntity.strBenutzername
                     kkun.Adresse = kEntity.strAdresse
                     kkun.Firmenname = kEntity.strFirmenname
@@ -28,20 +28,20 @@ Public Class Anmeldungsfunktion
                     kkun.Passwort = kEntity.strPasswort
                     kkun.SteuerID = kEntity.strSteuerID
                     kkun.Vorname = kEntity.strVorname
-                    Exit For
+                    Exit For 'eingegebene Parametern = Datensatz in der Datenbank -> raus von For Each Schleife
                 End If
             Next
         Catch ex As Exception
             kEntity = Nothing
         End Try
 
-        If kEntity.strBenutzername IsNot Nothing Then
+        If kEntity.strBenutzername IsNot Nothing Then 'brauchen nur 
             angemeldBen.BenutzerID = kkun.BenutzerID
             angemeldBen.Benutzername = kkun.Benutzername
             angemeldBen.Name = kkun.Name
             angemeldBen.Passwort = kkun.Passwort
             angemeldBen.Vorname = kkun.Vorname
-            angemeldBen.Typ = "Kunde"
+            angemeldBen.Typ = "Kunde" 'zusätzliches Atrribut zur Startseite
             Return angemeldBen
         End If
 

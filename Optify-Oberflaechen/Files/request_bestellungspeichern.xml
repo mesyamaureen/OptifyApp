@@ -6,9 +6,9 @@
 				<pBestellung>
 					<BestellungID xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_BESTELLUNGID$</BestellungID>
 					<DatumBestellung xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_DATUMBESTELLUNG$</DatumBestellung>
+					<KundenID xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_KUNDENID$</KundenID>
 					<Preis xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_PREIS$</Preis>
 					<Status xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_STATUS$</Status>
-					<Waren xmlns="http://schemas.datacontract.org/2004/07/Optify">$PBESTELLUNG_WAREN$</Waren>
 				</pBestellung>
 			</Bestellungspeichern>
 		</s:Body>

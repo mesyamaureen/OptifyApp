@@ -1,8 +1,7 @@
-﻿B4A=true
-Group=Default Group
-ModulesStructureVersion=1
 Type=Class
 Version=6
+ModulesStructureVersion=1
+B4A=true
 @EndOfDesignText@
 
 ' Class BestellungverwaltungService
@@ -58,7 +57,7 @@ Public Sub setVerbose(pbolVerbose As Boolean)
 End Sub
 
 ' Operationen
-Public Sub gibBestellungenAsync() As BestellungList
+Public Sub alleBestellungenLadenAsync() As BestellungList
 	Dim job As HttpJob
 	Dim msg As String
 	Dim strSoapAction As String
@@ -68,10 +67,10 @@ Public Sub gibBestellungenAsync() As BestellungList
 	strDateFormat = DateTime.DateFormat
 	DateTime.DateFormat="yyyy-MM-dd"
 
-	strSoapAction = "http://tempuri.org/IBestellungverwaltung/gibBestellungen"
+	strSoapAction = "http://tempuri.org/IBestellungverwaltung/alleBestellungenLaden"
 
-	job.Initialize("gibBestellungenResponse", Me)
-	msg = File.ReadString(File.DirAssets, "request_gibbestellungen.xml")
+	job.Initialize("alleBestellungenLadenResponse", Me)
+	msg = File.ReadString(File.DirAssets, "request_allebestellungenladen.xml")
 
 	If mbolVerbose Then
 		Log(msg)
@@ -101,40 +100,6 @@ Public Sub BestellungOeffnenAsync(pintBestID As Int) As Bestellung
 	job.Initialize("BestellungOeffnenResponse", Me)
 	msg = File.ReadString(File.DirAssets, "request_bestellungoeffnen.xml")
 	msg = msg.Replace("$PINTBESTID$",pintBestID)
-
-	If mbolVerbose Then
-		Log(msg)
-	End If
-
-
-	' Datumsformat wieder zurückstellen
-	DateTime.DateFormat = strDateFormat
-
-	job.PostString(mstrServiceUrl, msg)
-	job.GetRequest.SetContentType("text/xml; charset=utf-8")
-	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
-End Sub 
-
-Public Sub BestellungBearbeitenAsync(pBestellung As Bestellung)
-	Dim job As HttpJob
-	Dim msg As String
-	Dim strSoapAction As String
-	Dim strDateFormat As String
-
-	' Datumsformat vorübergehend auf XML-Standard umstellen
-	strDateFormat = DateTime.DateFormat
-	DateTime.DateFormat="yyyy-MM-dd"
-
-	strSoapAction = "http://tempuri.org/IBestellungverwaltung/BestellungBearbeiten"
-
-	job.Initialize("BestellungBearbeitenResponse", Me)
-	msg = File.ReadString(File.DirAssets, "request_bestellungbearbeiten.xml")
-	' pBestellung
-	msg = msg.Replace("$PBESTELLUNG_BESTELLUNGID$",pBestellung.BestellungID)
-	msg = msg.Replace("$PBESTELLUNG_DATUMBESTELLUNG$",DateTime.Date(pBestellung.DatumBestellung))
-	msg = msg.Replace("$PBESTELLUNG_PREIS$",pBestellung.Preis)
-	msg = msg.Replace("$PBESTELLUNG_STATUS$",pBestellung.Status)
-	msg = msg.Replace("$PBESTELLUNG_WAREN$",pBestellung.Waren)
 
 	If mbolVerbose Then
 		Log(msg)
@@ -195,9 +160,9 @@ Public Sub BestellungspeichernAsync(pBestellung As Bestellung)
 	' pBestellung
 	msg = msg.Replace("$PBESTELLUNG_BESTELLUNGID$",pBestellung.BestellungID)
 	msg = msg.Replace("$PBESTELLUNG_DATUMBESTELLUNG$",DateTime.Date(pBestellung.DatumBestellung))
+	msg = msg.Replace("$PBESTELLUNG_KUNDENID$",pBestellung.KundenID)
 	msg = msg.Replace("$PBESTELLUNG_PREIS$",pBestellung.Preis)
 	msg = msg.Replace("$PBESTELLUNG_STATUS$",pBestellung.Status)
-	msg = msg.Replace("$PBESTELLUNG_WAREN$",pBestellung.Waren)
 
 	If mbolVerbose Then
 		Log(msg)
@@ -214,7 +179,7 @@ End Sub
 
 Private Sub JobDone (Job As HttpJob)
 
-	Dim strCallbackSub As String
+	Dim strCallbackSub AS String
 
 	If mbolVerbose Then
 		Log("JobName = " & Job.JobName & ", Success = " & Job.Success)
@@ -224,9 +189,9 @@ Private Sub JobDone (Job As HttpJob)
 		If mbolVerbose Then
 			Log(Job.GetString)
 		End If
-		If Job.JobName = "gibBestellungenResponse" Then
+		If Job.JobName = "alleBestellungenLadenResponse" Then
 			' Verarbeitung der XML-Antwort beginnen
-			gibBestellungenResponseXml(Job.GetInputStream)
+			alleBestellungenLadenResponseXml(Job.GetInputStream)
 			strCallbackSub = Job.JobName
 			Job.Release
 			If mstrCallbackSub.Length > 0 Then
@@ -261,12 +226,12 @@ Private Sub JobDone (Job As HttpJob)
 
 End Sub
 
-Private Sub gibBestellungenResponseXml(pinsXml As InputStream)
+Private Sub alleBestellungenLadenResponseXml(pinsXml As InputStream)
 
 	XMLParser.Initialize
 
 	DateTime.DateFormat="yyyy-MM-dd"
-	XMLParser.Parse(pinsXml, "gibBestellungenResponseXmlParser")
+	XMLParser.Parse(pinsXml, "alleBestellungenLadenResponseXmlParser")
 	DateTime.DateFormat="dd.MM.yyyy"
 
 End Sub
@@ -281,14 +246,14 @@ Private Sub BestellungOeffnenResponseXml(pinsXml As InputStream)
 
 End Sub
 
-Private Sub gibBestellungenResponseXmlParser_StartElement(Uri As String, Name As String, Attributes As Attributes)
+Private Sub alleBestellungenLadenResponseXmlParser_StartElement(Uri As String, Name As String, Attributes As Attributes)
 
 	If mbolVerbose Then
 		Log("Es beginnt: '" & Name & "'.")
 	End If
 
 	Select Name
-		Case "gibBestellungenResult"
+		Case "alleBestellungenLadenResult"
 			Dim mBestellungList As BestellungList
 			mBestellungList.Initialize
 		Case "Bestellung"
@@ -298,11 +263,11 @@ Private Sub gibBestellungenResponseXmlParser_StartElement(Uri As String, Name As
 			' Nichts zu tun
 		Case "DatumBestellung"
 			' Nichts zu tun
+		Case "KundenID"
+			' Nichts zu tun
 		Case "Preis"
 			' Nichts zu tun
 		Case "Status"
-			' Nichts zu tun
-		Case "Waren"
 			' Nichts zu tun
 	End Select
 
@@ -322,24 +287,24 @@ Private Sub BestellungOeffnenResponseXmlParser_StartElement(Uri As String, Name 
 			' Nichts zu tun
 		Case "DatumBestellung"
 			' Nichts zu tun
+		Case "KundenID"
+			' Nichts zu tun
 		Case "Preis"
 			' Nichts zu tun
 		Case "Status"
-			' Nichts zu tun
-		Case "Waren"
 			' Nichts zu tun
 	End Select
 
 End Sub
 
-Private Sub gibBestellungenResponseXmlParser_EndElement(Uri As String, Name As String, Text As StringBuilder)
+Private Sub alleBestellungenLadenResponseXmlParser_EndElement(Uri As String, Name As String, Text As StringBuilder)
 
 	If mbolVerbose Then
 		Log("Es endet: '" & Name & "' mit dem Wert: '" & Text & "'.")
 	End If
 
 	Select Name
-		Case "gibBestellungenResult"
+		Case "alleBestellungenLadenResult"
 			' Nichts zu tun
 		Case "Bestellung"
 			mBestellungList.Add(mBestellung)
@@ -347,12 +312,12 @@ Private Sub gibBestellungenResponseXmlParser_EndElement(Uri As String, Name As S
 			mBestellung.BestellungID = Text.ToString
 		Case "DatumBestellung"
 			mBestellung.DatumBestellung = DateTime.DateParse(Text.ToString)
+		Case "KundenID"
+			mBestellung.KundenID = Text.ToString
 		Case "Preis"
 			mBestellung.Preis = Text.ToString
 		Case "Status"
 			mBestellung.Status = Text.ToString
-		Case "Waren"
-			mBestellung.Waren = Text.ToString
 	End Select
 
 End Sub
@@ -370,12 +335,12 @@ Private Sub BestellungOeffnenResponseXmlParser_EndElement(Uri As String, Name As
 			mBestellung.BestellungID = Text.ToString
 		Case "DatumBestellung"
 			mBestellung.DatumBestellung = DateTime.DateParse(Text.ToString)
+		Case "KundenID"
+			mBestellung.KundenID = Text.ToString
 		Case "Preis"
 			mBestellung.Preis = Text.ToString
 		Case "Status"
 			mBestellung.Status = Text.ToString
-		Case "Waren"
-			mBestellung.Waren = Text.ToString
 	End Select
 
 End Sub

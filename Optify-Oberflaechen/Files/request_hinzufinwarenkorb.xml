@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Generiert mit dem WSDL2B4A-Generator Version 1.1 und unter GPL 3 zur Verfuegung gestellt.-->
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+		<s:Body>
+			<hinzufInWarenkorb xmlns="http://tempuri.org/">
+				<pWare>
+					<Beschreibung xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_BESCHREIBUNG$</Beschreibung>
+					<Bezeichnung xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_BEZEICHNUNG$</Bezeichnung>
+					<ID xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_ID$</ID>
+					<Preis xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_PREIS$</Preis>
+				</pWare>
+				<paktKunde />
+				<pintAnzahl>$PINTANZAHL$</pintAnzahl>
+			</hinzufInWarenkorb>
+		</s:Body>
+	</s:Envelope>

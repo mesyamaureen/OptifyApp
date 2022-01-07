@@ -1,8 +1,7 @@
-﻿B4A=true
-Group=Default Group
-ModulesStructureVersion=1
 Type=Class
 Version=6
+ModulesStructureVersion=1
+B4A=true
 @EndOfDesignText@
 
 ' Class Bestellung
@@ -13,9 +12,9 @@ Sub Class_Globals
 
 	Private mintBestellungID As Int
 	Private mlngDatumBestellung As Long
-	Private mdecPreis As Double
+	Private mintKundenID As Int
+	Private mdblPreis As Double
 	Private mstrStatus As String
-	Private mintWaren As Int
 
 End Sub
 
@@ -46,13 +45,23 @@ Public Sub getDatumBestellung As Long
 End Sub
 
 
-' Preis
-Public Sub setPreis(value As Double)
-	mdecPreis = value
+' KundenID
+Public Sub setKundenID(value As Int)
+	mintKundenID = value
 End Sub
 
-Public Sub getPreis As BigDecimal
-	Return mdecPreis
+Public Sub getKundenID As Int
+	Return mintKundenID
+End Sub
+
+
+' Preis
+Public Sub setPreis(value As Double)
+	mdblPreis = value
+End Sub
+
+Public Sub getPreis As Double
+	Return mdblPreis
 End Sub
 
 
@@ -63,16 +72,6 @@ End Sub
 
 Public Sub getStatus As String
 	Return mstrStatus
-End Sub
-
-
-' Waren
-Public Sub setWaren(value As Int)
-	mintWaren = value
-End Sub
-
-Public Sub getWaren As Int
-	Return mintWaren
 End Sub
 
 

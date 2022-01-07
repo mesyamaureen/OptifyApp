@@ -11,9 +11,10 @@ B4A=true
 Sub Class_Globals
 
 	Private mlngAnfangDatum As Long
-	Private mintBestellung As Int
+	Private mintBestellungID As Int
 	Private mlngEndeDatum As Long
-	Private mintID As Int
+	Private mintLieferantID As Int
+	Private mintLieferungID As Int
 
 End Sub
 
@@ -34,13 +35,13 @@ Public Sub getAnfangDatum As Long
 End Sub
 
 
-' Bestellung
-Public Sub setBestellung(value As Int)
-	mintBestellung = value
+' BestellungID
+Public Sub setBestellungID(value As Int)
+	mintBestellungID = value
 End Sub
 
-Public Sub getBestellung As Int
-	Return mintBestellung
+Public Sub getBestellungID As Int
+	Return mintBestellungID
 End Sub
 
 
@@ -54,13 +55,23 @@ Public Sub getEndeDatum As Long
 End Sub
 
 
-' ID
-Public Sub setID(value As Int)
-	mintID = value
+' LieferantID
+Public Sub setLieferantID(value As Int)
+	mintLieferantID = value
 End Sub
 
-Public Sub getID As Int
-	Return mintID
+Public Sub getLieferantID As Int
+	Return mintLieferantID
+End Sub
+
+
+' LieferungID
+Public Sub setLieferungID(value As Int)
+	mintLieferungID = value
+End Sub
+
+Public Sub getLieferungID As Int
+	Return mintLieferungID
 End Sub
 
 

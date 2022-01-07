@@ -114,6 +114,69 @@ Public Sub LieferungOeffnenAsync(pintLiefID As Int) As anyType
 	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
 End Sub 
 
+Public Sub hinzufuegenLieferungAsync(pLieferung As Lieferung)
+	Dim job As HttpJob
+	Dim msg As String
+	Dim strSoapAction As String
+	Dim strDateFormat As String
+
+	' Datumsformat vorübergehend auf XML-Standard umstellen
+	strDateFormat = DateTime.DateFormat
+	DateTime.DateFormat="yyyy-MM-dd"
+
+	strSoapAction = "http://tempuri.org/ILieferungverwaltung/hinzufuegenLieferung"
+
+	job.Initialize("hinzufuegenLieferungResponse", Me)
+	msg = File.ReadString(File.DirAssets, "request_hinzufuegenlieferung.xml")
+	' pLieferung
+	msg = msg.Replace("$PLIEFERUNG_ANFANGDATUM$",DateTime.Date(pLieferung.AnfangDatum))
+	msg = msg.Replace("$PLIEFERUNG_BESTELLUNGID$",pLieferung.BestellungID)
+	msg = msg.Replace("$PLIEFERUNG_ENDEDATUM$",DateTime.Date(pLieferung.EndeDatum))
+	msg = msg.Replace("$PLIEFERUNG_LIEFERANTID$",pLieferung.LieferantID)
+	msg = msg.Replace("$PLIEFERUNG_LIEFERUNGID$",pLieferung.LieferungID)
+
+	If mbolVerbose Then
+		Log(msg)
+	End If
+
+
+	' Datumsformat wieder zurückstellen
+	DateTime.DateFormat = strDateFormat
+
+	job.PostString(mstrServiceUrl, msg)
+	job.GetRequest.SetContentType("text/xml; charset=utf-8")
+	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
+End Sub 
+
+Public Sub loeschenLieferungAsync(pliefId As Int)
+	Dim job As HttpJob
+	Dim msg As String
+	Dim strSoapAction As String
+	Dim strDateFormat As String
+
+	' Datumsformat vorübergehend auf XML-Standard umstellen
+	strDateFormat = DateTime.DateFormat
+	DateTime.DateFormat="yyyy-MM-dd"
+
+	strSoapAction = "http://tempuri.org/ILieferungverwaltung/loeschenLieferung"
+
+	job.Initialize("loeschenLieferungResponse", Me)
+	msg = File.ReadString(File.DirAssets, "request_loeschenlieferung.xml")
+	msg = msg.Replace("$PLIEFID$",pliefId)
+
+	If mbolVerbose Then
+		Log(msg)
+	End If
+
+
+	' Datumsformat wieder zurückstellen
+	DateTime.DateFormat = strDateFormat
+
+	job.PostString(mstrServiceUrl, msg)
+	job.GetRequest.SetContentType("text/xml; charset=utf-8")
+	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
+End Sub 
+
 Private Sub JobDone (Job As HttpJob)
 
 	Dim strCallbackSub AS String
@@ -198,11 +261,13 @@ Private Sub gibLieferungenResponseXmlParser_StartElement(Uri As String, Name As 
 			mLieferung.Initialize
 		Case "AnfangDatum"
 			' Nichts zu tun
-		Case "Bestellung"
+		Case "BestellungID"
 			' Nichts zu tun
 		Case "EndeDatum"
 			' Nichts zu tun
-		Case "ID"
+		Case "LieferantID"
+			' Nichts zu tun
+		Case "LieferungID"
 			' Nichts zu tun
 	End Select
 
@@ -234,12 +299,14 @@ Private Sub gibLieferungenResponseXmlParser_EndElement(Uri As String, Name As St
 			mLieferungList.Add(mLieferung)
 		Case "AnfangDatum"
 			mLieferung.AnfangDatum = DateTime.DateParse(Text.ToString)
-		Case "Bestellung"
-			mLieferung.Bestellung = Text.ToString
+		Case "BestellungID"
+			mLieferung.BestellungID = Text.ToString
 		Case "EndeDatum"
 			mLieferung.EndeDatum = DateTime.DateParse(Text.ToString)
-		Case "ID"
-			mLieferung.ID = Text.ToString
+		Case "LieferantID"
+			mLieferung.LieferantID = Text.ToString
+		Case "LieferungID"
+			mLieferung.LieferungID = Text.ToString
 	End Select
 
 End Sub
