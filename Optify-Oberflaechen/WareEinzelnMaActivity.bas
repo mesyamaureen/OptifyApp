@@ -10,19 +10,13 @@ Version=11
 #End Region
 
 Sub Process_Globals
-	'These global variables will be declared once when the application starts.
-	'These variables can be accessed from all modules.
-
 End Sub
 
 Sub Globals
-	'These global variables will be redeclared each time the activity is created.
-	'These variables can only be accessed from this module.
 	Private pnlWareEinzeln As Panel
 	Private txtTitel As EditText
 	Private txtPreis As EditText
 	Private btnAbbrechen As Button
-	'Private btnLoeschen As Button
 	Private btnSpeichern As Button
 	Private imgWare As ImageView
 	Private txtBeschreibung As EditText
@@ -36,13 +30,9 @@ Sub Globals
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
-	'Do not forget to load the layout file created with the visual designer. For example:
 	Activity.LoadLayout("frmWareMa")
-	'pnlWareEinzeln.Panel.LoadLayout("pnlWareEinzeln")
-	
 	warenservice.Initialize(Me)
 	warenservice.Verbose = True
-	
 	mintIndex = AlleWarenMitarbeiterActivity.mintAktWare
 	mAktuelleWare.Initialize
 	If mintIndex > 0 Then
@@ -53,11 +43,9 @@ Sub Activity_Create(FirstTime As Boolean)
 End Sub
 
 Sub Activity_Resume
-	
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
-
 End Sub
 
 Private Sub laden()
@@ -77,31 +65,18 @@ Public Sub anzeigen()
 	txtBeschreibung.Text = mAktuelleWare.Beschreibung
 End Sub
 
-'Private Sub uebernehmen()
-'	mAktuelleWare.Bezeichnung = txtTitel.Text
-'	mAktuelleWare.Preis = txtPreis.Text
-'	mAktuelleWare.Beschreibung = txtBeschreibung.Text
-'End Sub
-
 Private Sub btnAbbrechen_Click
-	Dim intResult As Int ' Ergebnis des Meldungsfensters
-	
-	' Rückfrage beim Benutzer, ob er wirklich abbrechen möchte
+	Dim intResult As Int 
 	intResult = Msgbox2("Möchten Sie wirklich abbrechen?", "Abbrechen", "Ja", "", "Nein", Null)
 	If intResult = DialogResponse.POSITIVE Then
-		' Wenn ja, dann die Aktivität beenden
 		StartActivity(AlleWarenMitarbeiterActivity)
 		Activity.Finish
 	End If
-	' In allen anderen Fällen ist nichts zu tun
 End Sub
 
 
 Sub btnSpeichern_Click
 	speichern
-'	uebernehmen
-'	speichernOderhinzufuegen
-'	Activity.Finish
 End Sub
 
 Sub speichern
@@ -118,7 +93,6 @@ Sub speichern
 			warenservice.wareHinzufuegenAsync(mAktuelleWare)
 			ProgressDialogShow2("Neue Daten werden gespeichert", False)
 	End If
-
 End Sub
 
 Public Sub wareSpeichernResponse()
@@ -133,61 +107,3 @@ Public Sub wareHinzufuegenResponse(pintWareId As Int)
 	StartActivity(AlleWarenMitarbeiterActivity)
 	Activity.Finish
 End Sub
-
-
-
-'Sub speichernOderhinzufuegen()
-'	warenservice.Initialize(Me)
-'	warenservice.CallbackSub = "speichernOderhinzufuegenResponse"
-'	warenservice.Verbose = True
-'	
-'	If mAktuelleWare.ID > 0 Then
-'		ProgressDialogShow("Daten der Ware werden gespeichert.")
-'		warenservice.wareSpeichernAsync(mAktuelleWare)
-'		Else
-'			ProgressDialogShow("Daten der neuen Ware werden gespeichert.")
-'			warenservice.wareHinzufuegenAsync(mAktuelleWare)
-'	End If
-'End Sub
-'
-'Public Sub speichernOderhinzufuegenResponse()
-'	ProgressDialogHide
-'	StartActivity(AlleWarenMitarbeiterActivity)
-'End Sub
-
-'Sub speichernOderhinzufuegen()
-'	If mAktuelleWare.ID > 0 Then
-'		speichern
-'		Else
-'			hinzufuegen
-'	End If
-'End Sub
-'
-'Sub speichern()
-'	ProgressDialogShow("Daten der Ware mit ID " & mintIndex & " werden gespeichert.")
-''	warenservice.Initialize(Me)
-'	'warenservice.CallbackSub = "wareSpeichernResponse"
-'	'warenservice.Verbose = True
-'	warenservice.wareSpeichernAsync(mAktuelleWare)
-'End Sub
-'
-'Public Sub wareSpeichernResponse(pWare As Ware)
-'	ProgressDialogHide
-'	mAktuelleWare = pWare
-'	StartActivity(AlleWarenMitarbeiterActivity)
-'	Activity.Finish
-'End Sub
-'
-'Sub hinzufuegen()
-'	ProgressDialogShow("Daten der neuen Ware werden gespeichert.")
-'	warenservice.Initialize(Me)
-'	warenservice.CallbackSub = "wareHinzufuegenResponse"
-'	warenservice.Verbose = True
-'	warenservice.wareHinzufuegenAsync(mAktuelleWare)
-'End Sub
-'
-'Public Sub wareHinzufuegenResponse(pintWareId As Int)
-'	ProgressDialogHide
-'	StartActivity(AlleWarenMitarbeiterActivity)
-'	Activity.Finish
-'End Sub

@@ -89,7 +89,7 @@ Public Class WarenverwaltungService
         db.SaveChanges()
         Return wEntity.wIdPk
 
-    End Function 'expected: Parameter einzugeben - wir wollen aber nicht, HOW TO DO THAT
+    End Function
 
 
 End Class

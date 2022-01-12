@@ -10,15 +10,10 @@ Version=11
 #End Region
 
 Sub Process_Globals
-	'These global variables will be declared once when the application starts.
-	'These variables can be accessed from all modules.
 	Public mintAktWare As Int
 End Sub
 
 Sub Globals
-	'These global variables will be redeclared each time the activity is created.
-	'These variables can only be accessed from this module.
-	'Private mlstAlleWaren As List	
 	Private lsvAlleWaren As ListView
 	Dim warenService As WarenverwaltungServiceService
 	
@@ -26,7 +21,6 @@ Sub Globals
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
-	'Do not forget to load the layout file created with the visual designer. For example:
 	Activity.LoadLayout("frmStartseiteKunde")
 	wAlleWaren.Initialize
 End Sub
@@ -38,7 +32,6 @@ Sub Activity_Resume
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
-
 End Sub
 
 Sub ladeWaren()
@@ -46,8 +39,6 @@ Sub ladeWaren()
 	warenService.Initialize(Me)
 	warenService.Verbose = True
 	warenService.alleWarenLadenAsync()
-'	ProgressDialogShow2("Alle Waren werden geladen",False)
-'	anzeigenWListe
 End Sub
 
 Public Sub alleWarenLadenResponse(pWarenListe As WareList)

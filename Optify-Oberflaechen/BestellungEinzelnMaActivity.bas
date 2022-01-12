@@ -44,12 +44,6 @@ Sub Activity_Create(FirstTime As Boolean)
 	
 	mintIndex = AlleBestellungenMitarbeiterActivity.mintAktBestellung
 	mAktBestellung.Initialize
-'	If mintIndex > 0 Then
-'		laden
-'	Else
-'		anzeigen
-'	End If
-
 End Sub
 
 Sub Activity_Resume
@@ -118,34 +112,7 @@ End Sub
 
 Public Sub BestellungspeichernResponse()
 	ProgressDialogHide
-	' StartActivity(AlleBestellungenMitarbeiterActivity)
+	StartActivity(AlleBestellungenMitarbeiterActivity)
 	Activity.Finish
 	
 End Sub
-
-'Private Sub btnStornieren_Click
-'	stornieren
-'End Sub
-'
-'Sub stornieren()
-'	Dim intId As Int
-'	Dim intResult As Int
-'	
-'	bestservice.Initialize(Me)
-'	bestservice.Verbose = True
-'	
-'	intResult = Msgbox2("Möchten Sie wirklich löschen?", "Löschen", "Ja", "", "Nein", Null)
-'	If intResult = DialogResponse.NEGATIVE Then
-'		Return
-'	End If
-'	
-'	intId = mAktBestellung.BestellungID
-'	bestservice.BestellungStornierenAsync(intId)
-'	ProgressDialogShow2("Daten werden gelöscht", False)
-'End Sub
-
-'Public Sub BestellungStornierenResponse()
-'	ProgressDialogHide
-'	'StartActivity(AlleBestellungenMitarbeiterActivity)
-'	Activity.Finish
-'End Sub

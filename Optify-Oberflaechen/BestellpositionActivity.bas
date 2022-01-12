@@ -74,10 +74,6 @@ Private Sub ladenLieferanten()
 	bestpoService.gibLieferantenAsync
 End Sub
 
-'Public Sub gibLieferantenResponse()
-''	anzeigenLieferanten
-'End Sub
-
 Private Sub anzeigenBestellposition()
 	Dim strBestpoZeile1 As String
 	Dim strBestpoZeile2 As String
@@ -93,18 +89,6 @@ Private Sub anzeigenBestellposition()
 	Next
 	
 End Sub
-
-'Private Sub anzeigenLieferanten()
-'	Dim strLiefZeile1 As String
-'	Dim intLieferant As Int
-'	Dim benBenutzer As Benutzer
-'	benBenutzer.Initialize
-'	
-'	lsvLieferant.Clear
-'	For Each benut As Benutzer In mlstLieferanten.List
-'		'How to get a Lieferant type here?
-'	Next
-'End Sub
 
 'zum Löschen
 Private Sub lsvBestellpositionen_ItemLongClick (Position As Int, Value As Object)

@@ -10,14 +10,10 @@ Version=11
 #End Region
 
 Sub Process_Globals
-	'These global variables will be declared once when the application starts.
-	'These variables can be accessed from all modules.
+
 End Sub
 
 Sub Globals
-	'These global variables will be redeclared each time the activity is created.
-	'These variables can only be accessed from this module.
-	' Oberflächenelemente
 	Private txtBenutzername As EditText
 	Private txtPasswort As EditText
 	
@@ -42,8 +38,6 @@ End Sub
 
 Private Sub btnAnmelden_Click
 	anmelden(txtBenutzername.Text, txtPasswort.Text)
-	'StartActivity
-
 End Sub
 
 Private Sub anmelden(pstrBenutzername As String, pstrPasswort As String)
