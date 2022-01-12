@@ -18,49 +18,60 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	'These variables can only be accessed from this module.
-	Private mlstAlleWaren As List
-	Private lsvAlleWaren As ListView
+	Private mlstAlleWaren As WareList
+	Private btnHinzufuegen As Button
+	
 	Dim warenService As WarenverwaltungServiceService
 
+	Private lsvAlleWarenMitarbeiter As ListView
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
 	Activity.LoadLayout("frmAlleWarenMitarbeiter")
 	mlstAlleWaren.Initialize
+	
+	warenService.Initialize(Me)
+	warenService.Verbose = True
 
 End Sub
 
 Sub Activity_Resume
-	If Not(warenService.IsInitialized) Then
-		warenService.Initialize(Me)
-		warenService.Verbose = True
-	End If
-	
 	mintAktWare = -1
-	anzeigenWListe
+	laden
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
-Private Sub anzeigenWListe()
-	warenService.alleWarenLadenAsync()
+Private Sub laden()
 	ProgressDialogShow("Alle Waren werden geladen")
+	warenService.alleWarenLadenAsync()
 End Sub
 
-Sub alleWarenLadenResponse(pWarenListe As WareList)
-	Dim strZeile1 As String
+Public Sub alleWarenLadenResponse(pWarenListe As WareList)
+	ProgressDialogHide
+	mlstAlleWaren = pWarenListe
 	
-	lsvAlleWaren.Clear
-	For w = 0 To mlstAlleWaren.Size - 1
-		Dim wWare As Ware
-		wWare = mlstAlleWaren.Get(w)
-		strZeile1 = wWare.Typ
-		lsvAlleWaren.AddSingleLine2(strZeile1, wWare.ID)
-	Next
+	anzeigen
 End Sub
 
+Private Sub anzeigen()
+		Dim strZeile1 As String
+	Dim strZeile2 As String
+	Dim intIndex As Int
+	ProgressDialogHide
+	
+	lsvAlleWarenMitarbeiter.Clear
+	For Each wWare As Ware In mlstAlleWaren.List
+		strZeile1 = wWare.Bezeichnung
+		strZeile2 = wWare.Preis
+		intIndex = wWare.ID
+		
+		lsvAlleWarenMitarbeiter.AddTwoLines2(strZeile1, strZeile2, intIndex)
+	Next
+	
+End Sub
 
 Private Sub lsvAlleWarenMitarbeiter_ItemClick (Position As Int, Value As Object)
 	mintAktWare = Value
@@ -68,6 +79,7 @@ Private Sub lsvAlleWarenMitarbeiter_ItemClick (Position As Int, Value As Object)
 End Sub
 
 Private Sub btnHinzufuegen_Click
+	mintAktWare = -1
 	StartActivity(WareEinzelnMaActivity)
 End Sub
 
@@ -76,6 +88,6 @@ Private Sub lsvAlleWarenMitarbeiter_ItemLongClick (Position As Int, Value As Obj
 	intResult = Msgbox2("Wirklich löschen?", "Löschen", "Ja", "", "Nein", Null)
 	If intResult = DialogResponse.POSITIVE Then
 		warenService.wareLoeschenAsync(Value)
-		anzeigenWListe
+		anzeigen
 	End If
 End Sub

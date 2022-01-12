@@ -12,7 +12,7 @@ Version=11
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
-
+	Public mintIndex As Int
 End Sub
 
 Sub Globals
@@ -22,16 +22,18 @@ Private lblBeschreibung As Label
 Private imgWare As ImageView
 Private lblTitel As Label
 Private btnAbbrechen As Button 
-Private auotxtAnzahl As AutoCompleteEditText
+Private autotxtAnzahl As AutoCompleteEditText
 Private btnWarenkorb As Button
 Private lblPreis As Label
-Private lbWährung As Label
+Private lblWährung As Label
 Private txtPreis As EditText
 
-Public mintWarenBezeichnung = AlleWarenMitarbeiterActivity.lblBoxS
-Private mstrTyp As String
-Private mstrBeschreibung As String
-Private mdblPreis As Double
+'Public mintWarenBezeichnung = AlleWarenMitarbeiterActivity.lblBoxS
+''Public intAktWare = StartseiteKunde.
+'Private mstrBezeichnung As String
+'Private mstrBeschreibung As String
+'Private mdblPreis As Double
+
 Private mAktuelleWare As Ware
 Private wareService As WarenverwaltungServiceService
 End Sub
@@ -43,11 +45,20 @@ Sub Activity_Create(FirstTime As Boolean)
 		wareService.Initialize(Me)
 		wareService.Verbose = True
 	End If
+	
+	mintIndex = StartseiteKunde.mintAktWare
+	mAktuelleWare.Initialize
+	
+	If mintIndex > 0 Then
+		ladenDaten
+		Else
+			anzeigen
+	End If
 
 End Sub
 
 Sub Activity_Resume
-
+	anzeigen
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
@@ -55,22 +66,17 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 
-Private Sub ladenDaten()
-
-	' Fortschrittsdialog einblenden
-	ProgressDialogShow("Informationen der Ware " & mintWarenBezeichnung & " werden geladen.")
-
-	' Service initialisieren und Operation des Service aufrufen
-	wareService.Initialize(Me)
-	wareService.Verbose = True ' Ausfühliche Ausgabe im Log
-	wareService.gibUrlaubsantragAsync(mintWarenBezeichnung)
-	
+Private Sub ladenDaten()	
 	' Wenn diese Stelle in der Prozedur erreicht ist, geht es
 	' asynchon in der Prozedur gibUrlaubsantragResponse() weiter,
 	' sobald die Daten vom Server eingetroffen sind und verarbeitet wurden
+	ProgressDialogShow("Ware wird geladen.")
+	
+	wareService.wareOeffnenAsync(mintIndex)
+
 End Sub
 
-Sub WareladenResponse (pWare As Ware)
+Public Sub wareOeffnenResponse (pWare As Ware)
 	' Hier geht es weiter, nachdem service.gibUrlaubsantragAsync() aufgerufen wurde,
 	' die Daten vom Server eingetroffen sind und verarbeitet wurden
 	
@@ -85,11 +91,11 @@ Sub WareladenResponse (pWare As Ware)
 End Sub
 
 
-Public Sub anzeigen
-	lblTitel.Text = mAktuelleWare.Typ 'aktuell im service al
+Public Sub anzeigen()
+	lblTitel.Text = mAktuelleWare.Bezeichnung 'aktuell im service al
 	txtPreis.Text = mAktuelleWare.Preis
 	lblBeschreibung.Text = mAktuelleWare.Beschreibung ' gibt kein Attribut beschreibung
-	lbWährung.Text = "€"
+	lblWährung.Text = "€"
 
 End Sub
 

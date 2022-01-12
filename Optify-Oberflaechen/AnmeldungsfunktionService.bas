@@ -1,7 +1,8 @@
+﻿B4A=true
+Group=Default Group
+ModulesStructureVersion=1
 Type=Class
 Version=6
-ModulesStructureVersion=1
-B4A=true
 @EndOfDesignText@
 
 ' Class AnmeldungsfunktionService
@@ -198,7 +199,7 @@ End Sub
 
 Private Sub JobDone (Job As HttpJob)
 
-	Dim strCallbackSub AS String
+	Dim strCallbackSub As String
 
 	If mbolVerbose Then
 		Log("JobName = " & Job.JobName & ", Success = " & Job.Success)

@@ -1,7 +1,8 @@
+﻿B4A=true
+Group=Default Group
+ModulesStructureVersion=1
 Type=Class
 Version=6
-ModulesStructureVersion=1
-B4A=true
 @EndOfDesignText@
 
 ' Class LieferungverwaltungService
@@ -21,6 +22,7 @@ Sub Class_Globals
 	' Attriute für die Rückgabewerte
 	Private mLieferungList As LieferungList
 	Private mLieferungOeffnenResult As Object
+	Private mLieferung As Lieferung
 
 	' XML-Verarbeitung
 	Private XMLParser As SaxParser
@@ -85,7 +87,7 @@ Public Sub gibLieferungenAsync() As LieferungList
 	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
 End Sub 
 
-Public Sub LieferungOeffnenAsync(pintLiefID As Int) As anyType
+Public Sub LieferungOeffnenAsync(pintLiefID As Int) As Lieferung
 	Dim job As HttpJob
 	Dim msg As String
 	Dim strSoapAction As String
@@ -179,7 +181,7 @@ End Sub
 
 Private Sub JobDone (Job As HttpJob)
 
-	Dim strCallbackSub AS String
+	Dim strCallbackSub As String
 
 	If mbolVerbose Then
 		Log("JobName = " & Job.JobName & ", Success = " & Job.Success)

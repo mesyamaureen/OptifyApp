@@ -163,7 +163,8 @@ Public Sub wareSpeichernAsync(pWare As Ware)
 	' pWare
 	msg = msg.Replace("$PWARE_ID$",pWare.ID)
 	msg = msg.Replace("$PWARE_PREIS$",pWare.Preis)
-	msg = msg.Replace("$PWARE_TYP$",pWare.Typ)
+	msg = msg.Replace("$PWARE_BEZEICHNUNG$",pWare.Bezeichnung)
+	msg = msg.Replace("$PWARE_BESCHREIBUNG$",pWare.Beschreibung)
 
 	If mbolVerbose Then
 		Log(msg)
@@ -195,7 +196,8 @@ Public Sub wareHinzufuegenAsync(pWare As Ware) As Int
 	' pWare
 	msg = msg.Replace("$PWARE_ID$",pWare.ID)
 	msg = msg.Replace("$PWARE_PREIS$",pWare.Preis)
-	msg = msg.Replace("$PWARE_TYP$",pWare.Typ)
+	msg = msg.Replace("$PWARE_BEZEICHNUNG$",pWare.Bezeichnung)
+	msg = msg.Replace("$PWARE_BESCHREIBUNG$",pWare.Beschreibung)
 
 	If mbolVerbose Then
 		Log(msg)
@@ -370,8 +372,10 @@ Private Sub alleWarenLadenResponseXmlParser_EndElement(Uri As String, Name As St
 			mWare.ID = Text.ToString
 		Case "Preis"
 			mWare.Preis = Text.ToString
-		Case "Typ"
-			mWare.Typ = Text.ToString
+		Case "Bezeichnung"
+			mWare.Bezeichnung = Text.ToString
+		Case "Beschreibung"
+			mWare.Beschreibung = Text.ToString
 	End Select
 
 End Sub
@@ -389,8 +393,10 @@ Private Sub wareOeffnenResponseXmlParser_EndElement(Uri As String, Name As Strin
 			mWare.ID = Text.ToString
 		Case "Preis"
 			mWare.Preis = Text.ToString
-		Case "Typ"
-			mWare.Typ = Text.ToString
+		Case "Bezeichnung"
+			mWare.Bezeichnung = Text.ToString
+		Case "Beschreibung"
+			mWare.Beschreibung = Text.ToString
 	End Select
 
 End Sub

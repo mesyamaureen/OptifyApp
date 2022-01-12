@@ -1,7 +1,8 @@
+﻿B4A=true
+Group=Default Group
+ModulesStructureVersion=1
 Type=Class
 Version=6
-ModulesStructureVersion=1
-B4A=true
 @EndOfDesignText@
 
 ' Class Benutzer

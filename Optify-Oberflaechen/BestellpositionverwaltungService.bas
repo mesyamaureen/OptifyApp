@@ -1,7 +1,8 @@
+﻿B4A=true
+Group=Default Group
+ModulesStructureVersion=1
 Type=Class
 Version=6
-ModulesStructureVersion=1
-B4A=true
 @EndOfDesignText@
 
 ' Class BestellpositionverwaltungService
@@ -24,6 +25,7 @@ Sub Class_Globals
 	Private merstellenBestellungResult As Int
 	Private mLieferantList As LieferantList
 	Private mLieferung As Lieferung
+	Private mLieferant As Lieferant
 
 	' XML-Verarbeitung
 	Private XMLParser As SaxParser
@@ -156,7 +158,7 @@ Public Sub loeschenBestellpositionAsync(pintBestPoId As Int)
 	job.GetRequest.SetHeader("SOAPAction", strSoapAction)
 End Sub 
 
-Public Sub erstellenBestellungAsync(pBestellung As Bestellung, pintKundeID As Int) As int
+Public Sub erstellenBestellungAsync(pBestellung As Bestellung, pintKundeID As Int) As Int
 	Dim job As HttpJob
 	Dim msg As String
 	Dim strSoapAction As String
@@ -251,7 +253,7 @@ End Sub
 
 Private Sub JobDone (Job As HttpJob)
 
-	Dim strCallbackSub AS String
+	Dim strCallbackSub As String
 
 	If mbolVerbose Then
 		Log("JobName = " & Job.JobName & ", Success = " & Job.Success)

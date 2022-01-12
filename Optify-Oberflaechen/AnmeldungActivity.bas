@@ -21,11 +21,15 @@ Sub Globals
 	' Oberflächenelemente
 	Private txtBenutzername As EditText
 	Private txtPasswort As EditText
+	
+	Dim anmeldungService As AnmeldungsfunktionService
+	Private benBenutzer As Benutzer
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
-	'Do not forget to load the layout file created with the visual designer. For example:
 	Activity.LoadLayout("frmAnmeldung")
+	anmeldungService.Initialize(Me)
+	anmeldungService.Verbose = True
 
 End Sub
 
@@ -37,49 +41,30 @@ Sub Activity_Pause (UserClosed As Boolean)
 
 End Sub
 
-Private Sub anmelden(pstrBenutzername As String, pstrPasswort As String)
-	
-End Sub
-
 Private Sub btnAnmelden_Click
-	'Anmeldung verarbeiten
+	anmelden(txtBenutzername.Text, txtPasswort.Text)
+	'StartActivity
+
+End Sub
+
+Private Sub anmelden(pstrBenutzername As String, pstrPasswort As String)
+	ProgressDialogShow("Anmeldung läuft")
+
+	anmeldungService.EinloggenAsync(pstrBenutzername, pstrPasswort)
 	
-'	StartActivity(StartseiteKunde)
-'	'Oder MA? Oder Lieferant? Schleife?
-'	Dim strBenutzername As String
-'	Dim strPasswort As String
-'	Dim service As BenutzerServiceService
-'	
-'	service. Initialize(Me) 'Serviceklasse muss noch erstellt werden
-'	service.Verbose = True
-'	'Bei Bedarf Logging aktivieren oder deaktvier
-'	strBenutzername = txtBenutzername.Text
-'	strPasswort = txtPasswort. Text
-'	service.anmeldenAsync (strBenutzername, strPasswort)
-'	
-'	ProgressDialogShow("Anmeldungläuft")
 End Sub
 
-Sub anmeldenAsyncResponse(pintID As Int)
-'ProgessDialogeHide 'muss noch rein aber geht gerade nicht
-
-'	Dim service As BenutzerServiceService
-'	service. Initialize(Me) 'Serviceklasse muss noch erstellt werden
-'	service.Verbose = True
-'	
-'If pintID > • Then
-'
-'
-'Else
-'Magbox("Anmeldungfehlgeschlagent", "Anmeldefehler")
-'End If
-
+Public Sub EinloggenResponse(pbenBenutzer As Benutzer)
+	ProgressDialogHide
+	benBenutzer.Initialize
+	
+	If pbenBenutzer.Typ = "Kunde" Then
+		StartActivity(StartseiteKunde)
+		Else If pbenBenutzer.Typ = "Lieferant" Then
+			StartActivity(StartseiteLieferantActivity)
+			Else
+				StartActivity(StartseiteMitarbeiterActivity)
+	End If
+	Activity.Finish
 
 End Sub
-
-'StartActivity(MenuActivity)
-'Activity.Finish
-
-'Kunde - StartActivity(StartseiteKundeActivity) - frmStartseiteKunde
-'Mitarbeiter - StartActivity(StartseiteMitarbeiterActivity) - frmMenueMitarbeiter
-'Lieferant - noch nicht
