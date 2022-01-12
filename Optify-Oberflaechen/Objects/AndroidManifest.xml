@@ -33,7 +33,21 @@
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
-			android:name=".anmeldungactivity"
+			android:name=".wareeinzelnmaactivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".allewarenmitarbeiteractivity"
+			android:label="B4A Example"
+			android:screenOrientation="unspecified">
+		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".warekundeactivity"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
 		</activity>
@@ -54,7 +68,7 @@
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
-			android:name=".allewarenmitarbeiteractivity"
+			android:name=".anmeldungactivity"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
 		</activity>
@@ -136,20 +150,6 @@
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
 			android:name=".startseitemitarbeiteractivity"
-			android:label="B4A Example"
-			android:screenOrientation="unspecified">
-		</activity>
-		<activity
-			android:windowSoftInputMode="stateHidden"
-			android:launchMode="singleTop"
-			android:name=".wareeinzelnmaactivity"
-			android:label="B4A Example"
-			android:screenOrientation="unspecified">
-		</activity>
-		<activity
-			android:windowSoftInputMode="stateHidden"
-			android:launchMode="singleTop"
-			android:name=".warekundeactivity"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified">
 		</activity>

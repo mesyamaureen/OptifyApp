@@ -6,7 +6,8 @@
 				<pWare>
 					<ID xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_ID$</ID>
 					<Preis xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_PREIS$</Preis>
-					<Typ xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_TYP$</Typ>
+					<Bezeichnung xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_BEZEICHNUNG$</Bezeichnung>
+					<Beschreibung xmlns="http://schemas.datacontract.org/2004/07/Optify">$PWARE_BESCHREIBUNG$</Beschreibung>
 				</pWare>
 			</wareSpeichern>
 		</s:Body>

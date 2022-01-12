@@ -170,7 +170,6 @@ Public Sub wareSpeichernAsync(pWare As Ware)
 		Log(msg)
 	End If
 
-
 	' Datumsformat wieder zurückstellen
 	DateTime.DateFormat = strDateFormat
 

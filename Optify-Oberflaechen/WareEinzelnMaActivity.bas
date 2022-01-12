@@ -30,11 +30,6 @@ Sub Globals
 	Private lblWährung As Label
 	Private lblBeschreibung As Label
 	
-	'Public mintWarenBezeichnung = AlleWarenMitarbeiterActivity.lblBoxS
-	
-	Private mstrTyp As String
-	Private mstrBeschreibung As String
-	Private mdblPreis As Double
 	Private mAktuelleWare As Ware
 	Private mintIndex As Int
 	Dim warenservice As WarenverwaltungServiceService
@@ -110,7 +105,7 @@ Sub btnSpeichern_Click
 End Sub
 
 Sub speichern
-	mAktuelleWare.Initialize
+	'mAktuelleWare.Initialize
 	mAktuelleWare.ID = AlleWarenMitarbeiterActivity.mintAktWare
 	mAktuelleWare.Bezeichnung = txtTitel.Text
 	mAktuelleWare.Preis = txtPreis.Text
