@@ -84,10 +84,17 @@ Private Sub btnHinzufuegen_Click
 End Sub
 
 Private Sub lsvAlleWarenMitarbeiter_ItemLongClick (Position As Int, Value As Object)
+	Dim intId As Int
 	Dim intResult As Int
 	intResult = Msgbox2("Wirklich löschen?", "Löschen", "Ja", "", "Nein", Null)
 	If intResult = DialogResponse.POSITIVE Then
-		warenService.wareLoeschenAsync(Value)
-		anzeigen
+		intId = Value
+		warenService.wareLoeschenAsync(intId)
+		ProgressDialogShow2("Daten werden gelöscht", False)
 	End If
+End Sub
+
+Public Sub wareLoeschenResponse()
+	ProgressDialogHide
+	laden
 End Sub

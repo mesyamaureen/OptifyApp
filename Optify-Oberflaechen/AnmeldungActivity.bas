@@ -12,7 +12,6 @@ Version=11
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
-
 End Sub
 
 Sub Globals
@@ -68,3 +67,4 @@ Public Sub EinloggenResponse(pbenBenutzer As Benutzer)
 	Activity.Finish
 
 End Sub
+

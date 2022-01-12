@@ -135,7 +135,6 @@ Public Sub BestellungStornierenAsync(pintBestID As Int)
 		Log(msg)
 	End If
 
-
 	' Datumsformat wieder zurückstellen
 	DateTime.DateFormat = strDateFormat
 
@@ -180,7 +179,7 @@ End Sub
 
 Private Sub JobDone (Job As HttpJob)
 
-	Dim strCallbackSub AS String
+	Dim strCallbackSub As String
 
 	If mbolVerbose Then
 		Log("JobName = " & Job.JobName & ", Success = " & Job.Success)

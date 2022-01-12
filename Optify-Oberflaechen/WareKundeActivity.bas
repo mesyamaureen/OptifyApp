@@ -13,6 +13,9 @@ Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
 	Public mintIndex As Int
+	Public mintAnzahl As Int
+	Public mAktuelleWare As Ware
+	Public mangemeldeterKunde As Kunde
 End Sub
 
 Sub Globals
@@ -26,7 +29,7 @@ Private autotxtAnzahl As AutoCompleteEditText
 Private btnWarenkorb As Button
 Private lblPreis As Label
 Private lblWährung As Label
-Private txtPreis As EditText
+Private lblPreisBetrag As Label
 
 'Public mintWarenBezeichnung = AlleWarenMitarbeiterActivity.lblBoxS
 ''Public intAktWare = StartseiteKunde.
@@ -34,7 +37,7 @@ Private txtPreis As EditText
 'Private mstrBeschreibung As String
 'Private mdblPreis As Double
 
-Private mAktuelleWare As Ware
+
 Private wareService As WarenverwaltungServiceService
 End Sub
 
@@ -93,7 +96,7 @@ End Sub
 
 Public Sub anzeigen()
 	lblTitel.Text = mAktuelleWare.Bezeichnung 'aktuell im service al
-	txtPreis.Text = mAktuelleWare.Preis
+	lblPreisBetrag.Text = mAktuelleWare.Preis
 	lblBeschreibung.Text = mAktuelleWare.Beschreibung ' gibt kein Attribut beschreibung
 	lblWährung.Text = "€"
 
@@ -104,8 +107,6 @@ Private Sub btnAbbrechen_Click
 	Activity.Finish
 End Sub
 
-
-
 Private Sub btnWarenkorb_Click
-	
+	StartActivity(BestellpositionActivity)
 End Sub

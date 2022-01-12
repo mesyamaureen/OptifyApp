@@ -18,7 +18,8 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	'These variables can only be accessed from this module.
-
+	
+	
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)

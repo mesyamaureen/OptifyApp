@@ -105,14 +105,20 @@ Sub btnSpeichern_Click
 End Sub
 
 Sub speichern
-	'mAktuelleWare.Initialize
+	mAktuelleWare.Initialize
 	mAktuelleWare.ID = AlleWarenMitarbeiterActivity.mintAktWare
 	mAktuelleWare.Bezeichnung = txtTitel.Text
 	mAktuelleWare.Preis = txtPreis.Text
 	mAktuelleWare.Beschreibung = txtBeschreibung.Text
 	
-	warenservice.wareSpeichernAsync(mAktuelleWare)
-	ProgressDialogShow2("Daten werden gespeichert", False)
+	If AlleWarenMitarbeiterActivity.mintAktWare > 0 Then
+		warenservice.wareSpeichernAsync(mAktuelleWare)
+		ProgressDialogShow2("Daten werden gespeichert", False)
+		Else
+			warenservice.wareHinzufuegenAsync(mAktuelleWare)
+			ProgressDialogShow2("Neue Daten werden gespeichert", False)
+	End If
+
 End Sub
 
 Public Sub wareSpeichernResponse()
@@ -121,6 +127,12 @@ Public Sub wareSpeichernResponse()
 	Activity.Finish
 End Sub
 
+Public Sub wareHinzufuegenResponse(pintWareId As Int)
+	ProgressDialogHide
+	mAktuelleWare.ID = pintWareId
+	StartActivity(AlleWarenMitarbeiterActivity)
+	Activity.Finish
+End Sub
 
 
 
